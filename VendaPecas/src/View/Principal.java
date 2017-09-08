@@ -81,7 +81,7 @@ public class Principal extends javax.swing.JInternalFrame {
         pnl_principal.setLayout(pnl_principalLayout);
         pnl_principalLayout.setHorizontalGroup(
             pnl_principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 776, Short.MAX_VALUE)
+            .addGap(0, 750, Short.MAX_VALUE)
         );
         pnl_principalLayout.setVerticalGroup(
             pnl_principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
