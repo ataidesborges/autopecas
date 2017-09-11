@@ -27,15 +27,113 @@ public class Funcionário extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        pnl_funcionario = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        idfunc = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        nomefunc = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        cpffunc = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        celfunc = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        emailfunc = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        loginfunc = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        senhafunc = new javax.swing.JPasswordField();
+        btn_novofunc = new javax.swing.JButton();
+        btn_salvarfunc = new javax.swing.JButton();
+        btn_alterarfunc = new javax.swing.JButton();
+        btn_excluirfunc = new javax.swing.JButton();
+
+        setBackground(new java.awt.Color(204, 204, 204));
+        setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(204, 204, 204), null));
+
+        pnl_funcionario.setBackground(new java.awt.Color(204, 204, 204));
+        pnl_funcionario.setLayout(null);
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel1.setText("DADOS DO FUNCIONÁRIO");
+        pnl_funcionario.add(jLabel1);
+        jLabel1.setBounds(10, 11, 154, 15);
+
+        jLabel2.setText("ID Funcionário");
+        pnl_funcionario.add(jLabel2);
+        jLabel2.setBounds(10, 60, 90, 14);
+        pnl_funcionario.add(idfunc);
+        idfunc.setBounds(10, 80, 80, 20);
+
+        jLabel3.setText("Nome");
+        pnl_funcionario.add(jLabel3);
+        jLabel3.setBounds(110, 60, 40, 14);
+        pnl_funcionario.add(nomefunc);
+        nomefunc.setBounds(110, 80, 280, 20);
+
+        jLabel4.setText("CPF");
+        pnl_funcionario.add(jLabel4);
+        jLabel4.setBounds(410, 60, 19, 14);
+        pnl_funcionario.add(cpffunc);
+        cpffunc.setBounds(410, 80, 140, 20);
+
+        jLabel5.setText("Celular");
+        pnl_funcionario.add(jLabel5);
+        jLabel5.setBounds(10, 110, 50, 14);
+        pnl_funcionario.add(celfunc);
+        celfunc.setBounds(10, 130, 120, 20);
+
+        jLabel6.setText("Email");
+        pnl_funcionario.add(jLabel6);
+        jLabel6.setBounds(150, 110, 50, 14);
+        pnl_funcionario.add(emailfunc);
+        emailfunc.setBounds(150, 130, 310, 20);
+
+        jLabel7.setText("Login (Nick)");
+        pnl_funcionario.add(jLabel7);
+        jLabel7.setBounds(10, 160, 80, 14);
+        pnl_funcionario.add(loginfunc);
+        loginfunc.setBounds(10, 180, 160, 20);
+
+        jLabel8.setText("Senha");
+        pnl_funcionario.add(jLabel8);
+        jLabel8.setBounds(190, 160, 30, 14);
+        pnl_funcionario.add(senhafunc);
+        senhafunc.setBounds(190, 180, 140, 20);
+
+        btn_novofunc.setBackground(new java.awt.Color(102, 102, 102));
+        btn_novofunc.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btn_novofunc.setText("Novo");
+        pnl_funcionario.add(btn_novofunc);
+        btn_novofunc.setBounds(57, 250, 90, 30);
+
+        btn_salvarfunc.setBackground(new java.awt.Color(102, 102, 102));
+        btn_salvarfunc.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btn_salvarfunc.setText("Salvar");
+        pnl_funcionario.add(btn_salvarfunc);
+        btn_salvarfunc.setBounds(173, 250, 90, 30);
+
+        btn_alterarfunc.setBackground(new java.awt.Color(102, 102, 102));
+        btn_alterarfunc.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btn_alterarfunc.setText("Alterar");
+        pnl_funcionario.add(btn_alterarfunc);
+        btn_alterarfunc.setBounds(290, 250, 90, 30);
+
+        btn_excluirfunc.setBackground(new java.awt.Color(102, 102, 102));
+        btn_excluirfunc.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btn_excluirfunc.setText("Excluir");
+        pnl_funcionario.add(btn_excluirfunc);
+        btn_excluirfunc.setBounds(410, 250, 90, 30);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 394, Short.MAX_VALUE)
+            .addComponent(pnl_funcionario, javax.swing.GroupLayout.DEFAULT_SIZE, 622, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 274, Short.MAX_VALUE)
+            .addComponent(pnl_funcionario, javax.swing.GroupLayout.DEFAULT_SIZE, 336, Short.MAX_VALUE)
         );
 
         pack();
@@ -43,5 +141,25 @@ public class Funcionário extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_alterarfunc;
+    private javax.swing.JButton btn_excluirfunc;
+    private javax.swing.JButton btn_novofunc;
+    private javax.swing.JButton btn_salvarfunc;
+    private javax.swing.JTextField celfunc;
+    private javax.swing.JTextField cpffunc;
+    private javax.swing.JTextField emailfunc;
+    private javax.swing.JTextField idfunc;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JTextField loginfunc;
+    private javax.swing.JTextField nomefunc;
+    private javax.swing.JPanel pnl_funcionario;
+    private javax.swing.JPasswordField senhafunc;
     // End of variables declaration//GEN-END:variables
 }

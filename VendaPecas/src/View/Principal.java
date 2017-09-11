@@ -39,22 +39,22 @@ public class Principal extends javax.swing.JInternalFrame {
         jMenu16 = new javax.swing.JMenu();
         pnl_principal = new javax.swing.JPanel();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu17 = new javax.swing.JMenu();
-        jMenuItem10 = new javax.swing.JMenuItem();
-        jMenuItem7 = new javax.swing.JMenuItem();
+        mni_categ = new javax.swing.JMenu();
+        mni_categorias = new javax.swing.JMenuItem();
+        mni_cadastrar = new javax.swing.JMenuItem();
         jMenu14 = new javax.swing.JMenu();
-        jMenuItem8 = new javax.swing.JMenuItem();
-        jMenuItem9 = new javax.swing.JMenuItem();
+        mni_prazo = new javax.swing.JMenuItem();
+        mni_vista = new javax.swing.JMenuItem();
         jMenu7 = new javax.swing.JMenu();
-        jMenuItem4 = new javax.swing.JMenuItem();
-        jMenuItem5 = new javax.swing.JMenuItem();
+        mni_entrada = new javax.swing.JMenuItem();
+        mni_saida = new javax.swing.JMenuItem();
         jMenu6 = new javax.swing.JMenu();
-        jMenuItem14 = new javax.swing.JMenuItem();
+        mni_consult = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
-        jMenuItem12 = new javax.swing.JMenuItem();
-        jMenuItem11 = new javax.swing.JMenuItem();
+        mni_relatorio = new javax.swing.JMenuItem();
+        mni_constrelatorio = new javax.swing.JMenuItem();
         jMenu8 = new javax.swing.JMenu();
-        jMenuItem13 = new javax.swing.JMenuItem();
+        mni_sobre = new javax.swing.JMenuItem();
         jMenu10 = new javax.swing.JMenu();
 
         jMenu3.setText("File");
@@ -77,68 +77,69 @@ public class Principal extends javax.swing.JInternalFrame {
 
         jMenu16.setText("jMenu16");
 
-        javax.swing.GroupLayout pnl_principalLayout = new javax.swing.GroupLayout(pnl_principal);
-        pnl_principal.setLayout(pnl_principalLayout);
-        pnl_principalLayout.setHorizontalGroup(
-            pnl_principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 750, Short.MAX_VALUE)
-        );
-        pnl_principalLayout.setVerticalGroup(
-            pnl_principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 420, Short.MAX_VALUE)
-        );
+        setBackground(new java.awt.Color(204, 204, 204));
+        setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(204, 204, 204), null));
 
-        jMenu17.setText("Produtos");
+        pnl_principal.setLayout(null);
 
-        jMenuItem10.setText("Categorias");
-        jMenu17.add(jMenuItem10);
+        jMenuBar1.setBackground(new java.awt.Color(204, 204, 204));
 
-        jMenuItem7.setText("Cadastrar");
-        jMenu17.add(jMenuItem7);
+        mni_categ.setText("Produtos");
 
-        jMenuBar1.add(jMenu17);
+        mni_categorias.setText("Categorias");
+        mni_categ.add(mni_categorias);
+
+        mni_cadastrar.setText("Cadastrar");
+        mni_categ.add(mni_cadastrar);
+
+        jMenuBar1.add(mni_categ);
 
         jMenu14.setText("Vendas");
 
-        jMenuItem8.setText("Venda à prazo");
-        jMenu14.add(jMenuItem8);
+        mni_prazo.setText("Venda à prazo");
+        jMenu14.add(mni_prazo);
 
-        jMenuItem9.setText("Venda à vista");
-        jMenu14.add(jMenuItem9);
+        mni_vista.setText("Venda à vista");
+        mni_vista.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mni_vistaActionPerformed(evt);
+            }
+        });
+        jMenu14.add(mni_vista);
 
         jMenuBar1.add(jMenu14);
 
         jMenu7.setText("Nota Fiscal");
 
-        jMenuItem4.setText("Entrada");
-        jMenu7.add(jMenuItem4);
+        mni_entrada.setText("Entrada");
+        jMenu7.add(mni_entrada);
 
-        jMenuItem5.setText("Saída");
-        jMenu7.add(jMenuItem5);
+        mni_saida.setText("Saída");
+        jMenu7.add(mni_saida);
 
         jMenuBar1.add(jMenu7);
 
         jMenu6.setText("Histórico");
 
-        jMenuItem14.setText("Consultar ");
-        jMenu6.add(jMenuItem14);
+        mni_consult.setText("Consultar ");
+        jMenu6.add(mni_consult);
 
         jMenuBar1.add(jMenu6);
 
         jMenu2.setText("Relatórios");
 
-        jMenuItem12.setText("Criar relatório");
-        jMenu2.add(jMenuItem12);
+        mni_relatorio.setText("Criar relatório");
+        jMenu2.add(mni_relatorio);
 
-        jMenuItem11.setText("Consultar");
-        jMenu2.add(jMenuItem11);
+        mni_constrelatorio.setText("Consultar");
+        jMenu2.add(mni_constrelatorio);
 
         jMenuBar1.add(jMenu2);
 
         jMenu8.setText("Sobre");
 
-        jMenuItem13.setText("Sobre a Empresa");
-        jMenu8.add(jMenuItem13);
+        mni_sobre.setText("Sobre a Empresa");
+        jMenu8.add(mni_sobre);
 
         jMenuBar1.add(jMenu8);
 
@@ -151,15 +152,19 @@ public class Principal extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnl_principal, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pnl_principal, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 775, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnl_principal, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pnl_principal, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 417, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void mni_vistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mni_vistaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mni_vistaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -170,7 +175,6 @@ public class Principal extends javax.swing.JInternalFrame {
     private javax.swing.JMenu jMenu14;
     private javax.swing.JMenu jMenu15;
     private javax.swing.JMenu jMenu16;
-    private javax.swing.JMenu jMenu17;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
@@ -180,17 +184,18 @@ public class Principal extends javax.swing.JInternalFrame {
     private javax.swing.JMenu jMenu9;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuBar jMenuBar2;
-    private javax.swing.JMenuItem jMenuItem10;
-    private javax.swing.JMenuItem jMenuItem11;
-    private javax.swing.JMenuItem jMenuItem12;
-    private javax.swing.JMenuItem jMenuItem13;
-    private javax.swing.JMenuItem jMenuItem14;
-    private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
-    private javax.swing.JMenuItem jMenuItem7;
-    private javax.swing.JMenuItem jMenuItem8;
-    private javax.swing.JMenuItem jMenuItem9;
+    private javax.swing.JMenuItem mni_cadastrar;
+    private javax.swing.JMenu mni_categ;
+    private javax.swing.JMenuItem mni_categorias;
+    private javax.swing.JMenuItem mni_constrelatorio;
+    private javax.swing.JMenuItem mni_consult;
+    private javax.swing.JMenuItem mni_entrada;
+    private javax.swing.JMenuItem mni_prazo;
+    private javax.swing.JMenuItem mni_relatorio;
+    private javax.swing.JMenuItem mni_saida;
+    private javax.swing.JMenuItem mni_sobre;
+    private javax.swing.JMenuItem mni_vista;
     private javax.swing.JPanel pnl_principal;
     // End of variables declaration//GEN-END:variables
 }
