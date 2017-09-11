@@ -27,6 +27,7 @@ public class Produto extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        pnl_produto = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
@@ -40,89 +41,114 @@ public class Produto extends javax.swing.JInternalFrame {
         jTextField5 = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jTextField6 = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        jTextField7 = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        jFormattedTextField1 = new javax.swing.JFormattedTextField();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
+        choice1 = new java.awt.Choice();
 
         setPreferredSize(new java.awt.Dimension(658, 422));
 
-        jLabel1.setText("Produtos");
+        pnl_produto.setBackground(new java.awt.Color(204, 204, 204));
+        pnl_produto.setLayout(null);
 
-        jLabel2.setText("Nome:");
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel1.setText("CADASTRO DE PRODUTOS");
+        pnl_produto.add(jLabel1);
+        jLabel1.setBounds(10, 11, 159, 15);
 
-        jLabel3.setText("Marca:");
+        jLabel2.setText("ID Produto");
+        pnl_produto.add(jLabel2);
+        jLabel2.setBounds(10, 50, 70, 14);
+        pnl_produto.add(jTextField1);
+        jTextField1.setBounds(10, 70, 80, 20);
 
-        jLabel4.setText("Unidade:");
+        jLabel3.setText("Produto");
+        pnl_produto.add(jLabel3);
+        jLabel3.setBounds(100, 50, 50, 14);
+        pnl_produto.add(jTextField2);
+        jTextField2.setBounds(100, 70, 240, 20);
 
-        jLabel5.setText("Quilo:");
+        jLabel4.setText("Quantidade");
+        pnl_produto.add(jLabel4);
+        jLabel4.setBounds(350, 50, 70, 14);
+        pnl_produto.add(jTextField3);
+        jTextField3.setBounds(350, 70, 90, 20);
 
-        jLabel6.setText("Modelo:");
+        jLabel5.setText("Código de Barras");
+        pnl_produto.add(jLabel5);
+        jLabel5.setBounds(10, 100, 130, 14);
+        pnl_produto.add(jTextField4);
+        jTextField4.setBounds(10, 120, 210, 20);
 
-        jLabel7.setText("Fabricante:");
+        jLabel6.setText("Unidade");
+        pnl_produto.add(jLabel6);
+        jLabel6.setBounds(230, 100, 60, 14);
+        pnl_produto.add(jTextField5);
+        jTextField5.setBounds(230, 120, 70, 20);
+
+        jLabel7.setText("Valor Custo");
+        pnl_produto.add(jLabel7);
+        jLabel7.setBounds(10, 150, 70, 14);
+        pnl_produto.add(jTextField6);
+        jTextField6.setBounds(10, 170, 100, 20);
+
+        jLabel8.setText("Valor Venda");
+        pnl_produto.add(jLabel8);
+        jLabel8.setBounds(120, 150, 70, 14);
+        pnl_produto.add(jTextField7);
+        jTextField7.setBounds(120, 170, 100, 20);
+
+        jLabel9.setText("Data de Cadastro");
+        pnl_produto.add(jLabel9);
+        jLabel9.setBounds(230, 150, 100, 14);
+        pnl_produto.add(jFormattedTextField1);
+        jFormattedTextField1.setBounds(230, 170, 110, 20);
+
+        jButton1.setBackground(new java.awt.Color(102, 102, 102));
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jButton1.setText("Salvar");
+        pnl_produto.add(jButton1);
+        jButton1.setBounds(160, 250, 90, 30);
+
+        jButton2.setBackground(new java.awt.Color(102, 102, 102));
+        jButton2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jButton2.setText("Alterar");
+        pnl_produto.add(jButton2);
+        jButton2.setBounds(280, 250, 90, 30);
+
+        jButton3.setBackground(new java.awt.Color(102, 102, 102));
+        jButton3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jButton3.setText("Excluir");
+        pnl_produto.add(jButton3);
+        jButton3.setBounds(400, 250, 90, 30);
+
+        jButton4.setBackground(new java.awt.Color(102, 102, 102));
+        jButton4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jButton4.setText("Novo");
+        pnl_produto.add(jButton4);
+        jButton4.setBounds(40, 250, 90, 30);
+
+        jLabel10.setText("Fornecedor");
+        pnl_produto.add(jLabel10);
+        jLabel10.setBounds(310, 100, 70, 14);
+        pnl_produto.add(choice1);
+        choice1.setBounds(310, 120, 140, 20);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel6)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addComponent(jLabel3)
-                            .addGap(18, 18, Short.MAX_VALUE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addComponent(jLabel2)
-                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel5)))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(284, 284, 284)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel7)
-                        .addGap(29, 29, 29)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 261, Short.MAX_VALUE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jTextField6, javax.swing.GroupLayout.DEFAULT_SIZE, 261, Short.MAX_VALUE)
-                                .addComponent(jTextField4)
-                                .addComponent(jTextField5)
-                                .addComponent(jTextField3)
-                                .addComponent(jTextField2)))))
-                .addGap(256, 287, Short.MAX_VALUE))
+            .addComponent(pnl_produto, javax.swing.GroupLayout.DEFAULT_SIZE, 567, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(24, 24, 24)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(25, 25, 25)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(34, 34, 34)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(90, Short.MAX_VALUE))
+            .addComponent(pnl_produto, javax.swing.GroupLayout.DEFAULT_SIZE, 322, Short.MAX_VALUE)
         );
 
         pack();
@@ -130,18 +156,29 @@ public class Produto extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private java.awt.Choice choice1;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JFormattedTextField jFormattedTextField1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
+    private javax.swing.JTextField jTextField7;
+    private javax.swing.JPanel pnl_produto;
     // End of variables declaration//GEN-END:variables
 }
