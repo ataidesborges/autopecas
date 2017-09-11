@@ -20,13 +20,15 @@ public class Cliente {
     private String email;
     private String cpf;
     private String rg;
+    private int telefone_comercial;
+    private String data_nascimento;
     private int telefone;
     private int celular;
 
     public Cliente() {
     }
 
-    public Cliente(int idCliente, String nome_cliente, String endereco, int numero, String bairro, String cidade, String estado, String email, String cpf, String rg, int telefone, int celular) {
+    public Cliente(int idCliente, String nome_cliente, String endereco, int numero, String bairro, String cidade, String estado, String email, String cpf, String rg, int telefone_comercial, String data_nascimento, int telefone, int celular) {
         this.idCliente = idCliente;
         this.nome_cliente = nome_cliente;
         this.endereco = endereco;
@@ -37,8 +39,28 @@ public class Cliente {
         this.email = email;
         this.cpf = cpf;
         this.rg = rg;
+        this.telefone_comercial = telefone_comercial;
+        this.data_nascimento = data_nascimento;
         this.telefone = telefone;
         this.celular = celular;
+    }
+
+    
+
+    public int getTelefone_comercial() {
+        return telefone_comercial;
+    }
+
+    public void setTelefone_comercial(int telefone_comercial) {
+        this.telefone_comercial = telefone_comercial;
+    }
+
+    public String getData_nascimento() {
+        return data_nascimento;
+    }
+
+    public void setData_nascimento(String data_nascimento) {
+        this.data_nascimento = data_nascimento;
     }
     
     

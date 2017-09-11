@@ -11,6 +11,7 @@
 CREATE TABLE CLIENTE(
 id_cliente int primary key not null auto_increment,
 nome_cliente varchar (45),
+data_nasc date,
 endereco varchar (45),
 numero int,
 bairro varchar (45),
@@ -19,6 +20,7 @@ estado varchar (2),
 email varchar (45),
 cpf varchar (10),
 rg varchar (10),
+telefone_comercial int,
 telefone int,
 celular int
 );
