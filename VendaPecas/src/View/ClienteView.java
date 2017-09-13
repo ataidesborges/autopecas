@@ -5,17 +5,26 @@
  */
 package View;
 
+import DAO.ClienteDAO;
+import Model.Cliente;
+import javax.swing.JOptionPane;
+
+
+
 /**
  *
  * @author Larissa
  */
-public class Cliente extends javax.swing.JInternalFrame {
-
+public class ClienteView extends javax.swing.JInternalFrame {
+    Cliente cliente;
+    ClienteDAO clienteDAO;
     /**
      * Creates new form Cliente
      */
-    public Cliente() {
+    public ClienteView() {
+        clienteDAO  = new ClienteDAO();
         initComponents();
+        this.setVisible(true);
     }
 
     /**
@@ -163,6 +172,11 @@ public class Cliente extends javax.swing.JInternalFrame {
         btn_salvarcliente.setBackground(new java.awt.Color(102, 102, 102));
         btn_salvarcliente.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btn_salvarcliente.setText("Salvar");
+        btn_salvarcliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_salvarclienteActionPerformed(evt);
+            }
+        });
         pnl_cliente.add(btn_salvarcliente);
         btn_salvarcliente.setBounds(260, 390, 100, 30);
 
@@ -208,6 +222,25 @@ public class Cliente extends javax.swing.JInternalFrame {
     private void btn_excluirclienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_excluirclienteActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_excluirclienteActionPerformed
+
+    private void btn_salvarclienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salvarclienteActionPerformed
+        if(nomecliente.getText().isEmpty() ||  datacliente.getText().isEmpty() || cpfcliente.getText().isEmpty() || rgcliente.getText().isEmpty() || endcliente.getText().isEmpty() || 
+                 numcliente.getText().isEmpty() || compcliente.getText().isEmpty() || cidadecliente.getText().isEmpty() || bairrocliente.getText().isEmpty() ||
+                 fixocliente.getText().isEmpty() || comercialcliente.getText().isEmpty() || celcliente.getText().isEmpty() || emailcliente.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Preencha todos os campos!!");
+            nomecliente.requestFocusInWindow();
+        } else{
+            cliente = new Cliente();
+            cliente.setNomeCliente(nomecliente.getText());
+            //nao terminado falta funçoes
+            try{
+               clienteDAO.salvar(cliente);  
+            }catch (SQLException ex){
+                Logger.getLogger(ClienteView.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            JOptionPane.showMessagedialog(null,"Gravado com Sucesso!!")  
+        }
+    }//GEN-LAST:event_btn_salvarclienteActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

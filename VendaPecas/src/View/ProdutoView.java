@@ -9,12 +9,12 @@ package View;
  *
  * @author Larissa
  */
-public class Produto extends javax.swing.JInternalFrame {
+public class ProdutoView extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form Produto
      */
-    public Produto() {
+    public ProdutoView() {
         initComponents();
     }
 

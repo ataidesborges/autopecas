@@ -9,12 +9,12 @@ package View;
  *
  * @author Larissa
  */
-public class Funcionário extends javax.swing.JInternalFrame {
+public class FuncionárioView extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form Funcionário
      */
-    public Funcionário() {
+    public FuncionárioView() {
         initComponents();
     }
 

@@ -9,12 +9,12 @@ package View;
  *
  * @author Larissa
  */
-public class Principal extends javax.swing.JInternalFrame {
+public class PrincipalView extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form Principal
      */
-    public Principal() {
+    public PrincipalView() {
         initComponents();
     }
 

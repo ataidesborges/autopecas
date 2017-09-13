@@ -22,8 +22,8 @@ public class ClienteDAO {
         sql = "insert into cliente values(?,?,?,?,?,?,?,?,?,?,?,?,?)";
         pst = Conexao.getInstance().prepareStatement(sql);
         pst.setInt(1, 0);
-        pst.setString(2, cliente.getNome_cliente());
-        pst.setString(3, cliente.getData_nascimento());
+        pst.setString(2, cliente.getNomeCliente());
+        pst.setString(3, cliente.getDataNascimento());
         pst.setString(4, cliente.getEndereco());
         pst.setInt(5, cliente.getNumero());
         pst.setString(6, cliente.getBairro());
@@ -32,7 +32,7 @@ public class ClienteDAO {
         pst.setString(9, cliente.getEmail());
         pst.setString(10, cliente.getCpf());
         pst.setString(11, cliente.getRg());
-        pst.setInt(12, cliente.getTelefone_comercial());
+        pst.setInt(12, cliente.getTelefoneComercial());
         pst.setInt(13, cliente.getTelefone());
         pst.setInt(14, cliente.getCelular());
         pst.execute();

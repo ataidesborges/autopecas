@@ -41,7 +41,7 @@ id_funcionario int primary key not null auto_increment,
 nome_func varchar (45),
 email varchar (45),
 cpf varchar (10),
-celular int
+celular int,
 usuario varchar(45),
 senha varchar(45)
 );

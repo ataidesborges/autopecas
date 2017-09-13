@@ -11,7 +11,7 @@ package Model;
  */
 public class Cliente {
     private int idCliente;
-    private String nome_cliente;
+    private String nomeCliente;
     private String endereco;
     private int numero;
     private String  bairro;
@@ -20,17 +20,19 @@ public class Cliente {
     private String email;
     private String cpf;
     private String rg;
-    private int telefone_comercial;
-    private String data_nascimento;
+    private int telefoneComercial;
+    private String dataNascimento;
     private int telefone;
     private int celular;
 
     public Cliente() {
     }
 
-    public Cliente(int idCliente, String nome_cliente, String endereco, int numero, String bairro, String cidade, String estado, String email, String cpf, String rg, int telefone_comercial, String data_nascimento, int telefone, int celular) {
+    
+    
+    public Cliente(int idCliente, String nomeCliente, String endereco, int numero, String bairro, String cidade, String estado, String email, String cpf, String rg, int telefoneComercial, String dataNascimento, int telefone, int celular) {
         this.idCliente = idCliente;
-        this.nome_cliente = nome_cliente;
+        this.nomeCliente = nomeCliente;
         this.endereco = endereco;
         this.numero = numero;
         this.bairro = bairro;
@@ -39,30 +41,12 @@ public class Cliente {
         this.email = email;
         this.cpf = cpf;
         this.rg = rg;
-        this.telefone_comercial = telefone_comercial;
-        this.data_nascimento = data_nascimento;
+        this.telefoneComercial = telefoneComercial;
+        this.dataNascimento = dataNascimento;
         this.telefone = telefone;
         this.celular = celular;
     }
 
-    
-
-    public int getTelefone_comercial() {
-        return telefone_comercial;
-    }
-
-    public void setTelefone_comercial(int telefone_comercial) {
-        this.telefone_comercial = telefone_comercial;
-    }
-
-    public String getData_nascimento() {
-        return data_nascimento;
-    }
-
-    public void setData_nascimento(String data_nascimento) {
-        this.data_nascimento = data_nascimento;
-    }
-    
     
 
     public int getIdCliente() {
@@ -73,13 +57,6 @@ public class Cliente {
         this.idCliente = idCliente;
     }
 
-    public String getNome_cliente() {
-        return nome_cliente;
-    }
-
-    public void setNome_cliente(String nome_cliente) {
-        this.nome_cliente = nome_cliente;
-    }
 
     public String getEndereco() {
         return endereco;
@@ -159,6 +136,30 @@ public class Cliente {
 
     public void setCelular(int celular) {
         this.celular = celular;
+    }
+
+    public String getNomeCliente() {
+        return nomeCliente;
+    }
+
+    public void setNomeCliente(String nomeCliente) {
+        this.nomeCliente = nomeCliente;
+    }
+
+    public int getTelefoneComercial() {
+        return telefoneComercial;
+    }
+
+    public void setTelefoneComercial(int telefoneComercial) {
+        this.telefoneComercial = telefoneComercial;
+    }
+
+    public String getDataNascimento() {
+        return dataNascimento;
+    }
+
+    public void setDataNascimento(String dataNascimento) {
+        this.dataNascimento = dataNascimento;
     }
     
     

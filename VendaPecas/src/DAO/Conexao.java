@@ -28,7 +28,7 @@ public class Conexao implements Serializable {
         senha = "root";
         
         // Defina aqui o nome do seu banco de dados
-        url = "jdbc:mysql://localhost:3306/locadora";
+        url = "jdbc:mysql://localhost:3306/pecas";
 
         try {
             Class.forName("com.mysql.jdbc.Driver");
