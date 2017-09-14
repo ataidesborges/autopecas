@@ -13,30 +13,39 @@ public class Produto {
 
     private int idProduto;
     private String codigo_barras;
-    private int idMarca;
+    private String Marca;
     private String nomeProduto;
     private int quantidade;
     private String unidade;
     private double valorCusto;
     private double valorVenda;
     private String data;
+    private String forneprod;
 
-    public Produto() {
-    }
-
-    public Produto(int idProduto, String codigo_barras, int idMarca, String nomeProduto, int quantidade, String unidade, double valorCusto, double valorVenda, String data) {
+    public Produto(int idProduto, String codigo_barras, String Marca, String nomeProduto, int quantidade, String unidade, double valorCusto, double valorVenda, String data, String forneprod) {
         this.idProduto = idProduto;
         this.codigo_barras = codigo_barras;
-        this.idMarca = idMarca;
+        this.Marca = Marca;
         this.nomeProduto = nomeProduto;
         this.quantidade = quantidade;
         this.unidade = unidade;
         this.valorCusto = valorCusto;
         this.valorVenda = valorVenda;
         this.data = data;
+        this.forneprod = forneprod;
     }
 
+    public Produto() {
+    }
     
+
+    public String getForneprod() {
+        return forneprod;
+    }
+
+    public void setForneprod(String forneprod) {
+        this.forneprod = forneprod;
+    }
 
     public int getIdProduto() {
         return idProduto;
@@ -54,12 +63,12 @@ public class Produto {
         this.codigo_barras = codigo_barras;
     }
 
-    public int getIdMarca() {
-        return idMarca;
+    public String getMarca() {
+        return Marca;
     }
 
-    public void setIdMarca(int idMarca) {
-        this.idMarca = idMarca;
+    public void setMarca(String Marca) {
+        this.Marca = Marca;
     }
 
     public String getNomeProduto() {
@@ -109,7 +118,4 @@ public class Produto {
     public void setData(String data) {
         this.data = data;
     }
-
-
 }
-

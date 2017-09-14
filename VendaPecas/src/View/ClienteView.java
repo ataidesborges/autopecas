@@ -238,7 +238,7 @@ public class ClienteView extends javax.swing.JInternalFrame {
             }catch (SQLException ex){
                 Logger.getLogger(ClienteView.class.getName()).log(Level.SEVERE, null, ex);
             }
-            JOptionPane.showMessagedialog(null,"Gravado com Sucesso!!")  
+            JOptionPane.showMessagedialog(null,"Gravado com Sucesso!!");  
         }
     }//GEN-LAST:event_btn_salvarclienteActionPerformed
 
