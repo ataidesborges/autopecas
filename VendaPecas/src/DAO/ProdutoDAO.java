@@ -32,4 +32,13 @@ public class ProdutoDAO {
         pst.close();
     }
     
+    public void excluir (Produto produto) throws SQLException {
+        
+        sql = "delete from cliente where codigo=?";
+        pst = Conexao.getInstance().prepareStatement(sql);
+        pst.setInt(1, produto.getIdProduto());
+        pst.execute();
+        pst.close();
+    
+}
 }
