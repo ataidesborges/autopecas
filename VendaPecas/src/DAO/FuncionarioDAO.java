@@ -5,10 +5,41 @@
  */
 package DAO;
 
+import Model.Funcionário;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+
 /**
  *
  * @author User
  */
 public class FuncionarioDAO {
+    PreparedStatement pst;
+    String sql;
+    
+    public void salvar (Funcionário funcionario) throws SQLException{
+        sql = "insert into cliente values(?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        pst = Conexao.getInstance().prepareStatement(sql);
+        pst.setInt(1, 0);
+        pst.setString(2, funcionario.getNomeFunc());
+        pst.setString(3, funcionario.getEmail());
+        pst.setString(4, funcionario.getCpf());
+        pst.setInt(5, funcionario.getCelular());
+        pst.setString(6, funcionario.getSenha());
+        pst.setString(7, funcionario.getUsuario());
+        pst.execute();
+        pst.close();
+    }
+    
+    public void excluir (Funcionário funcionario) throws SQLException {
+        
+        sql = "delete from cliente where codigo=?";
+        pst = Conexao.getInstance().prepareStatement(sql);
+        pst.setInt(1, funcionario.getIdFuncionario());
+        pst.execute();
+        pst.close();
+        
+    }
     
 }

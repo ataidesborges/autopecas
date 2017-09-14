@@ -38,4 +38,14 @@ public class ClienteDAO {
         pst.execute();
         pst.close();
     }
+    
+    public void excluir (Cliente cliente) throws SQLException {
+        
+        sql = "delete from cliente where codigo=?";
+        pst = Conexao.getInstance().prepareStatement(sql);
+        pst.setInt(1, cliente.getIdCliente());
+        pst.execute();
+        pst.close();
+        
+    }
 }
