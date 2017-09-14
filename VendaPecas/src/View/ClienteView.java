@@ -8,6 +8,9 @@ package View;
 import DAO.ClienteDAO;
 import Model.Cliente;
 import javax.swing.JOptionPane;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 
@@ -238,7 +241,7 @@ public class ClienteView extends javax.swing.JInternalFrame {
             }catch (SQLException ex){
                 Logger.getLogger(ClienteView.class.getName()).log(Level.SEVERE, null, ex);
             }
-            JOptionPane.showMessagedialog(null,"Gravado com Sucesso!!");  
+            JOptionPane.showMessageDialog(null,"Gravado com Sucesso!!");  
         }
     }//GEN-LAST:event_btn_salvarclienteActionPerformed
 
