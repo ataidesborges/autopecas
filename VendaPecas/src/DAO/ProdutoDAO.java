@@ -27,7 +27,8 @@ public class ProdutoDAO {
         pst.setString(6, produto.getUnidade());
         pst.setDouble(7, produto.getValorCusto());
         pst.setDouble(8, produto.getValorVenda());
-        pst.setString(9, produto.getData());                
+        pst.setString(9, produto.getData()); 
+        pst.setString(10, produto.getForneprod());
         pst.execute();
         pst.close();
     }
