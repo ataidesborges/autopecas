@@ -73,8 +73,8 @@ public class ClienteView extends javax.swing.JInternalFrame {
         btn_salvarcliente = new javax.swing.JButton();
         btn_alterarcliente = new javax.swing.JButton();
         btn_excluircliente = new javax.swing.JButton();
-        estadocliente = new java.awt.Choice();
         btn_novocliente = new javax.swing.JButton();
+        estadoCliente = new javax.swing.JTextField();
 
         pnl_cliente.setBackground(new java.awt.Color(204, 204, 204));
         pnl_cliente.setLayout(null);
@@ -199,14 +199,14 @@ public class ClienteView extends javax.swing.JInternalFrame {
         });
         pnl_cliente.add(btn_excluircliente);
         btn_excluircliente.setBounds(520, 390, 100, 30);
-        pnl_cliente.add(estadocliente);
-        estadocliente.setBounds(450, 230, 50, 20);
 
         btn_novocliente.setBackground(new java.awt.Color(102, 102, 102));
         btn_novocliente.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btn_novocliente.setText("Novo");
         pnl_cliente.add(btn_novocliente);
         btn_novocliente.setBounds(130, 390, 100, 30);
+        pnl_cliente.add(estadoCliente);
+        estadoCliente.setBounds(450, 230, 6, 20);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -235,6 +235,19 @@ public class ClienteView extends javax.swing.JInternalFrame {
         } else{
             cliente = new Cliente();
             cliente.setNomeCliente(nomecliente.getText());
+            cliente.setDataNascimento(datacliente.getText());
+            cliente.setEndereco(endcliente.getText());
+            cliente.setNumero(Integer.parseInt(numcliente.getText()));
+            cliente.setBairro(bairrocliente.getText());
+            cliente.setCidade(cidadecliente.getText());
+            cliente.setEstado(estadoCliente.getText());
+            cliente.setEmail(emailcliente.getText());
+            cliente.setCpf(cpfcliente.getText());
+            cliente.setRg(rgcliente.getText());
+            cliente.setTelefone(Integer.parseInt(fixocliente.getText()));
+            cliente.setTelefoneComercial(Integer.parseInt(comercialcliente.getText()));
+            cliente.setCelular(Integer.parseInt(celcliente.getText()));
+            
             //nao terminado falta funçoes
             try{
                clienteDAO.salvar(cliente);  
@@ -260,7 +273,7 @@ public class ClienteView extends javax.swing.JInternalFrame {
     private javax.swing.JFormattedTextField datacliente;
     private javax.swing.JTextField emailcliente;
     private javax.swing.JTextField endcliente;
-    private java.awt.Choice estadocliente;
+    private javax.swing.JTextField estadoCliente;
     private javax.swing.JTextField fixocliente;
     private javax.swing.JTextField idcliente;
     private javax.swing.JLabel jLabel1;
