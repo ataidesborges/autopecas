@@ -16,6 +16,8 @@ public class PrincipalView extends javax.swing.JInternalFrame {
      */
     public PrincipalView() {
         initComponents();
+        this.setVisible(true);
+        
     }
 
     /**
@@ -198,4 +200,6 @@ public class PrincipalView extends javax.swing.JInternalFrame {
     private javax.swing.JMenuItem mni_vista;
     private javax.swing.JPanel pnl_principal;
     // End of variables declaration//GEN-END:variables
+
+   
 }
