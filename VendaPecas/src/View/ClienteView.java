@@ -223,7 +223,22 @@ public class ClienteView extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_excluirclienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_excluirclienteActionPerformed
-        // TODO add your handling code here:
+       if(idcliente.getText().isEmpty()){
+           JOptionPane.showMessageDialog(null, "Selecione um Cliente");
+       }else {
+           cliente = new Cliente();
+           cliente.setIdCliente(Integer.parseInt(idcliente.getText()));
+           int confirma = JOptionPane.showConfirmDialog(null,"Deseja Excluir : " + nomecliente.getText());
+           if (confirma == 0){
+               try {
+                   clienteDAO.excluir(cliente);
+               } catch (SQLException ex) {
+                   Logger.getLogger(ClienteView.class.getName()).log(Level.SEVERE, null, ex);
+               }
+               
+               
+           }
+       }
     }//GEN-LAST:event_btn_excluirclienteActionPerformed
 
     private void btn_salvarclienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salvarclienteActionPerformed
