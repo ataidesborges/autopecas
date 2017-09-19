@@ -206,7 +206,7 @@ public class ClienteView extends javax.swing.JInternalFrame {
         pnl_cliente.add(btn_novocliente);
         btn_novocliente.setBounds(130, 390, 100, 30);
         pnl_cliente.add(estadoCliente);
-        estadoCliente.setBounds(450, 230, 6, 20);
+        estadoCliente.setBounds(450, 230, 130, 20);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -228,7 +228,7 @@ public class ClienteView extends javax.swing.JInternalFrame {
 
     private void btn_salvarclienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salvarclienteActionPerformed
         if(nomecliente.getText().isEmpty() ||  datacliente.getText().isEmpty() || cpfcliente.getText().isEmpty() || rgcliente.getText().isEmpty() || endcliente.getText().isEmpty() || 
-                 numcliente.getText().isEmpty() || compcliente.getText().isEmpty() || cidadecliente.getText().isEmpty() || bairrocliente.getText().isEmpty() ||
+                 numcliente.getText().isEmpty() || compcliente.getText().isEmpty() || cidadecliente.getText().isEmpty() || bairrocliente.getText().isEmpty() || estadoCliente.getText().isEmpty() ||
                  fixocliente.getText().isEmpty() || comercialcliente.getText().isEmpty() || celcliente.getText().isEmpty() || emailcliente.getText().isEmpty()){
             JOptionPane.showMessageDialog(null, "Preencha todos os campos!!");
             nomecliente.requestFocusInWindow();
@@ -248,7 +248,6 @@ public class ClienteView extends javax.swing.JInternalFrame {
             cliente.setTelefoneComercial(Integer.parseInt(comercialcliente.getText()));
             cliente.setCelular(Integer.parseInt(celcliente.getText()));
             
-            //nao terminado falta funçoes
             try{
                clienteDAO.salvar(cliente);  
             }catch (SQLException ex){
