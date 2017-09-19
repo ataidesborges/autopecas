@@ -5,17 +5,28 @@
  */
 package View;
 
+import javax.swing.JOptionPane;
+import Model.Funcionário;
+import DAO.FuncionarioDAO;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author Larissa
  */
 public class FuncionárioView extends javax.swing.JInternalFrame {
+    Funcionário funcionario;
+    FuncionarioDAO funcionarioDAO;
 
     /**
      * Creates new form Funcionário
      */
     public FuncionárioView() {
+        funcionarioDAO = new FuncionarioDAO();
         initComponents();
+        this.setVisible(true);
     }
 
     /**
@@ -116,12 +127,22 @@ public class FuncionárioView extends javax.swing.JInternalFrame {
         btn_alterarfunc.setBackground(new java.awt.Color(102, 102, 102));
         btn_alterarfunc.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btn_alterarfunc.setText("Alterar");
+        btn_alterarfunc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_alterarfuncActionPerformed(evt);
+            }
+        });
         pnl_funcionario.add(btn_alterarfunc);
         btn_alterarfunc.setBounds(290, 250, 90, 30);
 
         btn_excluirfunc.setBackground(new java.awt.Color(102, 102, 102));
         btn_excluirfunc.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btn_excluirfunc.setText("Excluir");
+        btn_excluirfunc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_excluirfuncActionPerformed(evt);
+            }
+        });
         pnl_funcionario.add(btn_excluirfunc);
         btn_excluirfunc.setBounds(410, 250, 90, 30);
 
@@ -138,6 +159,34 @@ public class FuncionárioView extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btn_excluirfuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_excluirfuncActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_excluirfuncActionPerformed
+
+    private void btn_alterarfuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_alterarfuncActionPerformed
+     if (idfunc.getText().isEmpty()) {
+         JOptionPane.showMessageDialog(null, "Selecione um Funcionário!!");
+     }  else {
+         funcionario = new Funcionário();
+         funcionario.setIdFuncionario(Integer.parseInt(idfunc.getText()));
+         funcionario.setNomeFunc(nomefunc.getText());
+         funcionario.setCpf(cpffunc.getText());
+         funcionario.setCelular(Integer.parseInt(celfunc.getText()));
+         funcionario.setEmail(emailfunc.getText());
+         funcionario.setUsuario(loginfunc.getText());
+         funcionario.setSenha(senhafunc.getText());
+         try{
+               funcionarioDAO.salvar(funcionario);  
+            }catch (SQLException ex){
+                Logger.getLogger(ProdutoView.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            JOptionPane.showMessageDialog(null,"Alterado com Sucesso!!");
+     }       
+         
+         
+     
+    }//GEN-LAST:event_btn_alterarfuncActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

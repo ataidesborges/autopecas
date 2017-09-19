@@ -42,4 +42,19 @@ public class FuncionarioDAO {
         
     }
     
+    public void alterar (Funcionário funcionario) throws SQLException {
+        sql = "update funcionario set nome=?, cpf=?, celular=?, email=?, login=?, senha=? where idfunc=?";
+        pst = Conexao.getInstance().prepareStatement(sql);
+        pst.setString(1, funcionario.getNomeFunc());
+        pst.setString(2, funcionario.getCpf());
+        pst.setInt(3, funcionario.getCelular());
+        pst.setString(4, funcionario.getEmail());
+        pst.setString(5, funcionario.getUsuario());
+        pst.setString(6, funcionario.getSenha());
+        pst.setInt(7, funcionario.getIdFuncionario());
+        pst.execute();
+        pst.close();      
+        
+    }
+    
 }
