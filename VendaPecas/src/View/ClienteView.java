@@ -203,6 +203,11 @@ public class ClienteView extends javax.swing.JInternalFrame {
         btn_novocliente.setBackground(new java.awt.Color(102, 102, 102));
         btn_novocliente.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btn_novocliente.setText("Novo");
+        btn_novocliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_novoclienteActionPerformed(evt);
+            }
+        });
         pnl_cliente.add(btn_novocliente);
         btn_novocliente.setBounds(130, 390, 100, 30);
         pnl_cliente.add(estadoCliente);
@@ -272,6 +277,17 @@ public class ClienteView extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_btn_salvarclienteActionPerformed
 
+    private void btn_novoclienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_novoclienteActionPerformed
+        //terminarei depois
+    }//GEN-LAST:event_btn_novoclienteActionPerformed
+        
+      public void preparanovo(){
+          btn_novocliente.setEnabled(false);
+          btn_salvarcliente.setEnabled(true);
+          btn_alterarcliente.setEnabled(false);
+          btn_excluircliente.setEnabled(false);
+          
+      }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField bairrocliente;
