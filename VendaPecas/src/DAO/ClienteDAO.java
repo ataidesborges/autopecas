@@ -19,7 +19,7 @@ public class ClienteDAO {
     String sql;
     
     public void salvar (Cliente cliente) throws SQLException{
-        sql = "insert into cliente values(?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        sql = "insert into cliente values(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         pst = Conexao.getInstance().prepareStatement(sql);
         pst.setInt(1, 0);
         pst.setString(2, cliente.getNomeCliente());

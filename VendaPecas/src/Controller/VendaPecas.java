@@ -6,6 +6,7 @@
 package Controller;
 
 
+import View.ClienteView;
 import View.PrincipalView;
 
 /**
@@ -19,6 +20,7 @@ public class VendaPecas {
      */
        public static void main(String[] args) {
         PrincipalView principal = new PrincipalView();
+           
     }
     
 }

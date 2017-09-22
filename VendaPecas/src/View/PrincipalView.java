@@ -70,6 +70,11 @@ public class PrincipalView extends javax.swing.JFrame {
         jMenu1.add(menucategoria);
 
         menucadastrar.setText("Cadastrar");
+        menucadastrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menucadastrarActionPerformed(evt);
+            }
+        });
         jMenu1.add(menucadastrar);
 
         jMenuBar1.add(jMenu1);
@@ -119,6 +124,11 @@ public class PrincipalView extends javax.swing.JFrame {
         jMenu6.setText("Sobre");
 
         menusobre.setText("Sobre a Empresa");
+        menusobre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menusobreActionPerformed(evt);
+            }
+        });
         jMenu6.add(menusobre);
 
         jMenuBar1.add(jMenu6);
@@ -145,6 +155,17 @@ public class PrincipalView extends javax.swing.JFrame {
     private void menusaidafiscalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menusaidafiscalActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_menusaidafiscalActionPerformed
+
+    private void menucadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menucadastrarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_menucadastrarActionPerformed
+
+    private void menusobreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menusobreActionPerformed
+ ClienteView cli = new ClienteView();
+        pnl_principal.removeAll();
+        pnl_principal.add(cli);
+        pnl_principal.updateUI();        // TODO add your handling code here:
+    }//GEN-LAST:event_menusobreActionPerformed
 
     /**
      * @param args the command line arguments

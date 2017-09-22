@@ -28,6 +28,11 @@ public class ClienteView extends javax.swing.JInternalFrame {
         clienteDAO  = new ClienteDAO();
         initComponents();
         this.setVisible(true);
+        btn_salvarcliente.setEnabled(false);
+        btn_alterarcliente.setEnabled(false);
+        btn_excluircliente.setEnabled(false);
+        idcliente.setEnabled(false);
+        campos_bloqueados();
     }
 
     /**
@@ -254,6 +259,7 @@ public class ClienteView extends javax.swing.JInternalFrame {
             nomecliente.requestFocusInWindow();
         } else{
             cliente = new Cliente();
+           // cliente.setIdCliente(Integer.parseInt(idcliente.getText()));
             cliente.setNomeCliente(nomecliente.getText());
             cliente.setDataNascimento(datacliente.getText());
             cliente.setEndereco(endcliente.getText());
@@ -269,16 +275,24 @@ public class ClienteView extends javax.swing.JInternalFrame {
             cliente.setCelular(Integer.parseInt(celcliente.getText()));
             
             try{
-               clienteDAO.salvar(cliente);  
+               clienteDAO.salvar(cliente);
+               
             }catch (SQLException ex){
                 Logger.getLogger(ClienteView.class.getName()).log(Level.SEVERE, null, ex);
             }
-            JOptionPane.showMessageDialog(null,"Gravado com Sucesso!!");  
+            JOptionPane.showMessageDialog(null,"Gravado com Sucesso!!"); 
+            limpar();
+            campos_bloqueados();
+            btn_salvarcliente.setEnabled(false);        //terminarei depois
+            btn_novocliente.setEnabled(true);
+            
         }
     }//GEN-LAST:event_btn_salvarclienteActionPerformed
 
     private void btn_novoclienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_novoclienteActionPerformed
-        //terminarei depois
+        btn_salvarcliente.setEnabled(true);        //terminarei depois
+        btn_novocliente.setEnabled(false);
+        campos_liberados();
     }//GEN-LAST:event_btn_novoclienteActionPerformed
         
       public void preparanovo(){
@@ -327,4 +341,52 @@ public class ClienteView extends javax.swing.JInternalFrame {
     private javax.swing.JPanel pnl_cliente;
     private javax.swing.JTextField rgcliente;
     // End of variables declaration//GEN-END:variables
+public void limpar(){
+    celcliente.setText("");
+    cidadecliente.setText("");
+    comercialcliente.setText("");
+    compcliente.setText("");
+    cpfcliente.setText("");
+    datacliente.setText("");
+    emailcliente.setText("");
+    endcliente.setText("");
+    estadoCliente.setText("");
+    fixocliente.setText("");
+    rgcliente.setText("");
+    nomecliente.setText("");
+    numcliente.setText("");
+    bairrocliente.setText("");
+}
+public void campos_bloqueados(){
+    celcliente.setEnabled(false);
+    cidadecliente.setEnabled(false);
+    comercialcliente.setEnabled(false);
+    compcliente.setEnabled(false);
+    cpfcliente.setEnabled(false);
+    datacliente.setEnabled(false);
+    emailcliente.setEnabled(false);
+    endcliente.setEnabled(false);
+    estadoCliente.setEnabled(false);
+    fixocliente.setEnabled(false);
+    rgcliente.setEnabled(false);
+    nomecliente.setEnabled(false);
+    numcliente.setEnabled(false);
+    bairrocliente.setEnabled(false);
+}
+public void campos_liberados(){
+    celcliente.setEnabled(true);
+    cidadecliente.setEnabled(true);
+    comercialcliente.setEnabled(true);
+    compcliente.setEnabled(true);
+    cpfcliente.setEnabled(true);
+    datacliente.setEnabled(true);
+    emailcliente.setEnabled(true);
+    endcliente.setEnabled(true);
+    estadoCliente.setEnabled(true);
+    fixocliente.setEnabled(true);
+    rgcliente.setEnabled(true);
+    nomecliente.setEnabled(true);
+    numcliente.setEnabled(true);
+    bairrocliente.setEnabled(true);
+}
 }

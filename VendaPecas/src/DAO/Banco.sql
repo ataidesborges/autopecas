@@ -11,7 +11,7 @@
 CREATE TABLE CLIENTE(
 id_cliente int primary key not null auto_increment,
 nome_cliente varchar (45),
-data_nasc date,
+data_nasc varchar(15),
 endereco varchar (45),
 numero int,
 bairro varchar (45),
