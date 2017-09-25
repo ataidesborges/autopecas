@@ -14,7 +14,7 @@ public class Cliente {
     private String nomeCliente;
     private String endereco;
     private int numero;
-    private String  bairro;
+    private String bairro;
     private String cidade;
     private String estado;
     private String email;
@@ -24,13 +24,13 @@ public class Cliente {
     private String dataNascimento;
     private int telefone;
     private int celular;
+    private String complemento;
 
     public Cliente() {
     }
 
     
-    
-    public Cliente(int idCliente, String nomeCliente, String endereco, int numero, String bairro, String cidade, String estado, String email, String cpf, String rg, int telefoneComercial, String dataNascimento, int telefone, int celular) {
+    public Cliente(int idCliente, String nomeCliente, String endereco, int numero, String bairro, String cidade, String estado, String email, String cpf, String rg, int telefoneComercial, String dataNascimento, int telefone, int celular, String complemento) {
         this.idCliente = idCliente;
         this.nomeCliente = nomeCliente;
         this.endereco = endereco;
@@ -45,123 +45,130 @@ public class Cliente {
         this.dataNascimento = dataNascimento;
         this.telefone = telefone;
         this.celular = celular;
+        this.complemento = complemento;
     }
-
     
-
-    public int getIdCliente() {
-        return idCliente;
-    }
-
     public void setIdCliente(int idCliente) {
         this.idCliente = idCliente;
-    }
-
-
-    public String getEndereco() {
-        return endereco;
-    }
-
-    public void setEndereco(String endereco) {
-        this.endereco = endereco;
-    }
-
-    public int getNumero() {
-        return numero;
-    }
-
-    public void setNumero(int numero) {
-        this.numero = numero;
-    }
-
-    public String getBairro() {
-        return bairro;
-    }
-
-    public void setBairro(String bairro) {
-        this.bairro = bairro;
-    }
-
-    public String getCidade() {
-        return cidade;
-    }
-
-    public void setCidade(String cidade) {
-        this.cidade = cidade;
-    }
-
-    public String getEstado() {
-        return estado;
-    }
-
-    public void setEstado(String estado) {
-        this.estado = estado;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getCpf() {
-        return cpf;
-    }
-
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
-
-    public String getRg() {
-        return rg;
-    }
-
-    public void setRg(String rg) {
-        this.rg = rg;
-    }
-
-    public int getTelefone() {
-        return telefone;
-    }
-
-    public void setTelefone(int telefone) {
-        this.telefone = telefone;
-    }
-
-    public int getCelular() {
-        return celular;
-    }
-
-    public void setCelular(int celular) {
-        this.celular = celular;
-    }
-
-    public String getNomeCliente() {
-        return nomeCliente;
     }
 
     public void setNomeCliente(String nomeCliente) {
         this.nomeCliente = nomeCliente;
     }
 
-    public int getTelefoneComercial() {
-        return telefoneComercial;
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    }
+
+    public void setNumero(int numero) {
+        this.numero = numero;
+    }
+
+    public void setBairro(String bairro) {
+        this.bairro = bairro;
+    }
+
+    public void setCidade(String cidade) {
+        this.cidade = cidade;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    public void setRg(String rg) {
+        this.rg = rg;
     }
 
     public void setTelefoneComercial(int telefoneComercial) {
         this.telefoneComercial = telefoneComercial;
     }
 
+    public void setDataNascimento(String dataNascimento) {
+        this.dataNascimento = dataNascimento;
+    }
+
+    public void setTelefone(int telefone) {
+        this.telefone = telefone;
+    }
+
+    public void setCelular(int celular) {
+        this.celular = celular;
+    }
+
+    public void setComplemento(String complemento) {
+        this.complemento = complemento;
+    }
+
+    
+    public int getIdCliente() {
+        return idCliente;
+    }
+
+    public String getNomeCliente() {
+        return nomeCliente;
+    }
+
+    public String getEndereco() {
+        return endereco;
+    }
+
+    public int getNumero() {
+        return numero;
+    }
+
+    public String getBairro() {
+        return bairro;
+    }
+
+    public String getCidade() {
+        return cidade;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public String getRg() {
+        return rg;
+    }
+
+    public int getTelefoneComercial() {
+        return telefoneComercial;
+    }
+
     public String getDataNascimento() {
         return dataNascimento;
     }
 
-    public void setDataNascimento(String dataNascimento) {
-        this.dataNascimento = dataNascimento;
+    public int getTelefone() {
+        return telefone;
     }
-    
-    
+
+    public int getCelular() {
+        return celular;
+    }
+
+    public String getComplemento() {
+        return complemento;
+    }
+
+   
     
 }

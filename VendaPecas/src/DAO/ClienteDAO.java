@@ -66,6 +66,7 @@ public class ClienteDAO {
         pst.setInt(11, cliente.getTelefoneComercial());
         pst.setInt(12, cliente.getTelefone());
         pst.setInt(13, cliente.getCelular());
+        pst.setInt(14, cliente.getIdCliente());
         pst.execute();
         pst.close();
     

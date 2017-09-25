@@ -79,7 +79,10 @@ public class ClienteView extends javax.swing.JInternalFrame {
         btn_alterarcliente = new javax.swing.JButton();
         btn_excluircliente = new javax.swing.JButton();
         btn_novocliente = new javax.swing.JButton();
-        estadoCliente = new javax.swing.JTextField();
+        estadocliente = new javax.swing.JTextField();
+        btn_cancelarcliente = new javax.swing.JButton();
+
+        setClosable(true);
 
         pnl_cliente.setBackground(new java.awt.Color(204, 204, 204));
         pnl_cliente.setLayout(null);
@@ -91,13 +94,13 @@ public class ClienteView extends javax.swing.JInternalFrame {
 
         jLabel2.setText("ID Cliente");
         pnl_cliente.add(jLabel2);
-        jLabel2.setBounds(10, 59, 47, 14);
+        jLabel2.setBounds(10, 59, 60, 14);
         pnl_cliente.add(idcliente);
         idcliente.setBounds(10, 80, 77, 20);
 
         jLabel3.setText("Nome");
         pnl_cliente.add(jLabel3);
-        jLabel3.setBounds(100, 60, 27, 14);
+        jLabel3.setBounds(100, 60, 60, 14);
         pnl_cliente.add(nomecliente);
         nomecliente.setBounds(100, 80, 350, 20);
 
@@ -105,77 +108,77 @@ public class ClienteView extends javax.swing.JInternalFrame {
         pnl_cliente.add(jLabel4);
         jLabel4.setBounds(10, 110, 34, 14);
         pnl_cliente.add(cpfcliente);
-        cpfcliente.setBounds(10, 130, 150, 20);
+        cpfcliente.setBounds(10, 130, 130, 20);
 
         jLabel5.setText("RG");
         pnl_cliente.add(jLabel5);
-        jLabel5.setBounds(170, 110, 34, 14);
+        jLabel5.setBounds(150, 110, 34, 14);
         pnl_cliente.add(rgcliente);
-        rgcliente.setBounds(170, 130, 170, 20);
+        rgcliente.setBounds(150, 130, 140, 20);
 
         jLabel6.setText("Endereço");
         pnl_cliente.add(jLabel6);
-        jLabel6.setBounds(10, 160, 90, 14);
+        jLabel6.setBounds(10, 160, 70, 14);
         pnl_cliente.add(endcliente);
-        endcliente.setBounds(10, 180, 290, 20);
+        endcliente.setBounds(10, 180, 250, 20);
 
         jLabel7.setText("Número");
         pnl_cliente.add(jLabel7);
-        jLabel7.setBounds(310, 160, 50, 10);
+        jLabel7.setBounds(430, 160, 50, 10);
         pnl_cliente.add(numcliente);
-        numcliente.setBounds(310, 180, 70, 20);
+        numcliente.setBounds(430, 180, 70, 20);
 
         jLabel8.setText("Complemento");
         pnl_cliente.add(jLabel8);
-        jLabel8.setBounds(390, 160, 80, 14);
+        jLabel8.setBounds(510, 160, 80, 14);
         pnl_cliente.add(compcliente);
-        compcliente.setBounds(390, 180, 100, 20);
+        compcliente.setBounds(510, 180, 90, 20);
 
         jLabel9.setText("Cidade");
         pnl_cliente.add(jLabel9);
-        jLabel9.setBounds(10, 210, 40, 14);
+        jLabel9.setBounds(300, 110, 50, 14);
         pnl_cliente.add(cidadecliente);
-        cidadecliente.setBounds(10, 230, 220, 20);
+        cidadecliente.setBounds(300, 130, 160, 20);
 
         jLabel10.setText("Bairro");
         pnl_cliente.add(jLabel10);
-        jLabel10.setBounds(240, 214, 40, 10);
+        jLabel10.setBounds(270, 160, 40, 10);
         pnl_cliente.add(bairrocliente);
-        bairrocliente.setBounds(240, 230, 200, 20);
+        bairrocliente.setBounds(270, 180, 150, 20);
 
         jLabel11.setText("Estado");
         pnl_cliente.add(jLabel11);
-        jLabel11.setBounds(450, 210, 40, 10);
+        jLabel11.setBounds(470, 110, 40, 10);
 
         jLabel12.setText("Telefone Fixo");
         pnl_cliente.add(jLabel12);
-        jLabel12.setBounds(10, 260, 100, 14);
+        jLabel12.setBounds(10, 210, 90, 14);
         pnl_cliente.add(fixocliente);
-        fixocliente.setBounds(10, 280, 140, 20);
+        fixocliente.setBounds(10, 230, 140, 20);
 
         jLabel13.setText("Telefone Comercial");
         pnl_cliente.add(jLabel13);
-        jLabel13.setBounds(160, 260, 140, 14);
+        jLabel13.setBounds(160, 210, 130, 14);
         pnl_cliente.add(comercialcliente);
-        comercialcliente.setBounds(160, 280, 140, 20);
+        comercialcliente.setBounds(160, 230, 140, 20);
 
         jLabel14.setText("Celular");
         pnl_cliente.add(jLabel14);
-        jLabel14.setBounds(310, 260, 33, 14);
+        jLabel14.setBounds(310, 210, 60, 14);
         pnl_cliente.add(celcliente);
-        celcliente.setBounds(310, 280, 140, 20);
+        celcliente.setBounds(310, 230, 140, 20);
 
         jLabel15.setText("Email");
         pnl_cliente.add(jLabel15);
-        jLabel15.setBounds(10, 310, 24, 14);
+        jLabel15.setBounds(10, 260, 50, 14);
         pnl_cliente.add(emailcliente);
-        emailcliente.setBounds(10, 330, 310, 20);
+        emailcliente.setBounds(10, 280, 310, 20);
 
         jLabel16.setText("Data de Nascimento");
         pnl_cliente.add(jLabel16);
-        jLabel16.setBounds(470, 60, 130, 14);
+        jLabel16.setBounds(460, 60, 130, 14);
         pnl_cliente.add(datacliente);
-        datacliente.setBounds(470, 80, 120, 20);
+        datacliente.setBounds(460, 80, 120, 20);
 
         btn_salvarcliente.setBackground(new java.awt.Color(102, 102, 102));
         btn_salvarcliente.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -186,13 +189,13 @@ public class ClienteView extends javax.swing.JInternalFrame {
             }
         });
         pnl_cliente.add(btn_salvarcliente);
-        btn_salvarcliente.setBounds(260, 390, 100, 30);
+        btn_salvarcliente.setBounds(200, 340, 100, 30);
 
         btn_alterarcliente.setBackground(new java.awt.Color(102, 102, 102));
         btn_alterarcliente.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btn_alterarcliente.setText("Alterar");
         pnl_cliente.add(btn_alterarcliente);
-        btn_alterarcliente.setBounds(390, 390, 100, 30);
+        btn_alterarcliente.setBounds(320, 340, 100, 30);
 
         btn_excluircliente.setBackground(new java.awt.Color(102, 102, 102));
         btn_excluircliente.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -203,7 +206,7 @@ public class ClienteView extends javax.swing.JInternalFrame {
             }
         });
         pnl_cliente.add(btn_excluircliente);
-        btn_excluircliente.setBounds(520, 390, 100, 30);
+        btn_excluircliente.setBounds(560, 340, 100, 30);
 
         btn_novocliente.setBackground(new java.awt.Color(102, 102, 102));
         btn_novocliente.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -214,19 +217,25 @@ public class ClienteView extends javax.swing.JInternalFrame {
             }
         });
         pnl_cliente.add(btn_novocliente);
-        btn_novocliente.setBounds(130, 390, 100, 30);
-        pnl_cliente.add(estadoCliente);
-        estadoCliente.setBounds(450, 230, 130, 20);
+        btn_novocliente.setBounds(80, 340, 100, 30);
+        pnl_cliente.add(estadocliente);
+        estadocliente.setBounds(470, 130, 60, 20);
+
+        btn_cancelarcliente.setBackground(new java.awt.Color(102, 102, 102));
+        btn_cancelarcliente.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btn_cancelarcliente.setText("Cancelar");
+        pnl_cliente.add(btn_cancelarcliente);
+        btn_cancelarcliente.setBounds(440, 340, 100, 30);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnl_cliente, javax.swing.GroupLayout.DEFAULT_SIZE, 778, Short.MAX_VALUE)
+            .addComponent(pnl_cliente, javax.swing.GroupLayout.DEFAULT_SIZE, 743, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnl_cliente, javax.swing.GroupLayout.DEFAULT_SIZE, 464, Short.MAX_VALUE)
+            .addComponent(pnl_cliente, javax.swing.GroupLayout.DEFAULT_SIZE, 422, Short.MAX_VALUE)
         );
 
         pack();
@@ -253,7 +262,7 @@ public class ClienteView extends javax.swing.JInternalFrame {
 
     private void btn_salvarclienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salvarclienteActionPerformed
         if(nomecliente.getText().isEmpty() ||  datacliente.getText().isEmpty() || cpfcliente.getText().isEmpty() || rgcliente.getText().isEmpty() || endcliente.getText().isEmpty() || 
-                 numcliente.getText().isEmpty() || compcliente.getText().isEmpty() || cidadecliente.getText().isEmpty() || bairrocliente.getText().isEmpty() || estadoCliente.getText().isEmpty() ||
+                 numcliente.getText().isEmpty() || compcliente.getText().isEmpty() || cidadecliente.getText().isEmpty() || bairrocliente.getText().isEmpty() || estadocliente.getText().isEmpty() ||
                  fixocliente.getText().isEmpty() || comercialcliente.getText().isEmpty() || celcliente.getText().isEmpty() || emailcliente.getText().isEmpty()){
             JOptionPane.showMessageDialog(null, "Preencha todos os campos!!");
             nomecliente.requestFocusInWindow();
@@ -266,7 +275,7 @@ public class ClienteView extends javax.swing.JInternalFrame {
             cliente.setNumero(Integer.parseInt(numcliente.getText()));
             cliente.setBairro(bairrocliente.getText());
             cliente.setCidade(cidadecliente.getText());
-            cliente.setEstado(estadoCliente.getText());
+            cliente.setEstado(estadocliente.getText());
             cliente.setEmail(emailcliente.getText());
             cliente.setCpf(cpfcliente.getText());
             cliente.setRg(rgcliente.getText());
@@ -306,6 +315,7 @@ public class ClienteView extends javax.swing.JInternalFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField bairrocliente;
     private javax.swing.JButton btn_alterarcliente;
+    private javax.swing.JButton btn_cancelarcliente;
     private javax.swing.JButton btn_excluircliente;
     private javax.swing.JButton btn_novocliente;
     private javax.swing.JButton btn_salvarcliente;
@@ -317,7 +327,7 @@ public class ClienteView extends javax.swing.JInternalFrame {
     private javax.swing.JFormattedTextField datacliente;
     private javax.swing.JTextField emailcliente;
     private javax.swing.JTextField endcliente;
-    private javax.swing.JTextField estadoCliente;
+    private javax.swing.JTextField estadocliente;
     private javax.swing.JTextField fixocliente;
     private javax.swing.JTextField idcliente;
     private javax.swing.JLabel jLabel1;
@@ -350,7 +360,7 @@ public void limpar(){
     datacliente.setText("");
     emailcliente.setText("");
     endcliente.setText("");
-    estadoCliente.setText("");
+    estadocliente.setText("");
     fixocliente.setText("");
     rgcliente.setText("");
     nomecliente.setText("");
@@ -366,7 +376,7 @@ public void campos_bloqueados(){
     datacliente.setEnabled(false);
     emailcliente.setEnabled(false);
     endcliente.setEnabled(false);
-    estadoCliente.setEnabled(false);
+    estadocliente.setEnabled(false);
     fixocliente.setEnabled(false);
     rgcliente.setEnabled(false);
     nomecliente.setEnabled(false);
@@ -382,7 +392,7 @@ public void campos_liberados(){
     datacliente.setEnabled(true);
     emailcliente.setEnabled(true);
     endcliente.setEnabled(true);
-    estadoCliente.setEnabled(true);
+    estadocliente.setEnabled(true);
     fixocliente.setEnabled(true);
     rgcliente.setEnabled(true);
     nomecliente.setEnabled(true);

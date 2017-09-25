@@ -58,9 +58,28 @@ public class FuncionárioView extends javax.swing.JInternalFrame {
         btn_salvarfunc = new javax.swing.JButton();
         btn_alterarfunc = new javax.swing.JButton();
         btn_excluirfunc = new javax.swing.JButton();
+        btn_cancelarfunc = new javax.swing.JButton();
+        jLabel9 = new javax.swing.JLabel();
+        datanascfunc = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
+        cidadefunc = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
+        estadofunc = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
+        endfunc = new javax.swing.JTextField();
+        jLabel13 = new javax.swing.JLabel();
+        bairrofunc = new javax.swing.JTextField();
+        jLabel14 = new javax.swing.JLabel();
+        numfunc = new javax.swing.JTextField();
+        jLabel15 = new javax.swing.JLabel();
+        complefunc = new javax.swing.JTextField();
+        jLabel16 = new javax.swing.JLabel();
+        telfunc = new javax.swing.JTextField();
+        jLabel17 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(204, 204, 204));
         setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(204, 204, 204), null));
+        setClosable(true);
 
         pnl_funcionario.setBackground(new java.awt.Color(204, 204, 204));
         pnl_funcionario.setLayout(null);
@@ -78,51 +97,51 @@ public class FuncionárioView extends javax.swing.JInternalFrame {
 
         jLabel3.setText("Nome");
         pnl_funcionario.add(jLabel3);
-        jLabel3.setBounds(110, 60, 40, 14);
+        jLabel3.setBounds(100, 60, 40, 14);
         pnl_funcionario.add(nomefunc);
-        nomefunc.setBounds(110, 80, 280, 20);
+        nomefunc.setBounds(100, 80, 300, 20);
 
         jLabel4.setText("CPF");
         pnl_funcionario.add(jLabel4);
-        jLabel4.setBounds(410, 60, 19, 14);
+        jLabel4.setBounds(10, 110, 19, 14);
         pnl_funcionario.add(cpffunc);
-        cpffunc.setBounds(410, 80, 140, 20);
+        cpffunc.setBounds(10, 130, 140, 20);
 
         jLabel5.setText("Celular");
         pnl_funcionario.add(jLabel5);
-        jLabel5.setBounds(10, 110, 50, 14);
+        jLabel5.setBounds(130, 210, 50, 14);
         pnl_funcionario.add(celfunc);
-        celfunc.setBounds(10, 130, 120, 20);
+        celfunc.setBounds(130, 230, 110, 20);
 
         jLabel6.setText("Email");
         pnl_funcionario.add(jLabel6);
-        jLabel6.setBounds(150, 110, 50, 14);
+        jLabel6.setBounds(250, 210, 50, 14);
         pnl_funcionario.add(emailfunc);
-        emailfunc.setBounds(150, 130, 310, 20);
+        emailfunc.setBounds(250, 230, 310, 20);
 
         jLabel7.setText("Login (Nick)");
         pnl_funcionario.add(jLabel7);
-        jLabel7.setBounds(10, 160, 80, 14);
+        jLabel7.setBounds(10, 320, 80, 14);
         pnl_funcionario.add(loginfunc);
-        loginfunc.setBounds(10, 180, 160, 20);
+        loginfunc.setBounds(10, 340, 160, 20);
 
         jLabel8.setText("Senha");
         pnl_funcionario.add(jLabel8);
-        jLabel8.setBounds(190, 160, 30, 14);
+        jLabel8.setBounds(180, 320, 30, 14);
         pnl_funcionario.add(senhafunc);
-        senhafunc.setBounds(190, 180, 140, 20);
+        senhafunc.setBounds(180, 340, 140, 20);
 
         btn_novofunc.setBackground(new java.awt.Color(102, 102, 102));
         btn_novofunc.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btn_novofunc.setText("Novo");
         pnl_funcionario.add(btn_novofunc);
-        btn_novofunc.setBounds(57, 250, 90, 30);
+        btn_novofunc.setBounds(70, 390, 90, 30);
 
         btn_salvarfunc.setBackground(new java.awt.Color(102, 102, 102));
         btn_salvarfunc.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btn_salvarfunc.setText("Salvar");
         pnl_funcionario.add(btn_salvarfunc);
-        btn_salvarfunc.setBounds(173, 250, 90, 30);
+        btn_salvarfunc.setBounds(180, 390, 90, 30);
 
         btn_alterarfunc.setBackground(new java.awt.Color(102, 102, 102));
         btn_alterarfunc.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -133,7 +152,7 @@ public class FuncionárioView extends javax.swing.JInternalFrame {
             }
         });
         pnl_funcionario.add(btn_alterarfunc);
-        btn_alterarfunc.setBounds(290, 250, 90, 30);
+        btn_alterarfunc.setBounds(290, 390, 90, 30);
 
         btn_excluirfunc.setBackground(new java.awt.Color(102, 102, 102));
         btn_excluirfunc.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -144,17 +163,76 @@ public class FuncionárioView extends javax.swing.JInternalFrame {
             }
         });
         pnl_funcionario.add(btn_excluirfunc);
-        btn_excluirfunc.setBounds(410, 250, 90, 30);
+        btn_excluirfunc.setBounds(510, 390, 90, 30);
+
+        btn_cancelarfunc.setBackground(new java.awt.Color(102, 102, 102));
+        btn_cancelarfunc.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btn_cancelarfunc.setText("Cancelar");
+        pnl_funcionario.add(btn_cancelarfunc);
+        btn_cancelarfunc.setBounds(400, 390, 90, 30);
+
+        jLabel9.setText("Data de Nascimento");
+        pnl_funcionario.add(jLabel9);
+        jLabel9.setBounds(410, 60, 130, 14);
+        pnl_funcionario.add(datanascfunc);
+        datanascfunc.setBounds(410, 80, 110, 20);
+
+        jLabel10.setText("Cidade");
+        pnl_funcionario.add(jLabel10);
+        jLabel10.setBounds(160, 110, 50, 14);
+        pnl_funcionario.add(cidadefunc);
+        cidadefunc.setBounds(160, 130, 240, 20);
+
+        jLabel11.setText("Estado");
+        pnl_funcionario.add(jLabel11);
+        jLabel11.setBounds(410, 110, 60, 14);
+        pnl_funcionario.add(estadofunc);
+        estadofunc.setBounds(410, 130, 50, 20);
+
+        jLabel12.setText("Endereço");
+        pnl_funcionario.add(jLabel12);
+        jLabel12.setBounds(10, 160, 60, 14);
+        pnl_funcionario.add(endfunc);
+        endfunc.setBounds(10, 180, 210, 20);
+
+        jLabel13.setText("Bairro");
+        pnl_funcionario.add(jLabel13);
+        jLabel13.setBounds(230, 160, 40, 14);
+        pnl_funcionario.add(bairrofunc);
+        bairrofunc.setBounds(230, 180, 170, 20);
+
+        jLabel14.setText("Número");
+        pnl_funcionario.add(jLabel14);
+        jLabel14.setBounds(410, 160, 60, 14);
+        pnl_funcionario.add(numfunc);
+        numfunc.setBounds(410, 180, 60, 20);
+
+        jLabel15.setText("Complemento");
+        pnl_funcionario.add(jLabel15);
+        jLabel15.setBounds(480, 160, 80, 14);
+        pnl_funcionario.add(complefunc);
+        complefunc.setBounds(480, 180, 80, 20);
+
+        jLabel16.setText("Telefone");
+        pnl_funcionario.add(jLabel16);
+        jLabel16.setBounds(10, 210, 60, 14);
+        pnl_funcionario.add(telfunc);
+        telfunc.setBounds(10, 230, 110, 20);
+
+        jLabel17.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel17.setText("CADASTRO DO LOGIN");
+        pnl_funcionario.add(jLabel17);
+        jLabel17.setBounds(10, 280, 150, 15);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnl_funcionario, javax.swing.GroupLayout.DEFAULT_SIZE, 622, Short.MAX_VALUE)
+            .addComponent(pnl_funcionario, javax.swing.GroupLayout.DEFAULT_SIZE, 693, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnl_funcionario, javax.swing.GroupLayout.DEFAULT_SIZE, 336, Short.MAX_VALUE)
+            .addComponent(pnl_funcionario, javax.swing.GroupLayout.DEFAULT_SIZE, 461, Short.MAX_VALUE)
         );
 
         pack();
@@ -190,15 +268,30 @@ public class FuncionárioView extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField bairrofunc;
     private javax.swing.JButton btn_alterarfunc;
+    private javax.swing.JButton btn_cancelarfunc;
     private javax.swing.JButton btn_excluirfunc;
     private javax.swing.JButton btn_novofunc;
     private javax.swing.JButton btn_salvarfunc;
     private javax.swing.JTextField celfunc;
+    private javax.swing.JTextField cidadefunc;
+    private javax.swing.JTextField complefunc;
     private javax.swing.JTextField cpffunc;
+    private javax.swing.JTextField datanascfunc;
     private javax.swing.JTextField emailfunc;
+    private javax.swing.JTextField endfunc;
+    private javax.swing.JTextField estadofunc;
     private javax.swing.JTextField idfunc;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -206,9 +299,12 @@ public class FuncionárioView extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JTextField loginfunc;
     private javax.swing.JTextField nomefunc;
+    private javax.swing.JTextField numfunc;
     private javax.swing.JPanel pnl_funcionario;
     private javax.swing.JPasswordField senhafunc;
+    private javax.swing.JTextField telfunc;
     // End of variables declaration//GEN-END:variables
 }

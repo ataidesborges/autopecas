@@ -5,6 +5,8 @@
  */
 package View;
 
+import javax.swing.JFrame;
+
 /**
  *
  * @author User
@@ -17,6 +19,8 @@ public class PrincipalView extends javax.swing.JFrame {
     public PrincipalView() {
         initComponents();
         this.setVisible(true);
+        setLocationRelativeTo( null );
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }
 
     /**
@@ -29,6 +33,9 @@ public class PrincipalView extends javax.swing.JFrame {
     private void initComponents() {
 
         jMenuItem6 = new javax.swing.JMenuItem();
+        jMenu4 = new javax.swing.JMenu();
+        jMenu8 = new javax.swing.JMenu();
+        jMenu9 = new javax.swing.JMenu();
         pnl_principal = new javax.swing.JPanel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
@@ -51,18 +58,29 @@ public class PrincipalView extends javax.swing.JFrame {
 
         jMenuItem6.setText("jMenuItem6");
 
+        jMenu4.setText("jMenu4");
+
+        jMenu8.setText("jMenu8");
+
+        jMenu9.setText("jMenu9");
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        pnl_principal.setBackground(new java.awt.Color(204, 204, 204));
 
         javax.swing.GroupLayout pnl_principalLayout = new javax.swing.GroupLayout(pnl_principal);
         pnl_principal.setLayout(pnl_principalLayout);
         pnl_principalLayout.setHorizontalGroup(
             pnl_principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 746, Short.MAX_VALUE)
+            .addGap(0, 855, Short.MAX_VALUE)
         );
         pnl_principalLayout.setVerticalGroup(
             pnl_principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 381, Short.MAX_VALUE)
+            .addGap(0, 479, Short.MAX_VALUE)
         );
+
+        jMenuBar1.setBackground(new java.awt.Color(204, 204, 255));
+        jMenuBar1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jMenu1.setText("Produtos");
 
@@ -176,9 +194,12 @@ public class PrincipalView extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenu jMenu7;
+    private javax.swing.JMenu jMenu8;
+    private javax.swing.JMenu jMenu9;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem8;
