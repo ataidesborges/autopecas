@@ -134,6 +134,11 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
         btn_novofunc.setBackground(new java.awt.Color(102, 102, 102));
         btn_novofunc.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btn_novofunc.setText("Novo");
+        btn_novofunc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_novofuncActionPerformed(evt);
+            }
+        });
         pnl_funcionario.add(btn_novofunc);
         btn_novofunc.setBounds(70, 390, 90, 30);
 
@@ -301,15 +306,26 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
             } catch (SQLException ex) {
                 Logger.getLogger(FuncionarioView.class.getName()).log(Level.SEVERE, null, ex);
             }
+            JOptionPane.showMessageDialog(null, "Gravado com Sucesso!!");
+            preparaSalvareCancelar();
+            campos_bloqueados();
+            limpar();
+            
         }    
     }//GEN-LAST:event_btn_salvarfuncActionPerformed
+
+    private void btn_novofuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_novofuncActionPerformed
+       limpar();
+       preparanovo();
+       campos_liberados();
+       
+    }//GEN-LAST:event_btn_novofuncActionPerformed
 
     public void preparanovo() {
         btn_novofunc.setEnabled(false);
         btn_salvarfunc.setEnabled(true);
         btn_alterarfunc.setEnabled(false);
         btn_cancelarfunc.setEnabled(true);
-        btn_excluirfunc.setEnabled(false);
     }
           
     public void limpar(){
@@ -361,6 +377,12 @@ public void campos_liberados(){
     loginfunc.setEnabled(true);
     senhafunc.setEnabled(true);
     
+}
+
+public void preparaSalvareCancelar(){
+    btn_novofunc.setEnabled(true);
+    btn_salvarfunc.setEnabled(true);
+    btn_cancelarfunc.setEnabled(false); 
 }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
