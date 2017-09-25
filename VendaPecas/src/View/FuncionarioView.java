@@ -140,6 +140,11 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
         btn_salvarfunc.setBackground(new java.awt.Color(102, 102, 102));
         btn_salvarfunc.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btn_salvarfunc.setText("Salvar");
+        btn_salvarfunc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_salvarfuncActionPerformed(evt);
+            }
+        });
         pnl_funcionario.add(btn_salvarfunc);
         btn_salvarfunc.setBounds(180, 390, 90, 30);
 
@@ -265,6 +270,38 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
          
      
     }//GEN-LAST:event_btn_alterarfuncActionPerformed
+
+    private void btn_salvarfuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salvarfuncActionPerformed
+        if(nomefunc.getText().isEmpty() ||  datanascfunc.getText().isEmpty() || cpffunc.getText().isEmpty() || cidadefunc.getText().isEmpty() ||
+                estadofunc.getText().isEmpty() || endfunc.getText().isEmpty() || bairrofunc.getText().isEmpty() || numfunc.getText().isEmpty() ||
+                complefunc.getText().isEmpty() || telfunc.getText().isEmpty() ||celfunc.getText().isEmpty() || 
+                emailfunc.getText().isEmpty() || loginfunc.getText().isEmpty() ||senhafunc.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Preencha todos os campos!!");
+            nomefunc.requestFocusInWindow();
+        } else{
+            funcionario = new Funcionário();
+           // funcionario.setIdFuncionario(Integer.parseInt(idfunc.getText()));
+            funcionario.setNomeFunc(nomefunc.getText());
+            funcionario.setDatanascimento(datanascfunc.getText());
+            funcionario.setCpf(cpffunc.getText());
+            funcionario.setCidade(cidadefunc.getText());
+            funcionario.setEstado(estadofunc.getText());
+            funcionario.setEndereco(endfunc.getText());
+            funcionario.setBairro(bairrofunc.getText());
+            funcionario.setNumero(Integer.parseInt(numfunc.getText()));
+            funcionario.setComplemento(complefunc.getText());
+            funcionario.setTelefone(Integer.parseInt(telfunc.getText()));
+            funcionario.setCelular(Integer.parseInt(celfunc.getText()));
+            funcionario.setEmail(emailfunc.getText());
+            funcionario.setUsuario(loginfunc.getText());
+            funcionario.setSenha(senhafunc.getText());
+            
+            try {
+                funcionarioDAO.salvar(funcionario);
+            } catch (SQLException ex) {
+                Logger.getLogger(FuncionarioView.class.getName()).log(Level.SEVERE, null, ex);
+            }
+    }//GEN-LAST:event_btn_salvarfuncActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
