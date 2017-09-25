@@ -276,28 +276,8 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btn_excluirfuncActionPerformed
 
     private void btn_alterarfuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_alterarfuncActionPerformed
-    
-        if (idfunc.getText().isEmpty()) {
-         JOptionPane.showMessageDialog(null, "Selecione um Funcionário!!");
-     }  else {
-         funcionario = new Funcionário();
-         funcionario.setIdFuncionario(Integer.parseInt(idfunc.getText()));
-         funcionario.setNomeFunc(nomefunc.getText());
-         funcionario.setCpf(cpffunc.getText());
-         funcionario.setCelular(Integer.parseInt(celfunc.getText()));
-         funcionario.setEmail(emailfunc.getText());
-         funcionario.setUsuario(loginfunc.getText());
-         funcionario.setSenha(senhafunc.getText());
-         try{
-               funcionarioDAO.salvar(funcionario);  
-            }catch (SQLException ex){
-                Logger.getLogger(FuncionarioView.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            JOptionPane.showMessageDialog(null,"Alterado com Sucesso!!");
-            Alterar();
-            campos_liberados();
-     }             
-     
+        Alterar();
+            campos_liberados();    
     }//GEN-LAST:event_btn_alterarfuncActionPerformed
 
     private void btn_salvarfuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salvarfuncActionPerformed
