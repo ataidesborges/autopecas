@@ -178,6 +178,11 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
         btn_cancelarfunc.setBackground(new java.awt.Color(102, 102, 102));
         btn_cancelarfunc.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btn_cancelarfunc.setText("Cancelar");
+        btn_cancelarfunc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_cancelarfuncActionPerformed(evt);
+            }
+        });
         pnl_funcionario.add(btn_cancelarfunc);
         btn_cancelarfunc.setBounds(400, 390, 90, 30);
 
@@ -249,11 +254,30 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_excluirfuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_excluirfuncActionPerformed
-        // TODO add your handling code here:
+         if (idfunc.getText().isEmpty()) {
+         JOptionPane.showMessageDialog(null, "Selecione um Funcionário!!");
+     }  else {
+         funcionario = new Funcionário();
+         funcionario.setIdFuncionario(Integer.parseInt(idfunc.getText()));
+          int confirma = JOptionPane.showConfirmDialog(null,"Deseja excluir :" + nomefunc.getText());
+          if(confirma == 0){
+         try{
+               funcionarioDAO.excluir(funcionario);  
+            }catch (SQLException ex){
+                Logger.getLogger(FuncionarioView.class.getName()).log(Level.SEVERE, null, ex);
+            }
+         
+            limpar();
+            excluir();
+            
+     }       
+         
+         
     }//GEN-LAST:event_btn_excluirfuncActionPerformed
 
     private void btn_alterarfuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_alterarfuncActionPerformed
-     if (idfunc.getText().isEmpty()) {
+    
+        if (idfunc.getText().isEmpty()) {
          JOptionPane.showMessageDialog(null, "Selecione um Funcionário!!");
      }  else {
          funcionario = new Funcionário();
@@ -267,12 +291,12 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
          try{
                funcionarioDAO.salvar(funcionario);  
             }catch (SQLException ex){
-                Logger.getLogger(ProdutoView.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(FuncionarioView.class.getName()).log(Level.SEVERE, null, ex);
             }
             JOptionPane.showMessageDialog(null,"Alterado com Sucesso!!");
-     }       
-         
-         
+            Alterar();
+            campos_liberados();
+     }             
      
     }//GEN-LAST:event_btn_alterarfuncActionPerformed
 
@@ -321,6 +345,13 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
        
     }//GEN-LAST:event_btn_novofuncActionPerformed
 
+    private void btn_cancelarfuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelarfuncActionPerformed
+         limpar();
+         preparaSalvareCancelar();
+         campos_bloqueados();
+         
+    }//GEN-LAST:event_btn_cancelarfuncActionPerformed
+
     public void preparanovo() {
         btn_novofunc.setEnabled(false);
         btn_salvarfunc.setEnabled(true);
@@ -344,6 +375,12 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
        loginfunc.setText("");
        senhafunc.setText("");   
     }
+    
+    public void excluir(){
+       btn_excluirfunc.setEnabled(false);
+       btn_alterarfunc.setEnabled(false);  
+    }
+    
 public void campos_bloqueados(){
     nomefunc.setEnabled(false);
     datanascfunc.setEnabled(false);
@@ -383,6 +420,14 @@ public void preparaSalvareCancelar(){
     btn_novofunc.setEnabled(true);
     btn_salvarfunc.setEnabled(true);
     btn_cancelarfunc.setEnabled(false); 
+}
+
+public void Alterar(){
+   btn_novofunc.setEnabled(false);
+   btn_excluirfunc.setEnabled(false);
+   btn_alterarfunc.setEnabled(false);
+   btn_salvarfunc.setEnabled(true);
+   btn_cancelarfunc.setEnabled(true);   
 }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
