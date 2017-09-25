@@ -16,14 +16,14 @@ import java.util.logging.Logger;
  *
  * @author Larissa
  */
-public class FuncionárioView extends javax.swing.JInternalFrame {
+public class FuncionarioView extends javax.swing.JInternalFrame {
     Funcionário funcionario;
     FuncionarioDAO funcionarioDAO;
 
     /**
      * Creates new form Funcionário
      */
-    public FuncionárioView() {
+    public FuncionarioView() {
         funcionarioDAO = new FuncionarioDAO();
         initComponents();
         this.setVisible(true);
@@ -228,11 +228,11 @@ public class FuncionárioView extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnl_funcionario, javax.swing.GroupLayout.DEFAULT_SIZE, 693, Short.MAX_VALUE)
+            .addComponent(pnl_funcionario, javax.swing.GroupLayout.DEFAULT_SIZE, 691, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnl_funcionario, javax.swing.GroupLayout.DEFAULT_SIZE, 461, Short.MAX_VALUE)
+            .addComponent(pnl_funcionario, javax.swing.GroupLayout.DEFAULT_SIZE, 459, Short.MAX_VALUE)
         );
 
         pack();

@@ -5,6 +5,9 @@
  */
 package View;
 
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
 
 /**
@@ -38,9 +41,15 @@ public class PrincipalView extends javax.swing.JFrame {
         jMenu9 = new javax.swing.JMenu();
         pnl_principal = new javax.swing.JPanel();
         jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu10 = new javax.swing.JMenu();
+        menucadastrocliente = new javax.swing.JMenuItem();
+        menuconsultacliente = new javax.swing.JMenuItem();
+        jMenu11 = new javax.swing.JMenu();
+        menucadastrofunc = new javax.swing.JMenuItem();
+        menuconsultafunc = new javax.swing.JMenuItem();
         jMenu1 = new javax.swing.JMenu();
+        menucadastrarprod = new javax.swing.JMenuItem();
         menucategoria = new javax.swing.JMenuItem();
-        menucadastrar = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         menuvendaprazo = new javax.swing.JMenuItem();
         menuvendavista = new javax.swing.JMenuItem();
@@ -76,24 +85,54 @@ public class PrincipalView extends javax.swing.JFrame {
         );
         pnl_principalLayout.setVerticalGroup(
             pnl_principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 479, Short.MAX_VALUE)
+            .addGap(0, 483, Short.MAX_VALUE)
         );
 
         jMenuBar1.setBackground(new java.awt.Color(204, 204, 255));
         jMenuBar1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
+        jMenu10.setText("Clientes");
+
+        menucadastrocliente.setText("Cadastrar");
+        menucadastrocliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menucadastroclienteActionPerformed(evt);
+            }
+        });
+        jMenu10.add(menucadastrocliente);
+
+        menuconsultacliente.setText("Consultar");
+        jMenu10.add(menuconsultacliente);
+
+        jMenuBar1.add(jMenu10);
+
+        jMenu11.setText("Funcionários");
+
+        menucadastrofunc.setText("Cadastrar");
+        menucadastrofunc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menucadastrofuncActionPerformed(evt);
+            }
+        });
+        jMenu11.add(menucadastrofunc);
+
+        menuconsultafunc.setText("Consultar");
+        jMenu11.add(menuconsultafunc);
+
+        jMenuBar1.add(jMenu11);
+
         jMenu1.setText("Produtos");
+
+        menucadastrarprod.setText("Cadastrar");
+        menucadastrarprod.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menucadastrarprodActionPerformed(evt);
+            }
+        });
+        jMenu1.add(menucadastrarprod);
 
         menucategoria.setText("Categorias");
         jMenu1.add(menucategoria);
-
-        menucadastrar.setText("Cadastrar");
-        menucadastrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menucadastrarActionPerformed(evt);
-            }
-        });
-        jMenu1.add(menucadastrar);
 
         jMenuBar1.add(jMenu1);
 
@@ -174,16 +213,32 @@ public class PrincipalView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_menusaidafiscalActionPerformed
 
-    private void menucadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menucadastrarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_menucadastrarActionPerformed
+    private void menucadastrarprodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menucadastrarprodActionPerformed
+        ProdutoView prod = new ProdutoView();
+        pnl_principal.removeAll();
+        pnl_principal.add(prod);
+        pnl_principal.updateUI();   
+    }//GEN-LAST:event_menucadastrarprodActionPerformed
 
     private void menusobreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menusobreActionPerformed
- ClienteView cli = new ClienteView();
+      // TODO add your handling code here:
+    }//GEN-LAST:event_menusobreActionPerformed
+
+    private void menucadastroclienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menucadastroclienteActionPerformed
+        ClienteView cli = new ClienteView();
         pnl_principal.removeAll();
         pnl_principal.add(cli);
-        pnl_principal.updateUI();        // TODO add your handling code here:
-    }//GEN-LAST:event_menusobreActionPerformed
+        pnl_principal.updateUI();   
+    }//GEN-LAST:event_menucadastroclienteActionPerformed
+
+    private void menucadastrofuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menucadastrofuncActionPerformed
+        
+        FuncionarioView func = new FuncionarioView();
+        pnl_principal.removeAll();
+        pnl_principal.add(func);
+        pnl_principal.updateUI();
+        
+    }//GEN-LAST:event_menucadastrofuncActionPerformed
 
     /**
      * @param args the command line arguments
@@ -192,6 +247,8 @@ public class PrincipalView extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu10;
+    private javax.swing.JMenu jMenu11;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
@@ -203,8 +260,12 @@ public class PrincipalView extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem8;
-    private javax.swing.JMenuItem menucadastrar;
+    private javax.swing.JMenuItem menucadastrarprod;
+    private javax.swing.JMenuItem menucadastrocliente;
+    private javax.swing.JMenuItem menucadastrofunc;
     private javax.swing.JMenuItem menucategoria;
+    private javax.swing.JMenuItem menuconsultacliente;
+    private javax.swing.JMenuItem menuconsultafunc;
     private javax.swing.JMenu menuconsultarhist;
     private javax.swing.JMenuItem menuconsultarrela;
     private javax.swing.JMenuItem menucriarelatorio;
