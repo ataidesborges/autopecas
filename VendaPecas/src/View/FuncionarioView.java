@@ -301,8 +301,67 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
             } catch (SQLException ex) {
                 Logger.getLogger(FuncionarioView.class.getName()).log(Level.SEVERE, null, ex);
             }
+        }    
     }//GEN-LAST:event_btn_salvarfuncActionPerformed
 
+    public void preparanovo() {
+        btn_novofunc.setEnabled(false);
+        btn_salvarfunc.setEnabled(true);
+        btn_alterarfunc.setEnabled(false);
+        btn_cancelarfunc.setEnabled(true);
+        btn_excluirfunc.setEnabled(false);
+    }
+          
+    public void limpar(){
+       nomefunc.setText("");
+       datanascfunc.setText("");
+       cpffunc.setText("");
+       cidadefunc.setText("");
+       estadofunc.setText("");
+       endfunc.setText("");
+       bairrofunc.setText("");
+       numfunc.setText("");
+       complefunc.setText("");
+       telfunc.setText("");
+       celfunc.setText("");
+       emailfunc.setText("");
+       loginfunc.setText("");
+       senhafunc.setText("");   
+    }
+public void campos_bloqueados(){
+    nomefunc.setEnabled(false);
+    datanascfunc.setEnabled(false);
+    cpffunc.setEnabled(false);
+    cidadefunc.setEnabled(false);
+    estadofunc.setEnabled(false);
+    endfunc.setEnabled(false);
+    bairrofunc.setEnabled(false);
+    numfunc.setEnabled(false);
+    complefunc.setEnabled(false);
+    telfunc.setEnabled(false);
+    celfunc .setEnabled(false);
+    emailfunc.setEnabled(false);
+    loginfunc.setEnabled(false);
+    senhafunc.setEnabled(false);
+    
+}
+public void campos_liberados(){
+    nomefunc.setEnabled(true);
+    datanascfunc.setEnabled(true);
+    cpffunc.setEnabled(true);
+    cidadefunc.setEnabled(true);
+    estadofunc.setEnabled(true);
+    endfunc.setEnabled(true);
+    bairrofunc.setEnabled(true);
+    numfunc.setEnabled(true);
+    complefunc.setEnabled(true);
+    telfunc.setEnabled(true);
+    celfunc .setEnabled(true);
+    emailfunc.setEnabled(true);
+    loginfunc.setEnabled(true);
+    senhafunc.setEnabled(true);
+    
+}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField bairrofunc;
