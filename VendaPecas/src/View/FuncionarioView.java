@@ -83,7 +83,7 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
         jLabel17 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(204, 204, 204));
-        setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(204, 204, 204), null));
+        setBorder(null);
         setClosable(true);
 
         pnl_funcionario.setBackground(new java.awt.Color(204, 204, 204));
@@ -248,11 +248,11 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnl_funcionario, javax.swing.GroupLayout.DEFAULT_SIZE, 691, Short.MAX_VALUE)
+            .addComponent(pnl_funcionario, javax.swing.GroupLayout.DEFAULT_SIZE, 695, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnl_funcionario, javax.swing.GroupLayout.DEFAULT_SIZE, 459, Short.MAX_VALUE)
+            .addComponent(pnl_funcionario, javax.swing.GroupLayout.DEFAULT_SIZE, 463, Short.MAX_VALUE)
         );
 
         pack();
