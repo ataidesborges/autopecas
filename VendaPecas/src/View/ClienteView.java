@@ -194,6 +194,11 @@ public class ClienteView extends javax.swing.JInternalFrame {
         btn_alterarcliente.setBackground(new java.awt.Color(102, 102, 102));
         btn_alterarcliente.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btn_alterarcliente.setText("Alterar");
+        btn_alterarcliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_alterarclienteActionPerformed(evt);
+            }
+        });
         pnl_cliente.add(btn_alterarcliente);
         btn_alterarcliente.setBounds(320, 340, 100, 30);
 
@@ -254,7 +259,8 @@ public class ClienteView extends javax.swing.JInternalFrame {
                } catch (SQLException ex) {
                    Logger.getLogger(ClienteView.class.getName()).log(Level.SEVERE, null, ex);
                }
-               
+               limpar();
+            excluir(); 
                
            }
        }
@@ -303,6 +309,10 @@ public class ClienteView extends javax.swing.JInternalFrame {
         btn_novocliente.setEnabled(false);
         campos_liberados();
     }//GEN-LAST:event_btn_novoclienteActionPerformed
+
+    private void btn_alterarclienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_alterarclienteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_alterarclienteActionPerformed
         
       public void preparanovo(){
           btn_novocliente.setEnabled(false);
@@ -311,47 +321,8 @@ public class ClienteView extends javax.swing.JInternalFrame {
           btn_excluircliente.setEnabled(false);
           
       }
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField bairrocliente;
-    private javax.swing.JButton btn_alterarcliente;
-    private javax.swing.JButton btn_cancelarcliente;
-    private javax.swing.JButton btn_excluircliente;
-    private javax.swing.JButton btn_novocliente;
-    private javax.swing.JButton btn_salvarcliente;
-    private javax.swing.JTextField celcliente;
-    private javax.swing.JTextField cidadecliente;
-    private javax.swing.JTextField comercialcliente;
-    private javax.swing.JTextField compcliente;
-    private javax.swing.JTextField cpfcliente;
-    private javax.swing.JFormattedTextField datacliente;
-    private javax.swing.JTextField emailcliente;
-    private javax.swing.JTextField endcliente;
-    private javax.swing.JTextField estadocliente;
-    private javax.swing.JTextField fixocliente;
-    private javax.swing.JTextField idcliente;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JTextField nomecliente;
-    private javax.swing.JTextField numcliente;
-    private javax.swing.JPanel pnl_cliente;
-    private javax.swing.JTextField rgcliente;
-    // End of variables declaration//GEN-END:variables
-public void limpar(){
+      
+      public void limpar(){
     celcliente.setText("");
     cidadecliente.setText("");
     comercialcliente.setText("");
@@ -399,4 +370,63 @@ public void campos_liberados(){
     numcliente.setEnabled(true);
     bairrocliente.setEnabled(true);
 }
+
+public void excluir(){
+       btn_excluircliente.setEnabled(false);
+       btn_alterarcliente.setEnabled(false);  
+    }
+
+public void preparaSalvareCancelar(){
+    btn_novocliente.setEnabled(true);
+    btn_salvarcliente.setEnabled(true);
+    btn_cancelarcliente.setEnabled(false); 
+}
+
+public void Alterar(){
+   btn_novocliente.setEnabled(false);
+   btn_excluircliente.setEnabled(false);
+   btn_alterarcliente.setEnabled(false);
+   btn_salvarcliente.setEnabled(true);
+   btn_cancelarcliente.setEnabled(true);   
+}
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField bairrocliente;
+    private javax.swing.JButton btn_alterarcliente;
+    private javax.swing.JButton btn_cancelarcliente;
+    private javax.swing.JButton btn_excluircliente;
+    private javax.swing.JButton btn_novocliente;
+    private javax.swing.JButton btn_salvarcliente;
+    private javax.swing.JTextField celcliente;
+    private javax.swing.JTextField cidadecliente;
+    private javax.swing.JTextField comercialcliente;
+    private javax.swing.JTextField compcliente;
+    private javax.swing.JTextField cpfcliente;
+    private javax.swing.JFormattedTextField datacliente;
+    private javax.swing.JTextField emailcliente;
+    private javax.swing.JTextField endcliente;
+    private javax.swing.JTextField estadocliente;
+    private javax.swing.JTextField fixocliente;
+    private javax.swing.JTextField idcliente;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JTextField nomecliente;
+    private javax.swing.JTextField numcliente;
+    private javax.swing.JPanel pnl_cliente;
+    private javax.swing.JTextField rgcliente;
+    // End of variables declaration//GEN-END:variables
 }
