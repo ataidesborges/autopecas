@@ -141,6 +141,11 @@ public class ProdutoView extends javax.swing.JInternalFrame {
         btn_alterarprod.setBackground(new java.awt.Color(102, 102, 102));
         btn_alterarprod.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btn_alterarprod.setText("Alterar");
+        btn_alterarprod.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_alterarprodActionPerformed(evt);
+            }
+        });
         pnl_produto.add(btn_alterarprod);
         btn_alterarprod.setBounds(270, 230, 90, 30);
 
@@ -206,6 +211,10 @@ public class ProdutoView extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null,"Gravado com Sucesso!!");  
         }        // TODO add your handling code here:
     }//GEN-LAST:event_btn_salvarprodActionPerformed
+
+    private void btn_alterarprodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_alterarprodActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_alterarprodActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

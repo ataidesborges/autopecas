@@ -27,6 +27,11 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
         funcionarioDAO = new FuncionarioDAO();
         initComponents();
         this.setVisible(true);
+        btn_salvarfunc.setEnabled(false);
+        btn_alterarfunc.setEnabled(false);
+        btn_excluirfunc.setEnabled(false);
+        idfunc.setEnabled(false);
+        campos_bloqueados();
     }
 
     /**
@@ -272,12 +277,12 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
             
      }       
          
-         
+         }   
     }//GEN-LAST:event_btn_excluirfuncActionPerformed
 
     private void btn_alterarfuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_alterarfuncActionPerformed
         Alterar();
-            campos_liberados();    
+        campos_liberados();    
     }//GEN-LAST:event_btn_alterarfuncActionPerformed
 
     private void btn_salvarfuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salvarfuncActionPerformed
