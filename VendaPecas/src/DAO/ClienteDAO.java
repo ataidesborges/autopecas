@@ -46,7 +46,7 @@ public class ClienteDAO {
     
     public void excluir (Cliente cliente) throws SQLException {
         
-        sql = "delete from cliente where codigo=?";
+        sql = "delete from cliente where id_cliente=?";
         pst = Conexao.getInstance().prepareStatement(sql);
         pst.setInt(1, cliente.getIdCliente());
         pst.execute();
@@ -80,7 +80,7 @@ public class ClienteDAO {
     public Cliente recuperaCliente(int id) throws SQLException{
         
         Cliente cli = new Cliente();
-        sql = "select * from produto where id=?";
+        sql = "select * from produto where id_cliente=?";
         pst = Conexao.getInstance().prepareStatement(sql);
         pst.setInt(1, id);
         ResultSet rs = pst.executeQuery();

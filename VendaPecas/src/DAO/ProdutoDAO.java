@@ -19,34 +19,34 @@ public class ProdutoDAO {
     PreparedStatement pst;
     String sql;
     
-    public void salvar (Produto produto) throws SQLException{
-        sql = "insert into cliente values(?,?,?,?,?,?,?,?,?,)";
+    public void salvar(Produto produto) throws SQLException {
+        sql = "insert into produto values(?,?,?,?,?,?,?,?,?,?)";
         pst = Conexao.getInstance().prepareStatement(sql);
         pst.setInt(1, 0);
-        pst.setString(2, produto.getNomeproduto());
-        pst.setInt(3, produto.getQuantidade());
-        pst.setString(4, produto.getMarca());
-        pst.setString(5, produto.getCodigobarras());
+        pst.setString(2, produto.getCodigobarras());
+        pst.setString(3, produto.getMarca());
+        pst.setString(4, produto.getNomeproduto());
+        pst.setInt(5, produto.getQuantidade());
         pst.setString(6, produto.getUnidade());
         pst.setDouble(7, produto.getValorcusto());
         pst.setDouble(8, produto.getValorvenda());
-        pst.setString(9, produto.getData()); 
+        pst.setString(9, produto.getData());
         pst.setString(10, produto.getForneprod());
         pst.execute();
         pst.close();
     }
     
-    public void excluir (Produto produto) throws SQLException {
-        
-        sql = "delete from cliente where codigo=?";
+    public void excluir(Produto produto) throws SQLException {
+
+        sql = "delete from produto where id_produto=?";
         pst = Conexao.getInstance().prepareStatement(sql);
         pst.setInt(1, produto.getIdProduto());
         pst.execute();
-        pst.close();    
-}
-    public void alterar(Produto produto) throws SQLException{
-    
-        sql = "update produto set codigo_barras=?, id_marca=?, nome_produto=?, quantidade=?, unidade=?, valor_custo=?, valor_venda=?, data=?, forneprod=? where id_produto=?";
+        pst.close();
+    }
+    public void alterar(Produto produto) throws SQLException {
+
+        sql = "update produto set codigo_barras=?, marca=?, nome_produto=?, quantidade=?, unidade=?, valor_custo=?, valor_venda=?, data=?, fornecedor=? where id_produto=?";
         pst = Conexao.getInstance().prepareStatement(sql);
         pst.setString(1, produto.getCodigobarras());
         pst.setString(2, produto.getMarca());
@@ -60,13 +60,13 @@ public class ProdutoDAO {
         pst.setInt(10, produto.getIdProduto());
         pst.execute();
         pst.close();
-    
+
     }
     
      public Produto recuperaProduto(int id) throws SQLException{
         
         Produto pro = new Produto();
-        sql = "select * from produto where id=?";
+        sql = "select * from produto where id_produto=?";
         pst = Conexao.getInstance().prepareStatement(sql);
         pst.setInt(1, id);
         ResultSet rs = pst.executeQuery();
