@@ -106,6 +106,8 @@ public class ClienteView extends javax.swing.JInternalFrame {
         jLabel2.setText("ID Cliente");
         pnl_cliente.add(jLabel2);
         jLabel2.setBounds(10, 59, 60, 14);
+
+        idcliente.setBackground(new java.awt.Color(204, 204, 204));
         pnl_cliente.add(idcliente);
         idcliente.setBounds(10, 80, 77, 20);
 
@@ -240,6 +242,11 @@ public class ClienteView extends javax.swing.JInternalFrame {
         btn_cancelarcliente.setBackground(new java.awt.Color(102, 102, 102));
         btn_cancelarcliente.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btn_cancelarcliente.setText("Cancelar");
+        btn_cancelarcliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_cancelarclienteActionPerformed(evt);
+            }
+        });
         pnl_cliente.add(btn_cancelarcliente);
         btn_cancelarcliente.setBounds(440, 340, 100, 30);
 
@@ -283,7 +290,7 @@ public class ClienteView extends javax.swing.JInternalFrame {
     
     private void btn_excluirclienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_excluirclienteActionPerformed
        if(idcliente.getText().isEmpty()){
-           JOptionPane.showMessageDialog(null, "Selecione um Cliente");
+           JOptionPane.showMessageDialog(null, "Selecione um cliente!");
        }else {
            cliente = new Cliente();
            cliente.setIdCliente(Integer.parseInt(idcliente.getText()));
@@ -295,7 +302,8 @@ public class ClienteView extends javax.swing.JInternalFrame {
                    Logger.getLogger(ClienteView.class.getName()).log(Level.SEVERE, null, ex);
                }
                limpar();
-            excluir(); 
+               AtualizartabelaCliente();
+               excluir(); 
                
            }
        }
@@ -303,50 +311,77 @@ public class ClienteView extends javax.swing.JInternalFrame {
 
     private void btn_salvarclienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salvarclienteActionPerformed
         if(nomecliente.getText().isEmpty() ||  datacliente.getText().isEmpty() || cpfcliente.getText().isEmpty() || rgcliente.getText().isEmpty() || endcliente.getText().isEmpty() || 
-                 numcliente.getText().isEmpty() || compcliente.getText().isEmpty() || cidadecliente.getText().isEmpty() || bairrocliente.getText().isEmpty() || estadocliente.getText().isEmpty() ||
-                 fixocliente.getText().isEmpty() || comercialcliente.getText().isEmpty() || celcliente.getText().isEmpty() || emailcliente.getText().isEmpty()){
-            JOptionPane.showMessageDialog(null, "Preencha todos os campos!!");
+           numcliente.getText().isEmpty() || compcliente.getText().isEmpty() || cidadecliente.getText().isEmpty() || bairrocliente.getText().isEmpty() || estadocliente.getText().isEmpty() ||
+           fixocliente.getText().isEmpty() || comercialcliente.getText().isEmpty() || celcliente.getText().isEmpty() || emailcliente.getText().isEmpty())
+        {
+            JOptionPane.showMessageDialog(null, "Preencha todos os campos!");
             nomecliente.requestFocusInWindow();
-        } else{
-            cliente = new Cliente();
-           // cliente.setIdCliente(Integer.parseInt(idcliente.getText()));
-            cliente.setNomeCliente(nomecliente.getText());
-            cliente.setDataNascimento(datacliente.getText());
-            cliente.setEndereco(endcliente.getText());
-            cliente.setNumero(Integer.parseInt(numcliente.getText()));
-            cliente.setBairro(bairrocliente.getText());
-            cliente.setCidade(cidadecliente.getText());
-            cliente.setEstado(estadocliente.getText());
-            cliente.setEmail(emailcliente.getText());
-            cliente.setCpf(cpfcliente.getText());
-            cliente.setRg(rgcliente.getText());
-            cliente.setTelefone(Integer.parseInt(fixocliente.getText()));
-            cliente.setTelefoneComercial(Integer.parseInt(comercialcliente.getText()));
-            cliente.setCelular(Integer.parseInt(celcliente.getText()));
-            
+        } else if(idcliente.getText().isEmpty())
+                {
+                    cliente = new Cliente();                   
+                    cliente.setNomeCliente(nomecliente.getText());
+                    cliente.setDataNascimento(datacliente.getText());
+                    cliente.setEndereco(endcliente.getText());
+                    cliente.setNumero(Integer.parseInt(numcliente.getText()));
+                    cliente.setBairro(bairrocliente.getText());
+                    cliente.setCidade(cidadecliente.getText());
+                    cliente.setEstado(estadocliente.getText());
+                    cliente.setEmail(emailcliente.getText());
+                    cliente.setCpf(cpfcliente.getText());
+                    cliente.setRg(rgcliente.getText());
+                    cliente.setTelefone(Integer.parseInt(fixocliente.getText()));
+                    cliente.setTelefoneComercial(Integer.parseInt(comercialcliente.getText()));
+                    cliente.setCelular(Integer.parseInt(celcliente.getText()));
             try{
-               clienteDAO.salvar(cliente);
-               
+               clienteDAO.salvar(cliente);     
             }catch (SQLException ex){
                 Logger.getLogger(ClienteView.class.getName()).log(Level.SEVERE, null, ex);
             }
             JOptionPane.showMessageDialog(null,"Gravado com Sucesso!!"); 
-            limpar();
-            campos_bloqueados();
-            btn_salvarcliente.setEnabled(false);        //terminarei depois
-            btn_novocliente.setEnabled(true);
             AtualizartabelaCliente();
+            preparaSalvareCancelar();
+            campos_bloqueados();
+            limpar();
+            
+        }
+        else{
+                    cliente = new Cliente(); 
+                    cliente.setIdCliente(Integer.parseInt(idcliente.getText()));
+                    cliente.setNomeCliente(nomecliente.getText());
+                    cliente.setDataNascimento(datacliente.getText());
+                    cliente.setEndereco(endcliente.getText());
+                    cliente.setNumero(Integer.parseInt(numcliente.getText()));
+                    cliente.setBairro(bairrocliente.getText());
+                    cliente.setCidade(cidadecliente.getText());
+                    cliente.setEstado(estadocliente.getText());
+                    cliente.setEmail(emailcliente.getText());
+                    cliente.setCpf(cpfcliente.getText());
+                    cliente.setRg(rgcliente.getText());
+                    cliente.setTelefone(Integer.parseInt(fixocliente.getText()));
+                    cliente.setTelefoneComercial(Integer.parseInt(comercialcliente.getText()));
+                    cliente.setCelular(Integer.parseInt(celcliente.getText()));
+                    
+            try{
+               clienteDAO.alterar(cliente);     
+            }catch (SQLException ex){
+                Logger.getLogger(ClienteView.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            JOptionPane.showMessageDialog(null,"Gravado com Sucesso!!"); 
+            AtualizartabelaCliente();
+            preparaSalvareCancelar();
+            campos_bloqueados();
         }
     }//GEN-LAST:event_btn_salvarclienteActionPerformed
 
     private void btn_novoclienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_novoclienteActionPerformed
-        btn_salvarcliente.setEnabled(true);        //terminarei depois
-        btn_novocliente.setEnabled(false);
         campos_liberados();
+        limpar();
+        preparanovo();
     }//GEN-LAST:event_btn_novoclienteActionPerformed
 
     private void btn_alterarclienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_alterarclienteActionPerformed
-        // TODO add your handling code here:
+        Alterar();
+        campos_liberados();   
     }//GEN-LAST:event_btn_alterarclienteActionPerformed
 
     private void tbl_clienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_clienteMouseClicked
@@ -365,13 +400,18 @@ public class ClienteView extends javax.swing.JInternalFrame {
         comercialcliente.setText(tbl_cliente.getValueAt(tbl_cliente.getSelectedRow(), 12).toString());
         celcliente.setText(tbl_cliente.getValueAt(tbl_cliente.getSelectedRow(), 13).toString());
         emailcliente.setText(tbl_cliente.getValueAt(tbl_cliente.getSelectedRow(), 14).toString());
+        Preparaselecaotabela();
     }//GEN-LAST:event_tbl_clienteMouseClicked
+
+    private void btn_cancelarclienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelarclienteActionPerformed
+         limpar();
+         preparaSalvareCancelar();
+         campos_bloqueados();
+    }//GEN-LAST:event_btn_cancelarclienteActionPerformed
         
     public void AtualizartabelaCliente() {
     
      cliente = new Cliente();
-     
-       
         try {
             
             if(idcliente.getText().isEmpty()){
@@ -502,6 +542,12 @@ public void Alterar(){
    btn_alterarcliente.setEnabled(false);
    btn_salvarcliente.setEnabled(true);
    btn_cancelarcliente.setEnabled(true);   
+}
+
+public void Preparaselecaotabela(){
+    btn_novocliente.setEnabled(true);
+    btn_excluircliente.setEnabled(true);
+    btn_alterarcliente.setEnabled(true);
 }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

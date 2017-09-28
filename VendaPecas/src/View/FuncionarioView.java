@@ -97,6 +97,8 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
         jLabel2.setText("ID Funcionário");
         pnl_funcionario.add(jLabel2);
         jLabel2.setBounds(10, 60, 90, 14);
+
+        idfunc.setBackground(new java.awt.Color(204, 204, 204));
         pnl_funcionario.add(idfunc);
         idfunc.setBounds(10, 80, 80, 20);
 

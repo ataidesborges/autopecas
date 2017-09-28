@@ -23,7 +23,7 @@ public class ClienteDAO {
     String sql;
     
     public void salvar (Cliente cliente) throws SQLException{
-        sql = "insert into cliente values(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        sql = "insert into cliente values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         pst = Conexao.getInstance().prepareStatement(sql);
         pst.setInt(1, 0);
         pst.setString(2, cliente.getNomeCliente());
@@ -39,6 +39,7 @@ public class ClienteDAO {
         pst.setInt(12, cliente.getTelefoneComercial());
         pst.setInt(13, cliente.getTelefone());
         pst.setInt(14, cliente.getCelular());
+        pst.setString(15, cliente.getComplemento());
         pst.execute();
         pst.close();
     }
@@ -55,7 +56,7 @@ public class ClienteDAO {
     
     public void alterar(Cliente cliente) throws SQLException{
     
-        sql = "update cliente set nome_cliente=?, data_nasc=?, endereco=?, numero=?, bairro=?, cidade=?, estado=?, email=?, cpf=?, rg=?, telefone_comercial=?, telefone=?, celular=? where id_cliente=?";
+        sql = "update cliente set nome_cliente=?, data_nasc=?, endereco=?, numero=?, bairro=?, cidade=?, estado=?, email=?, cpf=?, rg=?, telefone_comercial=?, telefone=?, celular=?, complemento=? where id_cliente=?";
         pst = Conexao.getInstance().prepareStatement(sql);
         pst.setString(1, cliente.getNomeCliente());
         pst.setString(2, cliente.getDataNascimento());
@@ -70,7 +71,8 @@ public class ClienteDAO {
         pst.setInt(11, cliente.getTelefoneComercial());
         pst.setInt(12, cliente.getTelefone());
         pst.setInt(13, cliente.getCelular());
-        pst.setInt(14, cliente.getIdCliente());
+        pst.setString(14, cliente.getComplemento());
+        pst.setInt(15, cliente.getIdCliente());
         pst.execute();
         pst.close();
     

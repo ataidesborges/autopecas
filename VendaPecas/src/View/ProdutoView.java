@@ -87,6 +87,8 @@ public class ProdutoView extends javax.swing.JInternalFrame {
         jLabel2.setText("ID Produto");
         pnl_produto.add(jLabel2);
         jLabel2.setBounds(10, 50, 70, 14);
+
+        idprod.setBackground(new java.awt.Color(204, 204, 204));
         pnl_produto.add(idprod);
         idprod.setBounds(10, 70, 80, 20);
 
