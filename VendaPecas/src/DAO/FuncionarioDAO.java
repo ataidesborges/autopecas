@@ -101,7 +101,6 @@ public class FuncionarioDAO {
         }
         pst.close();
         return func;
-
     }
 
     public List<Funcionário> ListaFuncionario(int id_funcionario) throws SQLException {
@@ -113,10 +112,8 @@ public class FuncionarioDAO {
         ResultSet rs = pst.executeQuery();
 
         while (rs.next()) {
-            listafuncionario.add(new Funcionário(rs.getInt("id_funcionario"), rs.getString("nome_func"),
-                    rs.getString("email"), rs.getString("cpf"), rs.getInt("celular"), rs.getString("cidade"), rs.getString("estado"),
-                    rs.getInt("telefone"), rs.getString("data_nasc"), rs.getString("endereco"), rs.getString("bairro"),
-                    rs.getString("complemento")));
+            listafuncionario.add(new Funcionário(rs.getInt("idFuncionario"), rs.getString("nomeFunc"),
+                    rs.getString("cpf"), rs.getInt("telefone")));
         }
         pst.close();
         return listafuncionario;

@@ -25,6 +25,13 @@ public class Produto {
     public Produto() {
     }
 
+    public Produto(int idProduto, String marca, String nomeproduto, int quantidade) {
+        this.idProduto = idProduto;
+        this.marca = marca;
+        this.nomeproduto = nomeproduto;
+        this.quantidade = quantidade;
+    }
+
     
     public Produto(int idProduto, String codigobarras, String marca, String nomeproduto, int quantidade, String unidade, double valorcusto, double valorvenda, String data, String forneprod) {
         this.idProduto = idProduto;

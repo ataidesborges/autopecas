@@ -100,10 +100,7 @@ public class ProdutoDAO {
     
     while(rs.next()) {
         listaProdutos.add(new Produto(rs.getInt("idProduto"), rs.getString("nomeproduto"),
-                                      rs.getString("codigobarras"), rs.getString("marca"), rs.getInt("quantidade"), rs.getString("unidade"),
-                                      rs.getDouble("valorcusto"), rs.getDouble("valorvenda"), rs.getString("data"), rs.getString("forneprod")));
-                                      
-                                    
+                                       rs.getString("marca"), rs.getInt("quantidade")));                               
     }
     pst.close();
     return listaProdutos;

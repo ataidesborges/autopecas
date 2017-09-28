@@ -117,10 +117,7 @@ public class ClienteDAO {
     
     while(rs.next()) {
         listaClientes.add(new Cliente(rs.getInt("idCliente"), rs.getString("nomeCliente"),
-                                      rs.getString("endereco"), rs.getInt("numero"), rs.getString("bairro"), rs.getString("cidade"),
-                                      rs.getString("estado"), rs.getString("email"), rs.getString("cpf"), rs.getString("rg"),
-                                      rs.getInt("telefoneComercial"), rs.getString("dataNascimento"), rs.getInt("telefone"),
-                                      rs.getInt("celular"), rs.getString("complemento")));
+                                                 rs.getString("cpf"), rs.getInt("telefone")));
     }
     pst.close();
     return listaClientes;

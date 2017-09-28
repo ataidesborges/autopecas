@@ -29,6 +29,13 @@ private int numero;
     public Funcionário() {
     }
 
+    public Funcionário(int idFuncionario, String nomeFunc, String cpf, int telefone) {
+        this.idFuncionario = idFuncionario;
+        this.nomeFunc = nomeFunc;
+        this.cpf = cpf;
+        this.telefone = telefone;
+    }
+
     public Funcionário(int idFuncionario, String nomeFunc, String email, String cpf, int celular, String usuario, String senha, String cidade, String estado, int telefone, String datanascimento, String endereco, String bairro, String complemento, int numero) {
         this.idFuncionario = idFuncionario;
         this.nomeFunc = nomeFunc;
@@ -46,9 +53,6 @@ private int numero;
         this.complemento = complemento;
         this.numero = numero;
     }
-
-
-
 
    
     public void setIdFuncionario(int idFuncionario) {
