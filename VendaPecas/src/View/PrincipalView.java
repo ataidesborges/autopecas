@@ -237,9 +237,8 @@ public class PrincipalView extends javax.swing.JFrame {
         pnl_principal.removeAll();
         pnl_principal.add(func);
         pnl_principal.updateUI();
-        
     }//GEN-LAST:event_menucadastrofuncActionPerformed
-
+    
     /**
      * @param args the command line arguments
      */

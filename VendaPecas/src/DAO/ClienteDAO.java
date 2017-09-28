@@ -8,7 +8,11 @@ package DAO;
 
 import Model.Cliente;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
 
 /**
  *
@@ -70,5 +74,52 @@ public class ClienteDAO {
         pst.execute();
         pst.close();
     
+    }
+    public Cliente recuperaCliente(int id) throws SQLException{
+        
+        Cliente cli = new Cliente();
+        sql = "select * from produto where id=?";
+        pst = Conexao.getInstance().prepareStatement(sql);
+        pst.setInt(1, id);
+        ResultSet rs = pst.executeQuery();
+        
+        while(rs.next()){
+            cli.setIdCliente(rs.getInt("idCliente"));
+            cli.setNomeCliente(rs.getString("nomeCliente"));
+            cli.setDataNascimento(rs.getString("dataNascimento"));
+            cli.setCpf(rs.getString("cpf"));
+            cli.setRg(rs.getString("rg"));
+            cli.setCidade(rs.getString("cidade"));
+            cli.setEstado(rs.getString("estado"));
+            cli.setEndereco(rs.getString("endereco"));
+            cli.setBairro(rs.getString("bairro"));
+            cli.setNumero(rs.getInt("numero"));  
+            cli.setComplemento(rs.getString("complemento"));
+            cli.setTelefone(rs.getInt("telefone"));
+            cli.setTelefoneComercial(rs.getInt("telefonecomercial"));
+            cli.setCelular(rs.getInt("celular"));
+            cli.setEmail(rs.getString("email"));
+       
+        }
+        pst.close();
+        return cli;
+    }       
+   
+    public List<Cliente> ListaCliente() throws SQLException{
+    List<Cliente> listaClientes;
+    listaClientes = new ArrayList<>();
+    sql = "select * from cliente order by nome";
+    pst = Conexao.getInstance().prepareStatement(sql);
+    ResultSet rs = pst.executeQuery();
+    
+    while(rs.next()) {
+        listaClientes.add(new Cliente(rs.getInt("idCliente"), rs.getString("nomeCliente"),
+                                      rs.getString("endereco"), rs.getInt("numero"), rs.getString("bairro"), rs.getString("cidade"),
+                                      rs.getString("estado"), rs.getString("email"), rs.getString("cpf"), rs.getString("rg"),
+                                      rs.getInt("telefoneComercial"), rs.getString("dataNascimento"), rs.getInt("telefone"),
+                                      rs.getInt("celular"), rs.getString("complemento")));
+    }
+    pst.close();
+    return listaClientes;
     }
 }

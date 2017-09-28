@@ -5,12 +5,18 @@
  */
 package View;
 
+
 import DAO.ClienteDAO;
 import Model.Cliente;
 import javax.swing.JOptionPane;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.SwingConstants;
+import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.DefaultTableModel;
 
 
 
@@ -21,11 +27,13 @@ import java.util.logging.Logger;
 public class ClienteView extends javax.swing.JInternalFrame {
     Cliente cliente;
     ClienteDAO clienteDAO;
+    List<Cliente> listaClientes;
     /**
      * Creates new form Cliente
      */
     public ClienteView() {
         clienteDAO  = new ClienteDAO();
+        listaClientes = new ArrayList<>();
         initComponents();
         this.setVisible(true);
         btn_salvarcliente.setEnabled(false);
@@ -33,6 +41,7 @@ public class ClienteView extends javax.swing.JInternalFrame {
         btn_excluircliente.setEnabled(false);
         idcliente.setEnabled(false);
         campos_bloqueados();
+        AtualizartabelaCliente();
     }
 
     /**
@@ -81,6 +90,8 @@ public class ClienteView extends javax.swing.JInternalFrame {
         btn_novocliente = new javax.swing.JButton();
         estadocliente = new javax.swing.JTextField();
         btn_cancelarcliente = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tbl_cliente = new javax.swing.JTable();
 
         setClosable(true);
 
@@ -172,13 +183,13 @@ public class ClienteView extends javax.swing.JInternalFrame {
         pnl_cliente.add(jLabel15);
         jLabel15.setBounds(10, 260, 50, 14);
         pnl_cliente.add(emailcliente);
-        emailcliente.setBounds(10, 280, 310, 20);
+        emailcliente.setBounds(10, 280, 350, 20);
 
         jLabel16.setText("Data de Nascimento");
         pnl_cliente.add(jLabel16);
         jLabel16.setBounds(460, 60, 130, 14);
         pnl_cliente.add(datacliente);
-        datacliente.setBounds(460, 80, 120, 20);
+        datacliente.setBounds(460, 80, 140, 20);
 
         btn_salvarcliente.setBackground(new java.awt.Color(102, 102, 102));
         btn_salvarcliente.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -224,7 +235,7 @@ public class ClienteView extends javax.swing.JInternalFrame {
         pnl_cliente.add(btn_novocliente);
         btn_novocliente.setBounds(80, 340, 100, 30);
         pnl_cliente.add(estadocliente);
-        estadocliente.setBounds(470, 130, 60, 20);
+        estadocliente.setBounds(470, 130, 130, 20);
 
         btn_cancelarcliente.setBackground(new java.awt.Color(102, 102, 102));
         btn_cancelarcliente.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -232,20 +243,44 @@ public class ClienteView extends javax.swing.JInternalFrame {
         pnl_cliente.add(btn_cancelarcliente);
         btn_cancelarcliente.setBounds(440, 340, 100, 30);
 
+        tbl_cliente.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        tbl_cliente.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbl_clienteMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(tbl_cliente);
+
+        pnl_cliente.add(jScrollPane1);
+        jScrollPane1.setBounds(0, 410, 740, 100);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnl_cliente, javax.swing.GroupLayout.DEFAULT_SIZE, 743, Short.MAX_VALUE)
+            .addComponent(pnl_cliente, javax.swing.GroupLayout.DEFAULT_SIZE, 740, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnl_cliente, javax.swing.GroupLayout.DEFAULT_SIZE, 422, Short.MAX_VALUE)
+            .addComponent(pnl_cliente, javax.swing.GroupLayout.DEFAULT_SIZE, 539, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
+
+    
     private void btn_excluirclienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_excluirclienteActionPerformed
        if(idcliente.getText().isEmpty()){
            JOptionPane.showMessageDialog(null, "Selecione um Cliente");
@@ -300,7 +335,7 @@ public class ClienteView extends javax.swing.JInternalFrame {
             campos_bloqueados();
             btn_salvarcliente.setEnabled(false);        //terminarei depois
             btn_novocliente.setEnabled(true);
-            
+            AtualizartabelaCliente();
         }
     }//GEN-LAST:event_btn_salvarclienteActionPerformed
 
@@ -313,7 +348,76 @@ public class ClienteView extends javax.swing.JInternalFrame {
     private void btn_alterarclienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_alterarclienteActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_alterarclienteActionPerformed
+
+    private void tbl_clienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_clienteMouseClicked
+        nomecliente.setText(tbl_cliente.getValueAt(tbl_cliente.getSelectedRow(), 0).toString());
+        datacliente.setText(tbl_cliente.getValueAt(tbl_cliente.getSelectedRow(), 1).toString());
+        cpfcliente.setText(tbl_cliente.getValueAt(tbl_cliente.getSelectedRow(), 2).toString());
+        rgcliente.setText(tbl_cliente.getValueAt(tbl_cliente.getSelectedRow(), 3).toString());
+        cidadecliente.setText(tbl_cliente.getValueAt(tbl_cliente.getSelectedRow(), 4).toString());
+        estadocliente.setText(tbl_cliente.getValueAt(tbl_cliente.getSelectedRow(), 5).toString());
+        endcliente.setText(tbl_cliente.getValueAt(tbl_cliente.getSelectedRow(), 6).toString());
+        bairrocliente.setText(tbl_cliente.getValueAt(tbl_cliente.getSelectedRow(), 7).toString());
+        numcliente.setText(tbl_cliente.getValueAt(tbl_cliente.getSelectedRow(), 8).toString());
+        compcliente.setText(tbl_cliente.getValueAt(tbl_cliente.getSelectedRow(), 9).toString());
+        fixocliente.setText(tbl_cliente.getValueAt(tbl_cliente.getSelectedRow(), 10).toString());
+        comercialcliente.setText(tbl_cliente.getValueAt(tbl_cliente.getSelectedRow(), 11).toString());
+        celcliente.setText(tbl_cliente.getValueAt(tbl_cliente.getSelectedRow(), 12).toString());
+        emailcliente.setText(tbl_cliente.getValueAt(tbl_cliente.getSelectedRow(), 13).toString());
+    }//GEN-LAST:event_tbl_clienteMouseClicked
         
+    public void AtualizartabelaCliente() {
+    
+     cliente = new Cliente();
+     
+        try {
+            listaClientes = ClienteDAO.ListaCliente();
+        } catch (SQLException ex) {
+            Logger.getLogger(ClienteView.class.getName()).log(Level.SEVERE, null, ex);
+        }
+ 
+        String dados [][] = new String[listaClientes.size()] [14];          
+        int i = 0;
+        for (Cliente cliente : listaClientes) {
+        dados[i][0] = String.valueOf(cliente.getIdCliente());
+        dados[i][1] = cliente.getNomeCliente();
+        dados[i][2] = cliente.getDataNascimento();
+        dados[i][3] = cliente.getCpf();
+        dados[i][4] = cliente.getRg();
+        dados[i][5] = cliente.getCidade();
+        dados[i][6] = cliente.getEndereco();
+        dados[i][7] = cliente.getBairro();
+        dados[i][8] = String.valueOf(cliente.getNumero());
+        dados[i][9] = cliente.getComplemento();
+        dados[i][10] = String.valueOf(cliente.getTelefone());
+        dados[i][11] = String.valueOf(cliente.getTelefoneComercial());
+        dados[i][12] = String.valueOf(cliente.getCelular());
+        dados[i][13] = cliente.getEmail();
+        i++;
+        }
+        String tituloColuna[] = {"ID", "Nome", "CPF", "Telefone"};
+         DefaultTableModel tabelaCliente = new DefaultTableModel();
+        tabelaCliente.setDataVector(dados, tituloColuna);
+        tbl_cliente.setModel(new DefaultTableModel(dados, tituloColuna) {
+        boolean[] canEdit = new boolean[]{
+         false, false, false, false
+        };
+        public boolean isCellEditable(int rowIndex, int columnIndex) {
+        return canEdit[columnIndex];
+        }
+        });
+        tbl_cliente.getColumnModel().getColumn(0).setPreferredWidth(100);
+        tbl_cliente.getColumnModel().getColumn(1).setPreferredWidth(300);
+        tbl_cliente.getColumnModel().getColumn(2).setPreferredWidth(150);
+        tbl_cliente.getColumnModel().getColumn(3).setPreferredWidth(200);
+
+        DefaultTableCellRenderer centralizado = new DefaultTableCellRenderer();
+        centralizado.setHorizontalAlignment(SwingConstants.CENTER);
+        tbl_cliente.getColumnModel().getColumn(0).setCellRenderer(centralizado);
+        tbl_cliente.setRowHeight(25);
+        tbl_cliente.updateUI(); 
+    }
+ 
       public void preparanovo(){
           btn_novocliente.setEnabled(false);
           btn_salvarcliente.setEnabled(true);
@@ -322,7 +426,7 @@ public class ClienteView extends javax.swing.JInternalFrame {
           
       }
       
-      public void limpar(){
+    public void limpar(){
     celcliente.setText("");
     cidadecliente.setText("");
     comercialcliente.setText("");
@@ -424,9 +528,11 @@ public void Alterar(){
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField nomecliente;
     private javax.swing.JTextField numcliente;
     private javax.swing.JPanel pnl_cliente;
     private javax.swing.JTextField rgcliente;
+    private javax.swing.JTable tbl_cliente;
     // End of variables declaration//GEN-END:variables
 }
