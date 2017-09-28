@@ -29,7 +29,7 @@ complemento varchar(45)
 CREATE TABLE produto(
 id_produto int primary key not null auto_increment,
 codigo_barras varchar (45),
-id_marca int,
+marca varchar(30),
 nome_produto varchar (45),
 quantidade int,
 unidade varchar (45),

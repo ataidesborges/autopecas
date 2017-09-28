@@ -427,23 +427,16 @@ public class ClienteView extends javax.swing.JInternalFrame {
         }
        
  
-        String dados [][] = new String[listaClientes.size()] [14];          
+        String dados [][] = new String[listaClientes.size()] [4];          
         int i = 0;
         for (Cliente cliente : listaClientes) {
         dados[i][0] = String.valueOf(cliente.getIdCliente());
         dados[i][1] = cliente.getNomeCliente();
-        dados[i][2] = cliente.getDataNascimento();
-        dados[i][3] = cliente.getCpf();
-        dados[i][4] = cliente.getRg();
-        dados[i][5] = cliente.getCidade();
-        dados[i][6] = cliente.getEndereco();
-        dados[i][7] = cliente.getBairro();
-        dados[i][8] = String.valueOf(cliente.getNumero());
-        dados[i][9] = cliente.getComplemento();
-        dados[i][10] = String.valueOf(cliente.getTelefone());
-        dados[i][11] = String.valueOf(cliente.getTelefoneComercial());
-        dados[i][12] = String.valueOf(cliente.getCelular());
-        dados[i][13] = cliente.getEmail();
+       
+        dados[i][2] = cliente.getCpf();
+        
+        dados[i][3] = String.valueOf(cliente.getTelefone());
+        
         i++;
         }
         String tituloColuna[] = {"ID", "Nome", "CPF", "Telefone"};
