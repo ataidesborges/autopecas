@@ -350,31 +350,41 @@ public class ClienteView extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btn_alterarclienteActionPerformed
 
     private void tbl_clienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_clienteMouseClicked
-        nomecliente.setText(tbl_cliente.getValueAt(tbl_cliente.getSelectedRow(), 0).toString());
-        datacliente.setText(tbl_cliente.getValueAt(tbl_cliente.getSelectedRow(), 1).toString());
-        cpfcliente.setText(tbl_cliente.getValueAt(tbl_cliente.getSelectedRow(), 2).toString());
-        rgcliente.setText(tbl_cliente.getValueAt(tbl_cliente.getSelectedRow(), 3).toString());
-        cidadecliente.setText(tbl_cliente.getValueAt(tbl_cliente.getSelectedRow(), 4).toString());
-        estadocliente.setText(tbl_cliente.getValueAt(tbl_cliente.getSelectedRow(), 5).toString());
-        endcliente.setText(tbl_cliente.getValueAt(tbl_cliente.getSelectedRow(), 6).toString());
-        bairrocliente.setText(tbl_cliente.getValueAt(tbl_cliente.getSelectedRow(), 7).toString());
-        numcliente.setText(tbl_cliente.getValueAt(tbl_cliente.getSelectedRow(), 8).toString());
-        compcliente.setText(tbl_cliente.getValueAt(tbl_cliente.getSelectedRow(), 9).toString());
-        fixocliente.setText(tbl_cliente.getValueAt(tbl_cliente.getSelectedRow(), 10).toString());
-        comercialcliente.setText(tbl_cliente.getValueAt(tbl_cliente.getSelectedRow(), 11).toString());
-        celcliente.setText(tbl_cliente.getValueAt(tbl_cliente.getSelectedRow(), 12).toString());
-        emailcliente.setText(tbl_cliente.getValueAt(tbl_cliente.getSelectedRow(), 13).toString());
+        idcliente.setText(tbl_cliente.getValueAt(tbl_cliente.getSelectedRow(), 0).toString());
+        nomecliente.setText(tbl_cliente.getValueAt(tbl_cliente.getSelectedRow(), 1).toString());
+        datacliente.setText(tbl_cliente.getValueAt(tbl_cliente.getSelectedRow(), 2).toString());
+        cpfcliente.setText(tbl_cliente.getValueAt(tbl_cliente.getSelectedRow(), 3).toString());
+        rgcliente.setText(tbl_cliente.getValueAt(tbl_cliente.getSelectedRow(), 4).toString());
+        cidadecliente.setText(tbl_cliente.getValueAt(tbl_cliente.getSelectedRow(), 5).toString());
+        estadocliente.setText(tbl_cliente.getValueAt(tbl_cliente.getSelectedRow(), 6).toString());
+        endcliente.setText(tbl_cliente.getValueAt(tbl_cliente.getSelectedRow(), 7).toString());
+        bairrocliente.setText(tbl_cliente.getValueAt(tbl_cliente.getSelectedRow(), 8).toString());
+        numcliente.setText(tbl_cliente.getValueAt(tbl_cliente.getSelectedRow(), 9).toString());
+        compcliente.setText(tbl_cliente.getValueAt(tbl_cliente.getSelectedRow(), 10).toString());
+        fixocliente.setText(tbl_cliente.getValueAt(tbl_cliente.getSelectedRow(), 11).toString());
+        comercialcliente.setText(tbl_cliente.getValueAt(tbl_cliente.getSelectedRow(), 12).toString());
+        celcliente.setText(tbl_cliente.getValueAt(tbl_cliente.getSelectedRow(), 13).toString());
+        emailcliente.setText(tbl_cliente.getValueAt(tbl_cliente.getSelectedRow(), 14).toString());
     }//GEN-LAST:event_tbl_clienteMouseClicked
         
     public void AtualizartabelaCliente() {
     
      cliente = new Cliente();
      
+       
         try {
-            listaClientes = ClienteDAO.ListaCliente();
+            
+            if(idcliente.getText().isEmpty()){
+                listaClientes = clienteDAO.ListaCliente(0);
+            }
+            else
+            {
+                listaClientes = clienteDAO.ListaCliente(Integer.parseInt(idcliente.getText()));
+            }
         } catch (SQLException ex) {
             Logger.getLogger(ClienteView.class.getName()).log(Level.SEVERE, null, ex);
         }
+       
  
         String dados [][] = new String[listaClientes.size()] [14];          
         int i = 0;

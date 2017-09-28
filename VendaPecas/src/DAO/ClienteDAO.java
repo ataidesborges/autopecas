@@ -105,11 +105,12 @@ public class ClienteDAO {
         return cli;
     }       
    
-    public List<Cliente> ListaCliente() throws SQLException{
+    public List<Cliente> ListaCliente(int idCliente) throws SQLException{
     List<Cliente> listaClientes;
     listaClientes = new ArrayList<>();
     sql = "select * from cliente order by nome";
     pst = Conexao.getInstance().prepareStatement(sql);
+    pst.setInt(1, idCliente);
     ResultSet rs = pst.executeQuery();
     
     while(rs.next()) {
