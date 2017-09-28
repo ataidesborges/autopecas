@@ -7,7 +7,10 @@ package DAO;
 
 import Model.Produto;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 /**
  *
  * @author Ataides
@@ -59,4 +62,25 @@ public class ProdutoDAO {
         pst.close();
     
     }
+    
+     public List<Produto> ListaProduto(int idProduto) throws SQLException{
+    List<Produto> listaProdutos;
+    listaProdutos = new ArrayList<>();
+    sql = "select * from produto order by nome";
+    pst = Conexao.getInstance().prepareStatement(sql);
+    pst.setInt(1, idProduto);
+    ResultSet rs = pst.executeQuery();
+    
+    while(rs.next()) {
+        listaProdutos.add(new Produto(rs.getInt("idProduto"), rs.getString("nomeproduto"),
+                                      rs.getString("codigobarras"), rs.getString("marca"), rs.getInt("quantidade"), rs.getString("unidade"),
+                                      rs.getDouble("valorcusto"), rs.getDouble("valorvenda"), rs.getString("data"), rs.getString("forneprod")));
+                                      
+                                    
+    }
+    pst.close();
+    return listaProdutos;
+    }
 }
+
+

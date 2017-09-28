@@ -9,6 +9,7 @@ import DAO.ProdutoDAO;
 import Model.Produto;
 import javax.swing.JOptionPane;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -19,6 +20,7 @@ import java.util.logging.Logger;
 public class ProdutoView extends javax.swing.JInternalFrame {
     Produto produto;
     ProdutoDAO produtoDAO;
+     List<Produto> listaProdutos;
     
 
     /**
@@ -44,6 +46,8 @@ public class ProdutoView extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         pnl_produto = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -71,6 +75,21 @@ public class ProdutoView extends javax.swing.JInternalFrame {
         jLabel11 = new javax.swing.JLabel();
         forneprod = new javax.swing.JTextField();
         btn_cancelarprod = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tblProduto = new javax.swing.JTable();
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
 
         setBorder(null);
         setClosable(true);
@@ -201,6 +220,22 @@ public class ProdutoView extends javax.swing.JInternalFrame {
         pnl_produto.add(btn_cancelarprod);
         btn_cancelarprod.setBounds(380, 230, 90, 30);
 
+        tblProduto.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane2.setViewportView(tblProduto);
+
+        pnl_produto.add(jScrollPane2);
+        jScrollPane2.setBounds(20, 310, 620, 150);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -209,7 +244,9 @@ public class ProdutoView extends javax.swing.JInternalFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnl_produto, javax.swing.GroupLayout.DEFAULT_SIZE, 396, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(pnl_produto, javax.swing.GroupLayout.PREFERRED_SIZE, 495, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 28, Short.MAX_VALUE))
         );
 
         pack();
@@ -346,6 +383,15 @@ public void Alterar(){
    btn_salvarprod.setEnabled(true);
    btn_cancelarprod.setEnabled(true);   
 }
+
+
+public void AtualizartabelaProduto() {
+    
+   
+     
+        
+    }
+ 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_alterarprod;
     private javax.swing.JButton btn_cancelarprod;
@@ -367,10 +413,14 @@ public void Alterar(){
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable jTable1;
     private javax.swing.JTextField marcaprod;
     private javax.swing.JTextField nomeprod;
     private javax.swing.JPanel pnl_produto;
     private javax.swing.JTextField quantprod;
+    private javax.swing.JTable tblProduto;
     private javax.swing.JTextField unidadeprod;
     private javax.swing.JTextField valorcustoprod;
     private javax.swing.JTextField valorvendaprod;
