@@ -35,7 +35,8 @@ quantidade int,
 unidade varchar (45),
 valor_custo double,
 valor_venda double,
-data date
+data varchar(15),
+fornecedor varchar
 );
 CREATE TABLE funcionario(
 id_funcionario int primary key not null auto_increment,
