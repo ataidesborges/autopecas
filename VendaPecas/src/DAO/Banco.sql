@@ -22,7 +22,8 @@ cpf varchar (10),
 rg varchar (10),
 telefone_comercial int,
 telefone int,
-celular int
+celular int,
+complemento varchar(45)
 );
 
 CREATE TABLE produto(
