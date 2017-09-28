@@ -36,7 +36,7 @@ unidade varchar (45),
 valor_custo double,
 valor_venda double,
 data varchar(15),
-fornecedor varchar
+fornecedor varchar(30)
 );
 CREATE TABLE funcionario(
 id_funcionario int primary key not null auto_increment,

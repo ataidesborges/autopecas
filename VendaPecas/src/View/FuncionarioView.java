@@ -140,8 +140,9 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
         pnl_funcionario.add(senhafunc);
         senhafunc.setBounds(180, 340, 140, 20);
 
-        btn_novofunc.setBackground(new java.awt.Color(102, 102, 102));
+        btn_novofunc.setBackground(new java.awt.Color(153, 153, 153));
         btn_novofunc.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btn_novofunc.setForeground(new java.awt.Color(255, 255, 255));
         btn_novofunc.setText("Novo");
         btn_novofunc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -151,8 +152,9 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
         pnl_funcionario.add(btn_novofunc);
         btn_novofunc.setBounds(70, 390, 90, 30);
 
-        btn_salvarfunc.setBackground(new java.awt.Color(102, 102, 102));
+        btn_salvarfunc.setBackground(new java.awt.Color(153, 153, 153));
         btn_salvarfunc.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btn_salvarfunc.setForeground(new java.awt.Color(255, 255, 255));
         btn_salvarfunc.setText("Salvar");
         btn_salvarfunc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -162,8 +164,9 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
         pnl_funcionario.add(btn_salvarfunc);
         btn_salvarfunc.setBounds(180, 390, 90, 30);
 
-        btn_alterarfunc.setBackground(new java.awt.Color(102, 102, 102));
+        btn_alterarfunc.setBackground(new java.awt.Color(153, 153, 153));
         btn_alterarfunc.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btn_alterarfunc.setForeground(new java.awt.Color(255, 255, 255));
         btn_alterarfunc.setText("Alterar");
         btn_alterarfunc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -173,8 +176,9 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
         pnl_funcionario.add(btn_alterarfunc);
         btn_alterarfunc.setBounds(290, 390, 90, 30);
 
-        btn_excluirfunc.setBackground(new java.awt.Color(102, 102, 102));
+        btn_excluirfunc.setBackground(new java.awt.Color(153, 153, 153));
         btn_excluirfunc.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btn_excluirfunc.setForeground(new java.awt.Color(255, 255, 255));
         btn_excluirfunc.setText("Excluir");
         btn_excluirfunc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -184,8 +188,9 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
         pnl_funcionario.add(btn_excluirfunc);
         btn_excluirfunc.setBounds(510, 390, 90, 30);
 
-        btn_cancelarfunc.setBackground(new java.awt.Color(102, 102, 102));
+        btn_cancelarfunc.setBackground(new java.awt.Color(153, 153, 153));
         btn_cancelarfunc.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btn_cancelarfunc.setForeground(new java.awt.Color(255, 255, 255));
         btn_cancelarfunc.setText("Cancelar");
         btn_cancelarfunc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

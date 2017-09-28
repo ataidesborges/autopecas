@@ -86,21 +86,21 @@ public class ClienteDAO {
         ResultSet rs = pst.executeQuery();
         
         while(rs.next()){
-            cli.setIdCliente(rs.getInt("idCliente"));
-            cli.setNomeCliente(rs.getString("nomeCliente"));
-            cli.setDataNascimento(rs.getString("dataNascimento"));
-            cli.setCpf(rs.getString("cpf"));
-            cli.setRg(rs.getString("rg"));
-            cli.setCidade(rs.getString("cidade"));
-            cli.setEstado(rs.getString("estado"));
-            cli.setEndereco(rs.getString("endereco"));
-            cli.setBairro(rs.getString("bairro"));
-            cli.setNumero(rs.getInt("numero"));  
-            cli.setComplemento(rs.getString("complemento"));
-            cli.setTelefone(rs.getInt("telefone"));
-            cli.setTelefoneComercial(rs.getInt("telefonecomercial"));
+            cli.setIdCliente(rs.getInt("id_cliente"));
+            cli.setNomeCliente(rs.getString("nome_cliente"));
+            cli.setDataNascimento(rs.getString("data_nasc"));
+            cli.setCpf(rs.getString("endereco"));
+            cli.setRg(rs.getString("numero"));
+            cli.setCidade(rs.getString("bairro"));
+            cli.setEstado(rs.getString("cidade"));
+            cli.setEndereco(rs.getString("estado"));
+            cli.setBairro(rs.getString("email"));
+            cli.setNumero(rs.getInt("cpf"));  
+            cli.setComplemento(rs.getString("rg"));
+            cli.setTelefone(rs.getInt("telefone_comercial"));
+            cli.setTelefoneComercial(rs.getInt("telefone"));
             cli.setCelular(rs.getInt("celular"));
-            cli.setEmail(rs.getString("email"));
+            cli.setEmail(rs.getString("complemento"));
        
         }
         pst.close();
@@ -109,14 +109,14 @@ public class ClienteDAO {
    
     public List<Cliente> ListaCliente(int idCliente) throws SQLException{
     List<Cliente> listaClientes;
-    listaClientes = new ArrayList<>();
-    sql = "select * from cliente order by nome";
+    listaClientes = new ArrayList<>(); 
+    sql = "select * from cliente where id_cliente =?";
     pst = Conexao.getInstance().prepareStatement(sql);
     pst.setInt(1, idCliente);
     ResultSet rs = pst.executeQuery();
     
     while(rs.next()) {
-        listaClientes.add(new Cliente(rs.getInt("idCliente"), rs.getString("nomeCliente"),
+        listaClientes.add(new Cliente(rs.getInt("id_cliente"), rs.getString("nome_cliente"),
                                                  rs.getString("cpf"), rs.getInt("telefone")));
     }
     pst.close();
