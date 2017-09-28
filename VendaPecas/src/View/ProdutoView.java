@@ -9,6 +9,7 @@ import DAO.ProdutoDAO;
 import Model.Produto;
 import javax.swing.JOptionPane;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -31,6 +32,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
      */
     public ProdutoView() {
         produtoDAO  = new ProdutoDAO();
+        listaProdutos = new ArrayList<>();
         initComponents();
         this.setVisible(true);
         btn_salvarprod.setEnabled(false);
@@ -80,7 +82,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
         forneprod = new javax.swing.JTextField();
         btn_cancelarprod = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        tblProduto = new javax.swing.JTable();
+        tblproduto = new javax.swing.JTable();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -247,7 +249,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
         pnl_produto.add(btn_cancelarprod);
         btn_cancelarprod.setBounds(380, 230, 90, 30);
 
-        tblProduto.setModel(new javax.swing.table.DefaultTableModel(
+        tblproduto.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -258,12 +260,12 @@ public class ProdutoView extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        tblProduto.addMouseListener(new java.awt.event.MouseAdapter() {
+        tblproduto.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tblProdutoMouseClicked(evt);
+                tblprodutoMouseClicked(evt);
             }
         });
-        jScrollPane2.setViewportView(tblProduto);
+        jScrollPane2.setViewportView(tblproduto);
 
         pnl_produto.add(jScrollPane2);
         jScrollPane2.setBounds(20, 320, 620, 110);
@@ -379,9 +381,20 @@ public class ProdutoView extends javax.swing.JInternalFrame {
         campos_bloqueados();
     }//GEN-LAST:event_btn_cancelarprodActionPerformed
 
-    private void tblProdutoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblProdutoMouseClicked
+    private void tblprodutoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblprodutoMouseClicked
+        idprod.setText(tblproduto.getValueAt(tblproduto.getSelectedRow(), 0).toString());
+        nomeprod.setText(tblproduto.getValueAt(tblproduto.getSelectedRow(), 1).toString());
+        marcaprod.setText(tblproduto.getValueAt(tblproduto.getSelectedRow(), 2).toString());
+        quantprod.setText(tblproduto.getValueAt(tblproduto.getSelectedRow(), 3).toString());
+        dataprod.setText(tblproduto.getValueAt(tblproduto.getSelectedRow(), 4).toString());
+        unidadeprod.setText(tblproduto.getValueAt(tblproduto.getSelectedRow(), 5).toString());
+        forneprod.setText(tblproduto.getValueAt(tblproduto.getSelectedRow(), 6).toString());
+        valorcustoprod.setText(tblproduto.getValueAt(tblproduto.getSelectedRow(), 7).toString());
+        valorvendaprod.setText(tblproduto.getValueAt(tblproduto.getSelectedRow(), 8).toString());
+        codprod.setText(tblproduto.getValueAt(tblproduto.getSelectedRow(), 9).toString());
         
-    }//GEN-LAST:event_tblProdutoMouseClicked
+        Preparaselecaotabela();
+    }//GEN-LAST:event_tblprodutoMouseClicked
 
 
     public void preparanovo(){
@@ -504,6 +517,12 @@ public void AtualizartabelaProduto()  {
         tblproduto.setRowHeight(25);
         tblproduto.updateUI(); 
 }
+
+public void Preparaselecaotabela(){
+    btn_novoprod.setEnabled(true);
+    btn_excluirprod.setEnabled(true);
+    btn_alterarprod.setEnabled(true);
+}
  
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_alterarprod;
@@ -533,7 +552,7 @@ public void AtualizartabelaProduto()  {
     private javax.swing.JTextField nomeprod;
     private javax.swing.JPanel pnl_produto;
     private javax.swing.JTextField quantprod;
-    private javax.swing.JTable tblProduto;
+    private javax.swing.JTable tblproduto;
     private javax.swing.JTextField unidadeprod;
     private javax.swing.JTextField valorcustoprod;
     private javax.swing.JTextField valorvendaprod;
