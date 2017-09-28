@@ -81,6 +81,8 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
         jLabel16 = new javax.swing.JLabel();
         telfunc = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tbl_funcionario = new javax.swing.JTable();
 
         setBackground(new java.awt.Color(204, 204, 204));
         setBorder(null);
@@ -246,6 +248,22 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
         pnl_funcionario.add(jLabel17);
         jLabel17.setBounds(10, 280, 150, 15);
 
+        tbl_funcionario.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(tbl_funcionario);
+
+        pnl_funcionario.add(jScrollPane1);
+        jScrollPane1.setBounds(30, 510, 620, 100);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -254,7 +272,7 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnl_funcionario, javax.swing.GroupLayout.DEFAULT_SIZE, 499, Short.MAX_VALUE)
+            .addComponent(pnl_funcionario, javax.swing.GroupLayout.DEFAULT_SIZE, 692, Short.MAX_VALUE)
         );
 
         pack();
@@ -450,11 +468,13 @@ public void Alterar(){
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField loginfunc;
     private javax.swing.JTextField nomefunc;
     private javax.swing.JTextField numfunc;
     private javax.swing.JPanel pnl_funcionario;
     private javax.swing.JPasswordField senhafunc;
+    private javax.swing.JTable tbl_funcionario;
     private javax.swing.JTextField telfunc;
     // End of variables declaration//GEN-END:variables
 }
