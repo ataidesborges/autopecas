@@ -177,7 +177,6 @@ public class ProdutoView extends javax.swing.JInternalFrame {
         btn_salvarprod.setBackground(new java.awt.Color(102, 102, 102));
         btn_salvarprod.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btn_salvarprod.setText("Salvar");
-        btn_salvarprod.setEnabled(false);
         btn_salvarprod.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_salvarprodActionPerformed(evt);
@@ -189,7 +188,6 @@ public class ProdutoView extends javax.swing.JInternalFrame {
         btn_alterarprod.setBackground(new java.awt.Color(102, 102, 102));
         btn_alterarprod.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btn_alterarprod.setText("Alterar");
-        btn_alterarprod.setEnabled(false);
         btn_alterarprod.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_alterarprodActionPerformed(evt);
@@ -201,7 +199,6 @@ public class ProdutoView extends javax.swing.JInternalFrame {
         btn_excluirprod.setBackground(new java.awt.Color(102, 102, 102));
         btn_excluirprod.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btn_excluirprod.setText("Excluir");
-        btn_excluirprod.setEnabled(false);
         btn_excluirprod.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_excluirprodActionPerformed(evt);
@@ -240,7 +237,6 @@ public class ProdutoView extends javax.swing.JInternalFrame {
         btn_cancelarprod.setBackground(new java.awt.Color(102, 102, 102));
         btn_cancelarprod.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btn_cancelarprod.setText("Cancelar");
-        btn_cancelarprod.setEnabled(false);
         btn_cancelarprod.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_cancelarprodActionPerformed(evt);
