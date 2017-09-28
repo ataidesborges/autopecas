@@ -310,6 +310,9 @@ public class ClienteView extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btn_excluirclienteActionPerformed
 
     private void btn_salvarclienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salvarclienteActionPerformed
+        
+        cliente = new Cliente();
+        
         if(nomecliente.getText().isEmpty() ||  datacliente.getText().isEmpty() || cpfcliente.getText().isEmpty() || rgcliente.getText().isEmpty() || endcliente.getText().isEmpty() || 
            numcliente.getText().isEmpty() || compcliente.getText().isEmpty() || cidadecliente.getText().isEmpty() || bairrocliente.getText().isEmpty() || estadocliente.getText().isEmpty() ||
            fixocliente.getText().isEmpty() || comercialcliente.getText().isEmpty() || celcliente.getText().isEmpty() || emailcliente.getText().isEmpty())
@@ -317,8 +320,7 @@ public class ClienteView extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null, "Preencha todos os campos!");
             nomecliente.requestFocusInWindow();
         } else if(idcliente.getText().isEmpty())
-                {
-                    cliente = new Cliente();                   
+                {                   
                     cliente.setNomeCliente(nomecliente.getText());
                     cliente.setDataNascimento(datacliente.getText());
                     cliente.setEndereco(endcliente.getText());
@@ -345,7 +347,6 @@ public class ClienteView extends javax.swing.JInternalFrame {
             
         }
         else{
-                    cliente = new Cliente(); 
                     cliente.setIdCliente(Integer.parseInt(idcliente.getText()));
                     cliente.setNomeCliente(nomecliente.getText());
                     cliente.setDataNascimento(datacliente.getText());

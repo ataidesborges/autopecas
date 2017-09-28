@@ -262,7 +262,7 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
         jScrollPane1.setViewportView(tbl_funcionario);
 
         pnl_funcionario.add(jScrollPane1);
-        jScrollPane1.setBounds(30, 510, 620, 100);
+        jScrollPane1.setBounds(10, 450, 680, 110);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -272,7 +272,7 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnl_funcionario, javax.swing.GroupLayout.DEFAULT_SIZE, 692, Short.MAX_VALUE)
+            .addComponent(pnl_funcionario, javax.swing.GroupLayout.DEFAULT_SIZE, 586, Short.MAX_VALUE)
         );
 
         pack();

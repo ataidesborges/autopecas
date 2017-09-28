@@ -264,7 +264,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
         jScrollPane2.setViewportView(tblproduto);
 
         pnl_produto.add(jScrollPane2);
-        jScrollPane2.setBounds(20, 320, 620, 110);
+        jScrollPane2.setBounds(10, 320, 650, 110);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

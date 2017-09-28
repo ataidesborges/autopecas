@@ -107,7 +107,7 @@ public class FuncionarioDAO {
     public List<Funcionário> ListaFuncionario(int id_funcionario) throws SQLException {
         List<Funcionário> listafuncionario;
         listafuncionario = new ArrayList<>();
-        sql = "select * from cliente order by nome";
+        sql = "select * from funcionario order by nome";
         pst = Conexao.getInstance().prepareStatement(sql);
         pst.setInt(1, id_funcionario);
         ResultSet rs = pst.executeQuery();
@@ -120,6 +120,5 @@ public class FuncionarioDAO {
         }
         pst.close();
         return listafuncionario;
-
     }
 }
