@@ -28,6 +28,11 @@ public class ProdutoView extends javax.swing.JInternalFrame {
         produtoDAO  = new ProdutoDAO();
         initComponents();
         this.setVisible(true);
+         btn_salvarprod.setEnabled(false);
+        btn_alterarprod.setEnabled(false);
+        btn_excluirprod.setEnabled(false);
+        idprod.setEnabled(false);
+        campos_bloqueados();
     }
 
     /**
@@ -152,12 +157,22 @@ public class ProdutoView extends javax.swing.JInternalFrame {
         btn_excluirprod.setBackground(new java.awt.Color(102, 102, 102));
         btn_excluirprod.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btn_excluirprod.setText("Excluir");
+        btn_excluirprod.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_excluirprodActionPerformed(evt);
+            }
+        });
         pnl_produto.add(btn_excluirprod);
         btn_excluirprod.setBounds(490, 230, 90, 30);
 
         btn_novoprod.setBackground(new java.awt.Color(102, 102, 102));
         btn_novoprod.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btn_novoprod.setText("Novo");
+        btn_novoprod.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_novoprodActionPerformed(evt);
+            }
+        });
         pnl_produto.add(btn_novoprod);
         btn_novoprod.setBounds(50, 230, 90, 30);
 
@@ -176,6 +191,11 @@ public class ProdutoView extends javax.swing.JInternalFrame {
         btn_cancelarprod.setBackground(new java.awt.Color(102, 102, 102));
         btn_cancelarprod.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btn_cancelarprod.setText("Cancelar");
+        btn_cancelarprod.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_cancelarprodActionPerformed(evt);
+            }
+        });
         pnl_produto.add(btn_cancelarprod);
         btn_cancelarprod.setBounds(380, 230, 90, 30);
 
@@ -202,21 +222,128 @@ public class ProdutoView extends javax.swing.JInternalFrame {
         } else{
             produto = new Produto();
             produto.setNomeproduto(nomeprod.getText());
-            //nao terminado falta funçoes
+            produto.setQuantidade(Integer.parseInt(quantprod.getText()));
+            produto.setNomeproduto(dataprod.getText());
+            produto.setCodigobarras(codprod.getText());
+            produto.setUnidade(unidadeprod.getText());
+            produto.setNomeproduto(forneprod.getText());
+            produto.setMarca(marcaprod.getText());
+            produto.setValorcusto(Double.parseDouble(valorcustoprod.getText()));
+            produto.setValorvenda(Double.parseDouble(valorvendaprod.getText()));
+            
             try{
                produtoDAO.salvar(produto);  
             }catch (SQLException ex){
                 Logger.getLogger(ProdutoView.class.getName()).log(Level.SEVERE, null, ex);
             }
-            JOptionPane.showMessageDialog(null,"Gravado com Sucesso!!");  
-        }        // TODO add your handling code here:
+            JOptionPane.showMessageDialog(null,"Gravado com Sucesso!!"); 
+            preparaSalvareCancelar();
+            campos_bloqueados();
+            limpar();
+        }        
     }//GEN-LAST:event_btn_salvarprodActionPerformed
 
     private void btn_alterarprodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_alterarprodActionPerformed
-        // TODO add your handling code here:
+        Alterar();
+        campos_liberados();  
     }//GEN-LAST:event_btn_alterarprodActionPerformed
 
+    private void btn_excluirprodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_excluirprodActionPerformed
+         if (idprod.getText().isEmpty()) {
+         JOptionPane.showMessageDialog(null, "Selecione um Funcionário!!");
+     }  else {
+        produto = new Produto();
+        produto.setIdProduto(Integer.parseInt(idprod.getText()));
+        int confirma = JOptionPane.showConfirmDialog(null,"Deseja excluir :" + nomeprod.getText());
+            if(confirma == 0){
+        try{
+            produtoDAO.excluir(produto);  
+            }catch (SQLException ex){
+            Logger.getLogger(FuncionarioView.class.getName()).log(Level.SEVERE, null, ex);
+            }
+         
+            limpar();
+            excluir();
+            
+     }       
+         
+         }   
+    }//GEN-LAST:event_btn_excluirprodActionPerformed
 
+    private void btn_novoprodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_novoprodActionPerformed
+        limpar();
+        preparanovo();
+        campos_liberados();
+    }//GEN-LAST:event_btn_novoprodActionPerformed
+
+    private void btn_cancelarprodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelarprodActionPerformed
+        limpar();
+        preparaSalvareCancelar();
+        campos_bloqueados();
+    }//GEN-LAST:event_btn_cancelarprodActionPerformed
+
+
+    public void preparanovo(){
+        btn_novoprod.setEnabled(false);
+        btn_salvarprod.setEnabled(true);
+        btn_alterarprod.setEnabled(false);
+        btn_excluirprod.setEnabled(false);
+          
+    }
+      
+    public void limpar(){
+       nomeprod.setText("");
+       quantprod.setText("");
+       dataprod.setText("");
+       codprod.setText("");
+       unidadeprod.setText("");
+       forneprod.setText("");
+       marcaprod.setText("");
+       valorcustoprod.setText("");
+       valorvendaprod.setText("");
+  }
+    public void campos_bloqueados(){
+       nomeprod.setEnabled(false);
+       quantprod.setEnabled(false);
+       dataprod.setEnabled(false);
+       codprod.setEnabled(false);
+       unidadeprod.setEnabled(false);
+       forneprod.setEnabled(false);
+       marcaprod.setEnabled(false);
+       valorcustoprod.setEnabled(false);
+       valorvendaprod .setEnabled(false);
+    
+}
+    public void campos_liberados(){
+    nomeprod.setEnabled(true);
+       quantprod.setEnabled(true);
+       dataprod.setEnabled(true);
+       codprod.setEnabled(true);
+       unidadeprod.setEnabled(true);
+       forneprod.setEnabled(true);
+       marcaprod.setEnabled(true);
+       valorcustoprod.setEnabled(true);
+       valorvendaprod .setEnabled(true);
+}
+
+public void excluir(){
+       btn_excluirprod.setEnabled(false);
+       btn_alterarprod.setEnabled(false);  
+    }
+
+public void preparaSalvareCancelar(){
+    btn_novoprod.setEnabled(true);
+    btn_salvarprod.setEnabled(true);
+    btn_cancelarprod.setEnabled(false); 
+}
+
+public void Alterar(){
+   btn_novoprod.setEnabled(false);
+   btn_excluirprod.setEnabled(false);
+   btn_alterarprod.setEnabled(false);
+   btn_salvarprod.setEnabled(true);
+   btn_cancelarprod.setEnabled(true);   
+}
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_alterarprod;
     private javax.swing.JButton btn_cancelarprod;
