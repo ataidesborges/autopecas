@@ -63,6 +63,33 @@ public class ProdutoDAO {
     
     }
     
+     public Produto recuperaProduto(int id) throws SQLException{
+        
+        Produto pro = new Produto();
+        sql = "select * from produto where id=?";
+        pst = Conexao.getInstance().prepareStatement(sql);
+        pst.setInt(1, id);
+        ResultSet rs = pst.executeQuery();
+        
+        while(rs.next()){
+            pro.setIdProduto(rs.getInt("idProduto"));
+            pro.setNomeproduto(rs.getString("nomeproduto"));
+            pro.setCodigobarras(rs.getString("codigobarras"));
+            pro.setMarca(rs.getString("marca"));
+            pro.setQuantidade(rs.getInt("quantidade"));
+            pro.setUnidade(rs.getString("unidade"));
+            pro.setValorcusto(rs.getDouble("valorcusto"));
+            pro.setValorvenda(rs.getDouble("valorvenda"));
+            pro.setData(rs.getString("data"));
+            pro.setForneprod(rs.getString("forneprod"));  
+            
+       
+        }
+        pst.close();
+        return pro;
+    }       
+   
+    
      public List<Produto> ListaProduto(int idProduto) throws SQLException{
     List<Produto> listaProdutos;
     listaProdutos = new ArrayList<>();
