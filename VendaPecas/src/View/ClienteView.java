@@ -334,6 +334,7 @@ public class ClienteView extends javax.swing.JInternalFrame {
                     cliente.setTelefone(Integer.parseInt(fixocliente.getText()));
                     cliente.setTelefoneComercial(Integer.parseInt(comercialcliente.getText()));
                     cliente.setCelular(Integer.parseInt(celcliente.getText()));
+                    cliente.setComplemento(compcliente.getText());
             try{
                clienteDAO.salvar(cliente);     
             }catch (SQLException ex){
@@ -361,6 +362,7 @@ public class ClienteView extends javax.swing.JInternalFrame {
                     cliente.setTelefone(Integer.parseInt(fixocliente.getText()));
                     cliente.setTelefoneComercial(Integer.parseInt(comercialcliente.getText()));
                     cliente.setCelular(Integer.parseInt(celcliente.getText()));
+                    cliente.setComplemento(compcliente.getText());
                     
             try{
                clienteDAO.alterar(cliente);     
@@ -415,13 +417,13 @@ public class ClienteView extends javax.swing.JInternalFrame {
      cliente = new Cliente();
         try {
             
-            if(idcliente.getText().isEmpty()){
-                listaClientes = clienteDAO.ListaCliente(0);
-            }
-            else
-            {
-                listaClientes = clienteDAO.ListaCliente(Integer.parseInt(idcliente.getText()));
-            }
+            //if(idcliente.getText().isEmpty()){
+                listaClientes = clienteDAO.ListaCliente();
+           // }
+           // else
+            //{
+                //listaClientes = clienteDAO.ListaCliente(Integer.parseInt(idcliente.getText()));
+            //}
         } catch (SQLException ex) {
             Logger.getLogger(ClienteView.class.getName()).log(Level.SEVERE, null, ex);
         }

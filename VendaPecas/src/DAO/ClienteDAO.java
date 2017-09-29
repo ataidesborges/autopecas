@@ -77,12 +77,12 @@ public class ClienteDAO {
         pst.close();
     
     }
-    public Cliente recuperaCliente(int id) throws SQLException{
+    public Cliente recuperaCliente(int id_cliente) throws SQLException{
         
         Cliente cli = new Cliente();
         sql = "select * from cliente where id_cliente=?";
         pst = Conexao.getInstance().prepareStatement(sql);
-        pst.setInt(1, id);
+        pst.setInt(1, id_cliente);
         ResultSet rs = pst.executeQuery();
         
         while(rs.next()){
@@ -107,12 +107,12 @@ public class ClienteDAO {
         return cli;
     }       
    
-    public List<Cliente> ListaCliente(int idCliente) throws SQLException{
+    public List<Cliente> ListaCliente() throws SQLException{
     List<Cliente> listaClientes;
     listaClientes = new ArrayList<>(); 
-    sql = "select * from cliente where id_cliente =?";
+    sql = "select id_cliente, nome_cliente,cpf,telefone from cliente";
     pst = Conexao.getInstance().prepareStatement(sql);
-    pst.setInt(1, idCliente);
+    //pst.setInt(1, idCliente);
     ResultSet rs = pst.executeQuery();
     
     while(rs.next()) {
