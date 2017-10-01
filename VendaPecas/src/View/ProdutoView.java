@@ -344,7 +344,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
 
     private void btn_excluirprodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_excluirprodActionPerformed
          if (idprod.getText().isEmpty()) {
-         JOptionPane.showMessageDialog(null, "Selecione um Funcionário!!");
+         JOptionPane.showMessageDialog(null, "Selecione um Produto!!");
      }  else {
         produto = new Produto();
         produto.setIdProduto(Integer.parseInt(idprod.getText()));
@@ -425,7 +425,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
     
 }
     public void campos_liberados(){
-    nomeprod.setEnabled(true);
+       nomeprod.setEnabled(true);
        quantprod.setEnabled(true);
        dataprod.setEnabled(true);
        codprod.setEnabled(true);

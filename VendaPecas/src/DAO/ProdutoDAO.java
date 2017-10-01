@@ -73,9 +73,9 @@ public class ProdutoDAO {
         
         while(rs.next()){
             pro.setIdProduto(rs.getInt("idProduto"));
-            pro.setNomeproduto(rs.getString("nomeproduto"));
             pro.setCodigobarras(rs.getString("codigobarras"));
             pro.setMarca(rs.getString("marca"));
+            pro.setNomeproduto(rs.getString("nomeproduto"));
             pro.setQuantidade(rs.getInt("quantidade"));
             pro.setUnidade(rs.getString("unidade"));
             pro.setValorcusto(rs.getDouble("valorcusto"));

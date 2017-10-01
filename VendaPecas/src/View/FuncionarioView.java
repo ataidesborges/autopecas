@@ -9,8 +9,13 @@ import javax.swing.JOptionPane;
 import Model.Funcionário;
 import DAO.FuncionarioDAO;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.SwingConstants;
+import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -19,12 +24,14 @@ import java.util.logging.Logger;
 public class FuncionarioView extends javax.swing.JInternalFrame {
     Funcionário funcionario;
     FuncionarioDAO funcionarioDAO;
+    List<Funcionário> listaFuncionarios;
 
     /**
      * Creates new form Funcionário
      */
     public FuncionarioView() {
         funcionarioDAO = new FuncionarioDAO();
+        listaFuncionarios = new ArrayList<>();
         initComponents();
         this.setVisible(true);
         btn_salvarfunc.setEnabled(false);
@@ -32,6 +39,7 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
         btn_excluirfunc.setEnabled(false);
         idfunc.setEnabled(false);
         campos_bloqueados();
+         AtualizartabelaFuncionario();
     }
 
     /**
@@ -264,6 +272,11 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tbl_funcionario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbl_funcionarioMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tbl_funcionario);
 
         pnl_funcionario.add(jScrollPane1);
@@ -298,6 +311,7 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
             }
          
             limpar();
+            AtualizartabelaFuncionario();
             excluir();
             
      }       
@@ -317,7 +331,39 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
                 emailfunc.getText().isEmpty() || loginfunc.getText().isEmpty() ||senhafunc.getText().isEmpty()){
             JOptionPane.showMessageDialog(null, "Preencha todos os campos!!");
             nomefunc.requestFocusInWindow();
-        } else{
+        } else if (idfunc.getText().isEmpty())
+                {
+                    funcionario = new Funcionário();
+                    // funcionario.setIdFuncionario(Integer.parseInt(idfunc.getText()));
+                    funcionario.setNomeFunc(nomefunc.getText());
+                    funcionario.setDatanascimento(datanascfunc.getText());
+                    funcionario.setCpf(cpffunc.getText());
+                    funcionario.setCidade(cidadefunc.getText());
+                    funcionario.setEstado(estadofunc.getText());
+                    funcionario.setEndereco(endfunc.getText());
+                    funcionario.setBairro(bairrofunc.getText());
+                    funcionario.setNumero(Integer.parseInt(numfunc.getText()));
+                    funcionario.setComplemento(complefunc.getText());
+                    funcionario.setTelefone(Integer.parseInt(telfunc.getText()));
+                    funcionario.setCelular(Integer.parseInt(celfunc.getText()));
+                    funcionario.setEmail(emailfunc.getText());
+                    funcionario.setUsuario(loginfunc.getText());
+                    funcionario.setSenha(senhafunc.getText());
+            
+            try {
+                funcionarioDAO.salvar(funcionario);
+            } catch (SQLException ex) {
+                Logger.getLogger(FuncionarioView.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            JOptionPane.showMessageDialog(null, "Gravado com Sucesso!!");
+             AtualizartabelaFuncionario();
+            preparaSalvareCancelar();
+            campos_bloqueados();
+            limpar();
+            
+        } 
+        
+         else{
             funcionario = new Funcionário();
            // funcionario.setIdFuncionario(Integer.parseInt(idfunc.getText()));
             funcionario.setNomeFunc(nomefunc.getText());
@@ -336,14 +382,14 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
             funcionario.setSenha(senhafunc.getText());
             
             try {
-                funcionarioDAO.salvar(funcionario);
+                funcionarioDAO.alterar(funcionario);
             } catch (SQLException ex) {
                 Logger.getLogger(FuncionarioView.class.getName()).log(Level.SEVERE, null, ex);
             }
             JOptionPane.showMessageDialog(null, "Gravado com Sucesso!!");
+             AtualizartabelaFuncionario();
             preparaSalvareCancelar();
             campos_bloqueados();
-            limpar();
             
         }    
     }//GEN-LAST:event_btn_salvarfuncActionPerformed
@@ -361,6 +407,26 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
          campos_bloqueados();
          
     }//GEN-LAST:event_btn_cancelarfuncActionPerformed
+
+    private void tbl_funcionarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_funcionarioMouseClicked
+        idfunc.setText(tbl_funcionario.getValueAt(tbl_funcionario.getSelectedRow(), 0).toString());
+        nomefunc.setText(tbl_funcionario.getValueAt(tbl_funcionario.getSelectedRow(), 1).toString());
+        datanascfunc.setText(tbl_funcionario.getValueAt(tbl_funcionario.getSelectedRow(), 2).toString());
+        cpffunc.setText(tbl_funcionario.getValueAt(tbl_funcionario.getSelectedRow(), 3).toString());
+        cidadefunc.setText(tbl_funcionario.getValueAt(tbl_funcionario.getSelectedRow(), 4).toString());
+        estadofunc.setText(tbl_funcionario.getValueAt(tbl_funcionario.getSelectedRow(), 5).toString());
+        endfunc.setText(tbl_funcionario.getValueAt(tbl_funcionario.getSelectedRow(), 6).toString());
+        bairrofunc.setText(tbl_funcionario.getValueAt(tbl_funcionario.getSelectedRow(), 7).toString());
+        numfunc.setText(tbl_funcionario.getValueAt(tbl_funcionario.getSelectedRow(), 8).toString());
+        complefunc.setText(tbl_funcionario.getValueAt(tbl_funcionario.getSelectedRow(), 9).toString());
+        telfunc.setText(tbl_funcionario.getValueAt(tbl_funcionario.getSelectedRow(), 10).toString());
+        celfunc.setText(tbl_funcionario.getValueAt(tbl_funcionario.getSelectedRow(), 11).toString());
+        emailfunc.setText(tbl_funcionario.getValueAt(tbl_funcionario.getSelectedRow(), 12).toString());
+        loginfunc.setText(tbl_funcionario.getValueAt(tbl_funcionario.getSelectedRow(), 13).toString());
+        senhafunc.setText(tbl_funcionario.getValueAt(tbl_funcionario.getSelectedRow(), 14).toString());
+        
+        Preparaselecaotabela();
+    }//GEN-LAST:event_tbl_funcionarioMouseClicked
 
     public void preparanovo() {
         btn_novofunc.setEnabled(false);
@@ -438,6 +504,75 @@ public void Alterar(){
    btn_alterarfunc.setEnabled(false);
    btn_salvarfunc.setEnabled(true);
    btn_cancelarfunc.setEnabled(true);   
+}
+
+public void AtualizartabelaFuncionario()  {
+   funcionario = new Funcionário();  
+ 
+        
+       try {
+           if(idfunc.getText().isEmpty()){
+           listaFuncionarios = funcionarioDAO.ListaFuncionario(0);
+       }
+           else
+            {
+      
+               listaFuncionarios = funcionarioDAO.ListaFuncionario(Integer.parseInt(idfunc.getText()));
+            }
+       }   catch (SQLException ex) {
+           Logger.getLogger(ProdutoView.class.getName()).log(Level.SEVERE, null, ex);
+       }
+       
+       
+        String dados [][] = new String[listaFuncionarios.size()] [15];          
+        int i = 0;
+        for (Funcionário funcionario : listaFuncionarios) {
+        dados[i][0] = String.valueOf(funcionario.getIdFuncionario());
+        dados[i][1] = funcionario.getNomeFunc();
+        dados[i][2] = funcionario.getEmail();
+        dados[i][3] = funcionario.getCpf();
+        dados[i][4] = String.valueOf(funcionario.getCelular());
+        dados[i][5] = funcionario.getUsuario();
+        dados[i][6] = funcionario.getSenha();
+        dados[i][7] = funcionario.getCidade();
+        dados[i][8] = funcionario.getEstado();
+        dados[i][9] = String.valueOf(funcionario.getTelefone());
+        dados[i][10] = funcionario.getDatanascimento(); 
+        dados[i][11] = funcionario.getEndereco();
+        dados[i][12] = funcionario.getBairro();
+        dados[i][13] = funcionario.getComplemento();
+        dados[i][14] = String.valueOf(funcionario.getNumero());
+        i++;
+        }
+        
+        String tituloColuna[] = {"ID", "Nome", "Cpf", "Telefone"};
+         DefaultTableModel tabelaFuncionario = new DefaultTableModel();
+        tabelaFuncionario.setDataVector(dados, tituloColuna);
+        tbl_funcionario.setModel(new DefaultTableModel(dados, tituloColuna) {
+        boolean[] canEdit = new boolean[]{
+         false, false, false, false
+        };
+        public boolean isCellEditable(int rowIndex, int columnIndex) {
+        return canEdit[columnIndex];
+        }
+        });
+        tbl_funcionario.getColumnModel().getColumn(0).setPreferredWidth(100);
+        tbl_funcionario.getColumnModel().getColumn(1).setPreferredWidth(300);
+        tbl_funcionario.getColumnModel().getColumn(2).setPreferredWidth(150);
+        tbl_funcionario.getColumnModel().getColumn(3).setPreferredWidth(200);
+        
+        
+        DefaultTableCellRenderer centralizado = new DefaultTableCellRenderer();
+        centralizado.setHorizontalAlignment(SwingConstants.CENTER);
+        tbl_funcionario.getColumnModel().getColumn(0).setCellRenderer(centralizado);
+        tbl_funcionario.setRowHeight(25);
+        tbl_funcionario.updateUI(); 
+}
+
+public void Preparaselecaotabela(){
+    btn_novofunc.setEnabled(true);
+    btn_excluirfunc.setEnabled(true);
+    btn_alterarfunc.setEnabled(true);
 }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
