@@ -104,18 +104,18 @@ public class FuncionarioDAO {
     }
 
     public List<Funcionário> ListaFuncionario(int id_funcionario) throws SQLException {
-        List<Funcionário> listafuncionario;
-        listafuncionario = new ArrayList<>();
+        List<Funcionário> listaFuncionarios;
+        listaFuncionarios = new ArrayList<>();
         sql = "select * from funcionario order by nome";
         pst = Conexao.getInstance().prepareStatement(sql);
         pst.setInt(1, id_funcionario);
         ResultSet rs = pst.executeQuery();
 
         while (rs.next()) {
-            listafuncionario.add(new Funcionário(rs.getInt("idFuncionario"), rs.getString("nomeFunc"),
+            listaFuncionarios.add(new Funcionário(rs.getInt("idFuncionario"), rs.getString("nomeFunc"),
                     rs.getString("cpf"), rs.getInt("telefone")));
         }
         pst.close();
-        return listafuncionario;
+        return listaFuncionarios;
     }
 }
