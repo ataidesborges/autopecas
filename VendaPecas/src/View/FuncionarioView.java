@@ -120,7 +120,7 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
 
         jLabel4.setText("CPF");
         pnl_funcionario.add(jLabel4);
-        jLabel4.setBounds(10, 110, 19, 14);
+        jLabel4.setBounds(10, 110, 50, 14);
         pnl_funcionario.add(cpffunc);
         cpffunc.setBounds(10, 130, 140, 20);
 
@@ -144,7 +144,7 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
 
         jLabel8.setText("Senha");
         pnl_funcionario.add(jLabel8);
-        jLabel8.setBounds(180, 320, 30, 14);
+        jLabel8.setBounds(180, 320, 60, 14);
         pnl_funcionario.add(senhafunc);
         senhafunc.setBounds(180, 340, 140, 20);
 
@@ -212,7 +212,7 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
         pnl_funcionario.add(jLabel9);
         jLabel9.setBounds(410, 60, 130, 14);
         pnl_funcionario.add(datanascfunc);
-        datanascfunc.setBounds(410, 80, 110, 20);
+        datanascfunc.setBounds(410, 80, 140, 20);
 
         jLabel10.setText("Cidade");
         pnl_funcionario.add(jLabel10);
@@ -224,7 +224,7 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
         pnl_funcionario.add(jLabel11);
         jLabel11.setBounds(410, 110, 60, 14);
         pnl_funcionario.add(estadofunc);
-        estadofunc.setBounds(410, 130, 50, 20);
+        estadofunc.setBounds(410, 130, 140, 20);
 
         jLabel12.setText("Endereço");
         pnl_funcionario.add(jLabel12);
@@ -312,10 +312,8 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
          
             limpar();
             AtualizartabelaFuncionario();
-            excluir();
-            
-     }       
-         
+            excluir();           
+     }               
          }   
     }//GEN-LAST:event_btn_excluirfuncActionPerformed
 
@@ -325,6 +323,8 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btn_alterarfuncActionPerformed
 
     private void btn_salvarfuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salvarfuncActionPerformed
+        
+        funcionario = new Funcionário();
         if(nomefunc.getText().isEmpty() ||  datanascfunc.getText().isEmpty() || cpffunc.getText().isEmpty() || cidadefunc.getText().isEmpty() ||
                 estadofunc.getText().isEmpty() || endfunc.getText().isEmpty() || bairrofunc.getText().isEmpty() || numfunc.getText().isEmpty() ||
                 complefunc.getText().isEmpty() || telfunc.getText().isEmpty() ||celfunc.getText().isEmpty() || 
@@ -333,8 +333,6 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
             nomefunc.requestFocusInWindow();
         } else if (idfunc.getText().isEmpty())
                 {
-                    funcionario = new Funcionário();
-                    // funcionario.setIdFuncionario(Integer.parseInt(idfunc.getText()));
                     funcionario.setNomeFunc(nomefunc.getText());
                     funcionario.setDatanascimento(datanascfunc.getText());
                     funcionario.setCpf(cpffunc.getText());
@@ -363,9 +361,8 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
             
         } 
         
-         else{
-            funcionario = new Funcionário();
-           // funcionario.setIdFuncionario(Integer.parseInt(idfunc.getText()));
+         else{     
+            funcionario.setIdFuncionario(Integer.parseInt(idfunc.getText()));
             funcionario.setNomeFunc(nomefunc.getText());
             funcionario.setDatanascimento(datanascfunc.getText());
             funcionario.setCpf(cpffunc.getText());
@@ -387,10 +384,9 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
                 Logger.getLogger(FuncionarioView.class.getName()).log(Level.SEVERE, null, ex);
             }
             JOptionPane.showMessageDialog(null, "Gravado com Sucesso!!");
-             AtualizartabelaFuncionario();
+            AtualizartabelaFuncionario();
             preparaSalvareCancelar();
-            campos_bloqueados();
-            
+            campos_bloqueados();        
         }    
     }//GEN-LAST:event_btn_salvarfuncActionPerformed
 
@@ -511,41 +507,41 @@ public void AtualizartabelaFuncionario()  {
  
         
        try {
-           if(idfunc.getText().isEmpty()){
-           listaFuncionarios = funcionarioDAO.ListaFuncionario(0);
-       }
-           else
-            {
+           //if(idfunc.getText().isEmpty()){
+           listaFuncionarios = funcionarioDAO.ListaFuncionario();
+       
+           //else
+            //{
       
-               listaFuncionarios = funcionarioDAO.ListaFuncionario(Integer.parseInt(idfunc.getText()));
-            }
+              // listaFuncionarios = funcionarioDAO.ListaFuncionario(Integer.parseInt(idfunc.getText()));
+            //}
        }   catch (SQLException ex) {
            Logger.getLogger(ProdutoView.class.getName()).log(Level.SEVERE, null, ex);
        }
        
        
-        String dados [][] = new String[listaFuncionarios.size()] [15];          
+        String dados [][] = new String[listaFuncionarios.size()] [4];          
         int i = 0;
         for (Funcionário funcionario : listaFuncionarios) {
         dados[i][0] = String.valueOf(funcionario.getIdFuncionario());
         dados[i][1] = funcionario.getNomeFunc();
-        dados[i][2] = funcionario.getEmail();
-        dados[i][3] = funcionario.getCpf();
-        dados[i][4] = String.valueOf(funcionario.getCelular());
-        dados[i][5] = funcionario.getUsuario();
-        dados[i][6] = funcionario.getSenha();
-        dados[i][7] = funcionario.getCidade();
-        dados[i][8] = funcionario.getEstado();
-        dados[i][9] = String.valueOf(funcionario.getTelefone());
-        dados[i][10] = funcionario.getDatanascimento(); 
-        dados[i][11] = funcionario.getEndereco();
-        dados[i][12] = funcionario.getBairro();
-        dados[i][13] = funcionario.getComplemento();
-        dados[i][14] = String.valueOf(funcionario.getNumero());
+        //dados[i][2] = funcionario.getEmail();
+        dados[i][2] = funcionario.getCpf();
+       // dados[i][4] = String.valueOf(funcionario.getCelular());
+        //dados[i][5] = funcionario.getUsuario();
+        //dados[i][6] = funcionario.getSenha();
+        //dados[i][7] = funcionario.getCidade();
+        //dados[i][8] = funcionario.getEstado();
+        dados[i][3] = String.valueOf(funcionario.getTelefone());
+        //dados[i][10] = funcionario.getDatanascimento(); 
+        //dados[i][11] = funcionario.getEndereco();
+        //dados[i][12] = funcionario.getBairro();
+        //dados[i][13] = funcionario.getComplemento();
+        //dados[i][14] = String.valueOf(funcionario.getNumero());
         i++;
         }
         
-        String tituloColuna[] = {"ID", "Nome", "Cpf", "Telefone"};
+        String tituloColuna[] = {"ID", "Nome", "CPF", "Telefone"};
          DefaultTableModel tabelaFuncionario = new DefaultTableModel();
         tabelaFuncionario.setDataVector(dados, tituloColuna);
         tbl_funcionario.setModel(new DefaultTableModel(dados, tituloColuna) {

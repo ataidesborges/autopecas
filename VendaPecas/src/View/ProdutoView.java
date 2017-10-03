@@ -228,7 +228,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
 
         jLabel11.setText("Marca");
         pnl_produto.add(jLabel11);
-        jLabel11.setBounds(410, 100, 29, 14);
+        jLabel11.setBounds(410, 100, 50, 14);
 
         forneprod.setEnabled(false);
         pnl_produto.add(forneprod);
@@ -270,19 +270,21 @@ public class ProdutoView extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnl_produto, javax.swing.GroupLayout.DEFAULT_SIZE, 665, Short.MAX_VALUE)
+            .addComponent(pnl_produto, javax.swing.GroupLayout.DEFAULT_SIZE, 683, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(pnl_produto, javax.swing.GroupLayout.PREFERRED_SIZE, 495, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 11, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_salvarprodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salvarprodActionPerformed
+        
+        produto = new Produto();
         if(nomeprod.getText().isEmpty() ||  quantprod.getText().isEmpty() || marcaprod.getText().isEmpty() || codprod.getText().isEmpty() || 
                 unidadeprod.getText().isEmpty() || valorcustoprod.getText().isEmpty() || valorvendaprod.getText().isEmpty() || 
                  dataprod.getText().isEmpty()){
@@ -290,7 +292,6 @@ public class ProdutoView extends javax.swing.JInternalFrame {
             nomeprod.requestFocusInWindow();
         } else if(idprod.getText().isEmpty())
                 {
-                    produto = new Produto();
                     produto.setNomeproduto(nomeprod.getText());
                     produto.setQuantidade(Integer.parseInt(quantprod.getText()));
                     produto.setNomeproduto(dataprod.getText());
@@ -313,8 +314,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
             limpar();
         }  
         
-        else{
-            produto = new Produto();
+        else{       produto.setIdProduto(Integer.parseInt(idprod.getText()));
                     produto.setNomeproduto(nomeprod.getText());
                     produto.setQuantidade(Integer.parseInt(quantprod.getText()));
                     produto.setNomeproduto(dataprod.getText());
@@ -358,10 +358,8 @@ public class ProdutoView extends javax.swing.JInternalFrame {
          
             limpar();
             AtualizartabelaProduto();
-            excluir();
-            
-     }       
-         
+            excluir();          
+     }           
          }   
     }//GEN-LAST:event_btn_excluirprodActionPerformed
 
@@ -457,36 +455,35 @@ public void Alterar(){
 
 
 public void AtualizartabelaProduto()  {
-   produto = new Produto();  
- 
-        
+   
+    produto = new Produto();  
        try {
-           if(idprod.getText().isEmpty()){
-           listaProdutos = produtoDAO.ListaProduto(0);
-       }
-           else
-            {
+           //if(idprod.getText().isEmpty()){
+           listaProdutos = produtoDAO.ListaProduto();
+       //}
+       //    else
+         //   {
       
-               listaProdutos = produtoDAO.ListaProduto(Integer.parseInt(idprod.getText()));
-            }
+               //listaProdutos = produtoDAO.ListaProduto(Integer.parseInt(idprod.getText()));
+           // }
        }   catch (SQLException ex) {
            Logger.getLogger(ProdutoView.class.getName()).log(Level.SEVERE, null, ex);
        }
        
        
-        String dados [][] = new String[listaProdutos.size()] [10];          
+        String dados [][] = new String[listaProdutos.size()] [4];          
         int i = 0;
         for (Produto produto : listaProdutos) {
         dados[i][0] = String.valueOf(produto.getIdProduto());
         dados[i][1] = produto.getNomeproduto();
         dados[i][2] = produto.getMarca();
-        dados[i][3] = produto.getCodigobarras();
-        dados[i][4] = String.valueOf(produto.getQuantidade());
-        dados[i][5] = produto.getUnidade();
-        dados[i][6] = String.valueOf(produto.getValorcusto());
-        dados[i][7] = String.valueOf(produto.getValorvenda());
-        dados[i][8] = produto.getData();
-        dados[i][9] = produto.getForneprod();
+        //dados[i][3] = produto.getCodigobarras();
+        dados[i][3] = String.valueOf(produto.getQuantidade());
+        //dados[i][5] = produto.getUnidade();
+        //dados[i][6] = String.valueOf(produto.getValorcusto());
+        //dados[i][7] = String.valueOf(produto.getValorvenda());
+        //dados[i][8] = produto.getData();
+        //dados[i][9] = produto.getForneprod();
         i++;
         }
         

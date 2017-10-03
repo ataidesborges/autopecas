@@ -195,6 +195,7 @@ public class ClienteView extends javax.swing.JInternalFrame {
 
         btn_salvarcliente.setBackground(new java.awt.Color(102, 102, 102));
         btn_salvarcliente.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btn_salvarcliente.setForeground(new java.awt.Color(255, 255, 255));
         btn_salvarcliente.setText("Salvar");
         btn_salvarcliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -206,6 +207,7 @@ public class ClienteView extends javax.swing.JInternalFrame {
 
         btn_alterarcliente.setBackground(new java.awt.Color(102, 102, 102));
         btn_alterarcliente.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btn_alterarcliente.setForeground(new java.awt.Color(255, 255, 255));
         btn_alterarcliente.setText("Alterar");
         btn_alterarcliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -217,6 +219,7 @@ public class ClienteView extends javax.swing.JInternalFrame {
 
         btn_excluircliente.setBackground(new java.awt.Color(102, 102, 102));
         btn_excluircliente.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btn_excluircliente.setForeground(new java.awt.Color(255, 255, 255));
         btn_excluircliente.setText("Excluir");
         btn_excluircliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -228,6 +231,7 @@ public class ClienteView extends javax.swing.JInternalFrame {
 
         btn_novocliente.setBackground(new java.awt.Color(102, 102, 102));
         btn_novocliente.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btn_novocliente.setForeground(new java.awt.Color(255, 255, 255));
         btn_novocliente.setText("Novo");
         btn_novocliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -241,6 +245,7 @@ public class ClienteView extends javax.swing.JInternalFrame {
 
         btn_cancelarcliente.setBackground(new java.awt.Color(102, 102, 102));
         btn_cancelarcliente.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btn_cancelarcliente.setForeground(new java.awt.Color(255, 255, 255));
         btn_cancelarcliente.setText("Cancelar");
         btn_cancelarcliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

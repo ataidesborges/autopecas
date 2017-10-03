@@ -63,12 +63,12 @@ public class ProdutoDAO {
 
     }
     
-     public Produto recuperaProduto(int id) throws SQLException{
+     public Produto recuperaProduto(int id_produto) throws SQLException{
         
         Produto pro = new Produto();
         sql = "select * from produto where id_produto=?";
         pst = Conexao.getInstance().prepareStatement(sql);
-        pst.setInt(1, id);
+        pst.setInt(1, id_produto);
         ResultSet rs = pst.executeQuery();
         
         while(rs.next()){
@@ -81,25 +81,23 @@ public class ProdutoDAO {
             pro.setValorcusto(rs.getDouble("valorcusto"));
             pro.setValorvenda(rs.getDouble("valorvenda"));
             pro.setData(rs.getString("data"));
-            pro.setForneprod(rs.getString("forneprod"));  
-            
-       
+            pro.setForneprod(rs.getString("forneprod"));     
         }
         pst.close();
         return pro;
     }       
    
     
-     public List<Produto> ListaProduto(int idProduto) throws SQLException{
+     public List<Produto> ListaProduto() throws SQLException{
     List<Produto> listaProdutos;
     listaProdutos = new ArrayList<>();
-    sql = "select * from produto order by nome";
+    sql = "select id_produto, nome_produto,marca,quantidade from produto";
     pst = Conexao.getInstance().prepareStatement(sql);
-    pst.setInt(1, idProduto);
+   // pst.setInt(1, idProduto);
     ResultSet rs = pst.executeQuery();
     
     while(rs.next()) {
-        listaProdutos.add(new Produto(rs.getInt("idProduto"), rs.getString("nomeproduto"),
+        listaProdutos.add(new Produto(rs.getInt("id_produto"), rs.getString("nome_produto"),
                                        rs.getString("marca"), rs.getInt("quantidade")));                               
     }
     pst.close();

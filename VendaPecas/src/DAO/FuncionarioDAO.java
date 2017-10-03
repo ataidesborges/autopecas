@@ -76,11 +76,11 @@ public class FuncionarioDAO {
 
     }
 
-    public Funcionário recuperaFuncionario(int id) throws SQLException {
+    public Funcionário recuperaFuncionario(int id_funcionario) throws SQLException {
         Funcionário func = new Funcionário();
         sql = "select * from funcionario where id_funcionario=?";
         pst = Conexao.getInstance().prepareStatement(sql);
-        pst.setInt(1, id);
+        pst.setInt(1, id_funcionario);
         ResultSet rs = pst.executeQuery();
         while (rs.next()) {
             func.setIdFuncionario(rs.getInt("id_funcionario"));
@@ -103,16 +103,16 @@ public class FuncionarioDAO {
         return func;
     }
 
-    public List<Funcionário> ListaFuncionario(int id_funcionario) throws SQLException {
+    public List<Funcionário> ListaFuncionario() throws SQLException {
         List<Funcionário> listaFuncionarios;
         listaFuncionarios = new ArrayList<>();
-        sql = "select * from funcionario order by nome";
+        sql = "select id_funcionario, nome_func,cpf,telefone from funcionario";
         pst = Conexao.getInstance().prepareStatement(sql);
-        pst.setInt(1, id_funcionario);
+        //pst.setInt(1, id_funcionario);
         ResultSet rs = pst.executeQuery();
 
         while (rs.next()) {
-            listaFuncionarios.add(new Funcionário(rs.getInt("idFuncionario"), rs.getString("nomeFunc"),
+            listaFuncionarios.add(new Funcionário(rs.getInt("id_funcionario"), rs.getString("nome_func"),
                     rs.getString("cpf"), rs.getInt("telefone")));
         }
         pst.close();
