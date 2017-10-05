@@ -34,9 +34,7 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
         listaFuncionarios = new ArrayList<>();
         initComponents();
         this.setVisible(true);
-        btn_salvarfunc.setEnabled(false);
-        btn_alterarfunc.setEnabled(false);
-        btn_excluirfunc.setEnabled(false);
+        
         idfunc.setEnabled(false);
         campos_bloqueados();
          AtualizartabelaFuncionario();
@@ -115,42 +113,55 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
         jLabel3.setText("Nome");
         pnl_funcionario.add(jLabel3);
         jLabel3.setBounds(100, 60, 40, 14);
+
+        nomefunc.setEnabled(false);
         pnl_funcionario.add(nomefunc);
         nomefunc.setBounds(100, 80, 300, 20);
 
         jLabel4.setText("CPF");
         pnl_funcionario.add(jLabel4);
         jLabel4.setBounds(10, 110, 50, 14);
+
+        cpffunc.setEnabled(false);
         pnl_funcionario.add(cpffunc);
         cpffunc.setBounds(10, 130, 140, 20);
 
         jLabel5.setText("Celular");
         pnl_funcionario.add(jLabel5);
         jLabel5.setBounds(130, 210, 50, 14);
+
+        celfunc.setEnabled(false);
         pnl_funcionario.add(celfunc);
         celfunc.setBounds(130, 230, 110, 20);
 
         jLabel6.setText("Email");
         pnl_funcionario.add(jLabel6);
         jLabel6.setBounds(250, 210, 50, 14);
+
+        emailfunc.setEnabled(false);
         pnl_funcionario.add(emailfunc);
         emailfunc.setBounds(250, 230, 310, 20);
 
         jLabel7.setText("Login (Nick)");
         pnl_funcionario.add(jLabel7);
         jLabel7.setBounds(10, 320, 80, 14);
+
+        loginfunc.setEnabled(false);
         pnl_funcionario.add(loginfunc);
         loginfunc.setBounds(10, 340, 160, 20);
 
         jLabel8.setText("Senha");
         pnl_funcionario.add(jLabel8);
         jLabel8.setBounds(180, 320, 60, 14);
+
+        senhafunc.setEnabled(false);
         pnl_funcionario.add(senhafunc);
         senhafunc.setBounds(180, 340, 140, 20);
 
         btn_novofunc.setBackground(new java.awt.Color(153, 153, 153));
         btn_novofunc.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btn_novofunc.setForeground(new java.awt.Color(255, 255, 255));
+        btn_novofunc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/novo.png"))); // NOI18N
         btn_novofunc.setText("Novo");
         btn_novofunc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -158,101 +169,125 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
             }
         });
         pnl_funcionario.add(btn_novofunc);
-        btn_novofunc.setBounds(70, 390, 90, 30);
+        btn_novofunc.setBounds(30, 390, 110, 30);
 
         btn_salvarfunc.setBackground(new java.awt.Color(153, 153, 153));
         btn_salvarfunc.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btn_salvarfunc.setForeground(new java.awt.Color(255, 255, 255));
+        btn_salvarfunc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/salvar.png"))); // NOI18N
         btn_salvarfunc.setText("Salvar");
+        btn_salvarfunc.setEnabled(false);
         btn_salvarfunc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_salvarfuncActionPerformed(evt);
             }
         });
         pnl_funcionario.add(btn_salvarfunc);
-        btn_salvarfunc.setBounds(180, 390, 90, 30);
+        btn_salvarfunc.setBounds(150, 390, 110, 30);
 
         btn_alterarfunc.setBackground(new java.awt.Color(153, 153, 153));
         btn_alterarfunc.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btn_alterarfunc.setForeground(new java.awt.Color(255, 255, 255));
+        btn_alterarfunc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/alterar.png"))); // NOI18N
         btn_alterarfunc.setText("Alterar");
+        btn_alterarfunc.setEnabled(false);
         btn_alterarfunc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_alterarfuncActionPerformed(evt);
             }
         });
         pnl_funcionario.add(btn_alterarfunc);
-        btn_alterarfunc.setBounds(290, 390, 90, 30);
+        btn_alterarfunc.setBounds(270, 390, 110, 30);
 
         btn_excluirfunc.setBackground(new java.awt.Color(153, 153, 153));
         btn_excluirfunc.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btn_excluirfunc.setForeground(new java.awt.Color(255, 255, 255));
+        btn_excluirfunc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/excluir.png"))); // NOI18N
         btn_excluirfunc.setText("Excluir");
+        btn_excluirfunc.setEnabled(false);
         btn_excluirfunc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_excluirfuncActionPerformed(evt);
             }
         });
         pnl_funcionario.add(btn_excluirfunc);
-        btn_excluirfunc.setBounds(510, 390, 90, 30);
+        btn_excluirfunc.setBounds(507, 390, 110, 30);
 
         btn_cancelarfunc.setBackground(new java.awt.Color(153, 153, 153));
         btn_cancelarfunc.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btn_cancelarfunc.setForeground(new java.awt.Color(255, 255, 255));
+        btn_cancelarfunc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/cancelar.png"))); // NOI18N
         btn_cancelarfunc.setText("Cancelar");
+        btn_cancelarfunc.setEnabled(false);
         btn_cancelarfunc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_cancelarfuncActionPerformed(evt);
             }
         });
         pnl_funcionario.add(btn_cancelarfunc);
-        btn_cancelarfunc.setBounds(400, 390, 90, 30);
+        btn_cancelarfunc.setBounds(390, 390, 110, 30);
 
         jLabel9.setText("Data de Nascimento");
         pnl_funcionario.add(jLabel9);
         jLabel9.setBounds(410, 60, 130, 14);
+
+        datanascfunc.setEnabled(false);
         pnl_funcionario.add(datanascfunc);
         datanascfunc.setBounds(410, 80, 140, 20);
 
         jLabel10.setText("Cidade");
         pnl_funcionario.add(jLabel10);
         jLabel10.setBounds(160, 110, 50, 14);
+
+        cidadefunc.setEnabled(false);
         pnl_funcionario.add(cidadefunc);
         cidadefunc.setBounds(160, 130, 240, 20);
 
         jLabel11.setText("Estado");
         pnl_funcionario.add(jLabel11);
         jLabel11.setBounds(410, 110, 60, 14);
+
+        estadofunc.setEnabled(false);
         pnl_funcionario.add(estadofunc);
         estadofunc.setBounds(410, 130, 140, 20);
 
         jLabel12.setText("Endereço");
         pnl_funcionario.add(jLabel12);
         jLabel12.setBounds(10, 160, 60, 14);
+
+        endfunc.setEnabled(false);
         pnl_funcionario.add(endfunc);
         endfunc.setBounds(10, 180, 210, 20);
 
         jLabel13.setText("Bairro");
         pnl_funcionario.add(jLabel13);
         jLabel13.setBounds(230, 160, 40, 14);
+
+        bairrofunc.setEnabled(false);
         pnl_funcionario.add(bairrofunc);
         bairrofunc.setBounds(230, 180, 170, 20);
 
         jLabel14.setText("Número");
         pnl_funcionario.add(jLabel14);
         jLabel14.setBounds(410, 160, 60, 14);
+
+        numfunc.setEnabled(false);
         pnl_funcionario.add(numfunc);
         numfunc.setBounds(410, 180, 60, 20);
 
         jLabel15.setText("Complemento");
         pnl_funcionario.add(jLabel15);
         jLabel15.setBounds(480, 160, 80, 14);
+
+        complefunc.setEnabled(false);
         pnl_funcionario.add(complefunc);
         complefunc.setBounds(480, 180, 80, 20);
 
         jLabel16.setText("Telefone");
         pnl_funcionario.add(jLabel16);
         jLabel16.setBounds(10, 210, 60, 14);
+
+        telfunc.setEnabled(false);
         pnl_funcionario.add(telfunc);
         telfunc.setBounds(10, 230, 110, 20);
 

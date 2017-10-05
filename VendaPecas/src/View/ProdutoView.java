@@ -35,9 +35,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
         listaProdutos = new ArrayList<>();
         initComponents();
         this.setVisible(true);
-        btn_salvarprod.setEnabled(false);
-        btn_alterarprod.setEnabled(false);
-        btn_excluirprod.setEnabled(false);
+       
         idprod.setEnabled(false);
         campos_bloqueados();
         AtualizartabelaProduto();
@@ -174,41 +172,52 @@ public class ProdutoView extends javax.swing.JInternalFrame {
         pnl_produto.add(dataprod);
         dataprod.setBounds(430, 70, 100, 20);
 
-        btn_salvarprod.setBackground(new java.awt.Color(102, 102, 102));
+        btn_salvarprod.setBackground(new java.awt.Color(153, 153, 153));
         btn_salvarprod.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btn_salvarprod.setForeground(new java.awt.Color(255, 255, 255));
+        btn_salvarprod.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/salvar.png"))); // NOI18N
         btn_salvarprod.setText("Salvar");
+        btn_salvarprod.setEnabled(false);
         btn_salvarprod.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_salvarprodActionPerformed(evt);
             }
         });
         pnl_produto.add(btn_salvarprod);
-        btn_salvarprod.setBounds(160, 230, 90, 30);
+        btn_salvarprod.setBounds(150, 230, 110, 30);
 
-        btn_alterarprod.setBackground(new java.awt.Color(102, 102, 102));
+        btn_alterarprod.setBackground(new java.awt.Color(153, 153, 153));
         btn_alterarprod.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btn_alterarprod.setForeground(new java.awt.Color(255, 255, 255));
+        btn_alterarprod.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/alterar.png"))); // NOI18N
         btn_alterarprod.setText("Alterar");
+        btn_alterarprod.setEnabled(false);
         btn_alterarprod.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_alterarprodActionPerformed(evt);
             }
         });
         pnl_produto.add(btn_alterarprod);
-        btn_alterarprod.setBounds(270, 230, 90, 30);
+        btn_alterarprod.setBounds(270, 230, 110, 30);
 
-        btn_excluirprod.setBackground(new java.awt.Color(102, 102, 102));
+        btn_excluirprod.setBackground(new java.awt.Color(153, 153, 153));
         btn_excluirprod.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btn_excluirprod.setForeground(new java.awt.Color(255, 255, 255));
+        btn_excluirprod.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/excluir.png"))); // NOI18N
         btn_excluirprod.setText("Excluir");
+        btn_excluirprod.setEnabled(false);
         btn_excluirprod.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_excluirprodActionPerformed(evt);
             }
         });
         pnl_produto.add(btn_excluirprod);
-        btn_excluirprod.setBounds(490, 230, 90, 30);
+        btn_excluirprod.setBounds(510, 230, 110, 30);
 
-        btn_novoprod.setBackground(new java.awt.Color(102, 102, 102));
+        btn_novoprod.setBackground(new java.awt.Color(153, 153, 153));
         btn_novoprod.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btn_novoprod.setForeground(new java.awt.Color(255, 255, 255));
+        btn_novoprod.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/novo.png"))); // NOI18N
         btn_novoprod.setText("Novo");
         btn_novoprod.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -216,7 +225,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
             }
         });
         pnl_produto.add(btn_novoprod);
-        btn_novoprod.setBounds(50, 230, 90, 30);
+        btn_novoprod.setBounds(30, 230, 110, 30);
 
         jLabel10.setText("Fornecedor");
         pnl_produto.add(jLabel10);
@@ -234,16 +243,19 @@ public class ProdutoView extends javax.swing.JInternalFrame {
         pnl_produto.add(forneprod);
         forneprod.setBounds(280, 120, 120, 20);
 
-        btn_cancelarprod.setBackground(new java.awt.Color(102, 102, 102));
+        btn_cancelarprod.setBackground(new java.awt.Color(153, 153, 153));
         btn_cancelarprod.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btn_cancelarprod.setForeground(new java.awt.Color(255, 255, 255));
+        btn_cancelarprod.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/cancelar.png"))); // NOI18N
         btn_cancelarprod.setText("Cancelar");
+        btn_cancelarprod.setEnabled(false);
         btn_cancelarprod.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_cancelarprodActionPerformed(evt);
             }
         });
         pnl_produto.add(btn_cancelarprod);
-        btn_cancelarprod.setBounds(380, 230, 90, 30);
+        btn_cancelarprod.setBounds(390, 230, 110, 30);
 
         tblproduto.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -270,13 +282,11 @@ public class ProdutoView extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnl_produto, javax.swing.GroupLayout.DEFAULT_SIZE, 683, Short.MAX_VALUE)
+            .addComponent(pnl_produto, javax.swing.GroupLayout.DEFAULT_SIZE, 681, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(pnl_produto, javax.swing.GroupLayout.PREFERRED_SIZE, 495, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(pnl_produto, javax.swing.GroupLayout.DEFAULT_SIZE, 464, Short.MAX_VALUE)
         );
 
         pack();
