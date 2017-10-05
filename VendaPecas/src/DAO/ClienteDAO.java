@@ -110,7 +110,7 @@ public class ClienteDAO {
     public List<Cliente> ListaCliente() throws SQLException{
     List<Cliente> listaClientes;
     listaClientes = new ArrayList<>(); 
-    sql = "select id_cliente, nome_cliente,cpf,telefone from cliente";
+    sql = "select id_cliente, nome_cliente,cpf,telefone, celular from cliente";
     pst = Conexao.getInstance().prepareStatement(sql);
     //pst.setInt(1, idCliente);
     ResultSet rs = pst.executeQuery();

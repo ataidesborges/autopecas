@@ -34,6 +34,7 @@ public class Cliente {
         this.nomeCliente = nomeCliente;
         this.cpf = cpf;
         this.telefone = telefone;
+       
     }
 
     

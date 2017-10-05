@@ -35,9 +35,6 @@ public class ProdutoView extends javax.swing.JInternalFrame {
         listaProdutos = new ArrayList<>();
         initComponents();
         this.setVisible(true);
-       
-        idprod.setEnabled(false);
-        campos_bloqueados();
         AtualizartabelaProduto();
     }
 
@@ -95,7 +92,6 @@ public class ProdutoView extends javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        setBorder(null);
         setClosable(true);
         setPreferredSize(new java.awt.Dimension(658, 422));
 
@@ -276,17 +272,17 @@ public class ProdutoView extends javax.swing.JInternalFrame {
         jScrollPane2.setViewportView(tblproduto);
 
         pnl_produto.add(jScrollPane2);
-        jScrollPane2.setBounds(10, 320, 650, 110);
+        jScrollPane2.setBounds(10, 280, 670, 110);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnl_produto, javax.swing.GroupLayout.DEFAULT_SIZE, 681, Short.MAX_VALUE)
+            .addComponent(pnl_produto, javax.swing.GroupLayout.DEFAULT_SIZE, 691, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnl_produto, javax.swing.GroupLayout.DEFAULT_SIZE, 464, Short.MAX_VALUE)
+            .addComponent(pnl_produto, javax.swing.GroupLayout.PREFERRED_SIZE, 432, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -354,11 +350,11 @@ public class ProdutoView extends javax.swing.JInternalFrame {
 
     private void btn_excluirprodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_excluirprodActionPerformed
          if (idprod.getText().isEmpty()) {
-         JOptionPane.showMessageDialog(null, "Selecione um Produto!!");
+         JOptionPane.showMessageDialog(null, "Selecione um produto!!");
      }  else {
         produto = new Produto();
         produto.setIdProduto(Integer.parseInt(idprod.getText()));
-        int confirma = JOptionPane.showConfirmDialog(null,"Deseja excluir :" + nomeprod.getText());
+        int confirma = JOptionPane.showConfirmDialog(null,"Deseja excluir?: " + nomeprod.getText());
             if(confirma == 0){
         try{
             produtoDAO.excluir(produto);  

@@ -5,9 +5,6 @@
     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
       <Color blue="cc" green="cc" red="cc" type="rgb"/>
     </Property>
-    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-      <Border info="null"/>
-    </Property>
     <Property name="closable" type="boolean" value="true"/>
   </Properties>
   <SyntheticProperties>
@@ -28,12 +25,12 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="pnl_funcionario" alignment="0" pref="709" max="32767" attributes="0"/>
+          <Component id="pnl_funcionario" alignment="0" pref="693" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="pnl_funcionario" alignment="0" pref="609" max="32767" attributes="0"/>
+          <Component id="pnl_funcionario" alignment="0" pref="598" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -512,7 +509,7 @@
           </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="10" y="450" width="680" height="150"/>
+              <AbsoluteConstraints x="10" y="450" width="680" height="110"/>
             </Constraint>
           </Constraints>
 
@@ -529,7 +526,7 @@
                   </Table>
                 </Property>
                 <Property name="selectionBackground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="0" green="0" red="0" type="rgb"/>
+                  <Color blue="ff" green="cc" red="99" type="rgb"/>
                 </Property>
               </Properties>
               <Events>

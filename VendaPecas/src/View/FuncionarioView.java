@@ -34,9 +34,6 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
         listaFuncionarios = new ArrayList<>();
         initComponents();
         this.setVisible(true);
-        
-        idfunc.setEnabled(false);
-        campos_bloqueados();
          AtualizartabelaFuncionario();
     }
 
@@ -91,7 +88,6 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
         tbl_funcionario = new javax.swing.JTable();
 
         setBackground(new java.awt.Color(204, 204, 204));
-        setBorder(null);
         setClosable(true);
 
         pnl_funcionario.setBackground(new java.awt.Color(204, 204, 204));
@@ -307,7 +303,7 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        tbl_funcionario.setSelectionBackground(new java.awt.Color(0, 0, 0));
+        tbl_funcionario.setSelectionBackground(new java.awt.Color(153, 204, 255));
         tbl_funcionario.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tbl_funcionarioMouseClicked(evt);
@@ -316,17 +312,17 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
         jScrollPane1.setViewportView(tbl_funcionario);
 
         pnl_funcionario.add(jScrollPane1);
-        jScrollPane1.setBounds(10, 450, 680, 150);
+        jScrollPane1.setBounds(10, 450, 680, 110);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnl_funcionario, javax.swing.GroupLayout.DEFAULT_SIZE, 709, Short.MAX_VALUE)
+            .addComponent(pnl_funcionario, javax.swing.GroupLayout.DEFAULT_SIZE, 693, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnl_funcionario, javax.swing.GroupLayout.DEFAULT_SIZE, 609, Short.MAX_VALUE)
+            .addComponent(pnl_funcionario, javax.swing.GroupLayout.DEFAULT_SIZE, 598, Short.MAX_VALUE)
         );
 
         pack();
@@ -334,11 +330,11 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
 
     private void btn_excluirfuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_excluirfuncActionPerformed
          if (idfunc.getText().isEmpty()) {
-         JOptionPane.showMessageDialog(null, "Selecione um Funcionário!!");
+         JOptionPane.showMessageDialog(null, "Selecione um funcionário!!");
      }  else {
          funcionario = new Funcionário();
          funcionario.setIdFuncionario(Integer.parseInt(idfunc.getText()));
-          int confirma = JOptionPane.showConfirmDialog(null,"Deseja excluir :" + nomefunc.getText());
+          int confirma = JOptionPane.showConfirmDialog(null,"Deseja excluir?: " + nomefunc.getText());
           if(confirma == 0){
          try{
                funcionarioDAO.excluir(funcionario);  
@@ -443,9 +439,10 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
     private void tbl_funcionarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_funcionarioMouseClicked
         idfunc.setText(tbl_funcionario.getValueAt(tbl_funcionario.getSelectedRow(), 0).toString());
         nomefunc.setText(tbl_funcionario.getValueAt(tbl_funcionario.getSelectedRow(), 1).toString());
-        datanascfunc.setText(tbl_funcionario.getValueAt(tbl_funcionario.getSelectedRow(), 2).toString());
-        cpffunc.setText(tbl_funcionario.getValueAt(tbl_funcionario.getSelectedRow(), 3).toString());
-        cidadefunc.setText(tbl_funcionario.getValueAt(tbl_funcionario.getSelectedRow(), 4).toString());
+        //datanascfunc.setText(tbl_funcionario.getValueAt(tbl_funcionario.getSelectedRow(), 2).toString());
+        cpffunc.setText(tbl_funcionario.getValueAt(tbl_funcionario.getSelectedRow(), 2).toString());
+        telfunc.setText(tbl_funcionario.getValueAt(tbl_funcionario.getSelectedRow(), 3).toString());
+        /*cidadefunc.setText(tbl_funcionario.getValueAt(tbl_funcionario.getSelectedRow(), 4).toString());
         estadofunc.setText(tbl_funcionario.getValueAt(tbl_funcionario.getSelectedRow(), 5).toString());
         endfunc.setText(tbl_funcionario.getValueAt(tbl_funcionario.getSelectedRow(), 6).toString());
         bairrofunc.setText(tbl_funcionario.getValueAt(tbl_funcionario.getSelectedRow(), 7).toString());
@@ -455,7 +452,7 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
         celfunc.setText(tbl_funcionario.getValueAt(tbl_funcionario.getSelectedRow(), 11).toString());
         emailfunc.setText(tbl_funcionario.getValueAt(tbl_funcionario.getSelectedRow(), 12).toString());
         loginfunc.setText(tbl_funcionario.getValueAt(tbl_funcionario.getSelectedRow(), 13).toString());
-        senhafunc.setText(tbl_funcionario.getValueAt(tbl_funcionario.getSelectedRow(), 14).toString());
+        senhafunc.setText(tbl_funcionario.getValueAt(tbl_funcionario.getSelectedRow(), 14).toString());*/
 
         Preparaselecaotabela();
     }//GEN-LAST:event_tbl_funcionarioMouseClicked

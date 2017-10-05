@@ -36,9 +36,6 @@ public class ClienteView extends javax.swing.JInternalFrame {
         listaClientes = new ArrayList<>();
         initComponents();
         this.setVisible(true);
-        
-        //idcliente.setEnabled(false);
-        campos_bloqueados();
         AtualizartabelaCliente();
     }
 
@@ -334,7 +331,7 @@ public class ClienteView extends javax.swing.JInternalFrame {
        }else {
            cliente = new Cliente();
            cliente.setIdCliente(Integer.parseInt(idcliente.getText()));
-           int confirma = JOptionPane.showConfirmDialog(null,"Deseja Excluir : " + nomecliente.getText());
+           int confirma = JOptionPane.showConfirmDialog(null,"Deseja excluir?: " + nomecliente.getText());
            if (confirma == 0){
                try {
                    clienteDAO.excluir(cliente);
@@ -430,9 +427,10 @@ public class ClienteView extends javax.swing.JInternalFrame {
     private void tbl_clienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_clienteMouseClicked
         idcliente.setText(tbl_cliente.getValueAt(tbl_cliente.getSelectedRow(), 0).toString());
         nomecliente.setText(tbl_cliente.getValueAt(tbl_cliente.getSelectedRow(), 1).toString());
-        datacliente.setText(tbl_cliente.getValueAt(tbl_cliente.getSelectedRow(), 2).toString());
-        cpfcliente.setText(tbl_cliente.getValueAt(tbl_cliente.getSelectedRow(), 3).toString());
-        rgcliente.setText(tbl_cliente.getValueAt(tbl_cliente.getSelectedRow(), 4).toString());
+        //datacliente.setText(tbl_cliente.getValueAt(tbl_cliente.getSelectedRow(), 2).toString());
+        cpfcliente.setText(tbl_cliente.getValueAt(tbl_cliente.getSelectedRow(), 2).toString());
+        fixocliente.setText(tbl_cliente.getValueAt(tbl_cliente.getSelectedRow(), 3).toString());
+        /*rgcliente.setText(tbl_cliente.getValueAt(tbl_cliente.getSelectedRow(), 4).toString());
         cidadecliente.setText(tbl_cliente.getValueAt(tbl_cliente.getSelectedRow(), 5).toString());
         estadocliente.setText(tbl_cliente.getValueAt(tbl_cliente.getSelectedRow(), 6).toString());
         endcliente.setText(tbl_cliente.getValueAt(tbl_cliente.getSelectedRow(), 7).toString());
@@ -442,7 +440,7 @@ public class ClienteView extends javax.swing.JInternalFrame {
         fixocliente.setText(tbl_cliente.getValueAt(tbl_cliente.getSelectedRow(), 11).toString());
         comercialcliente.setText(tbl_cliente.getValueAt(tbl_cliente.getSelectedRow(), 12).toString());
         celcliente.setText(tbl_cliente.getValueAt(tbl_cliente.getSelectedRow(), 13).toString());
-        emailcliente.setText(tbl_cliente.getValueAt(tbl_cliente.getSelectedRow(), 14).toString());
+        emailcliente.setText(tbl_cliente.getValueAt(tbl_cliente.getSelectedRow(), 14).toString());*/
         Preparaselecaotabela();
     }//GEN-LAST:event_tbl_clienteMouseClicked
 
@@ -474,11 +472,19 @@ public class ClienteView extends javax.swing.JInternalFrame {
         for (Cliente cliente : listaClientes) {
         dados[i][0] = String.valueOf(cliente.getIdCliente());
         dados[i][1] = cliente.getNomeCliente();
-       
+        //dados[i][2] = cliente.getDataNascimento();
         dados[i][2] = cliente.getCpf();
-        
         dados[i][3] = String.valueOf(cliente.getTelefone());
-        
+        /*dados[i][4] = cliente.getRg();
+        dados[i][5] = cliente.getCidade();
+        dados[i][6] = cliente.getEstado();
+        dados[i][7] = cliente.getEndereco();
+        dados[i][8] = cliente.getBairro();
+        dados[i][9] = String.valueOf(cliente.getNumero());
+        dados[i][10] = String.valueOf(cliente.getTelefone());
+        dados[i][11] = String.valueOf(cliente.getTelefoneComercial());
+        dados[i][12] = String.valueOf(cliente.getCelular());
+        dados[i][13] = cliente.getEmail();*/
         i++;
         }
         String tituloColuna[] = {"ID", "Nome", "CPF", "Telefone"};
@@ -486,7 +492,7 @@ public class ClienteView extends javax.swing.JInternalFrame {
         tabelaCliente.setDataVector(dados, tituloColuna);
         tbl_cliente.setModel(new DefaultTableModel(dados, tituloColuna) {
         boolean[] canEdit = new boolean[]{
-         false, false, false, false
+         false, false, false, false, false
         };
         public boolean isCellEditable(int rowIndex, int columnIndex) {
         return canEdit[columnIndex];
@@ -495,8 +501,8 @@ public class ClienteView extends javax.swing.JInternalFrame {
         tbl_cliente.getColumnModel().getColumn(0).setPreferredWidth(100);
         tbl_cliente.getColumnModel().getColumn(1).setPreferredWidth(300);
         tbl_cliente.getColumnModel().getColumn(2).setPreferredWidth(150);
-        tbl_cliente.getColumnModel().getColumn(3).setPreferredWidth(200);
-
+        tbl_cliente.getColumnModel().getColumn(3).setPreferredWidth(200); 
+        
         DefaultTableCellRenderer centralizado = new DefaultTableCellRenderer();
         centralizado.setHorizontalAlignment(SwingConstants.CENTER);
         tbl_cliente.getColumnModel().getColumn(0).setCellRenderer(centralizado);
