@@ -509,7 +509,8 @@ public class ClienteView extends javax.swing.JInternalFrame {
           btn_salvarcliente.setEnabled(true);
           btn_alterarcliente.setEnabled(false);
           btn_excluircliente.setEnabled(false);
-          
+          tbl_cliente.setEnabled(false);
+          tbl_cliente.clearSelection();
       }
       
     public void limpar(){
@@ -570,6 +571,7 @@ public void preparaSalvareCancelar(){
     btn_novocliente.setEnabled(true);
     btn_salvarcliente.setEnabled(true);
     btn_cancelarcliente.setEnabled(false); 
+    tbl_cliente.setEnabled(true);
 }
 
 public void Alterar(){
@@ -577,7 +579,9 @@ public void Alterar(){
    btn_excluircliente.setEnabled(false);
    btn_alterarcliente.setEnabled(false);
    btn_salvarcliente.setEnabled(true);
-   btn_cancelarcliente.setEnabled(true);   
+   btn_cancelarcliente.setEnabled(true); 
+   tbl_cliente.setEnabled(false);
+   tbl_cliente.clearSelection();
 }
 
 public void Preparaselecaotabela(){

@@ -307,6 +307,7 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tbl_funcionario.setSelectionBackground(new java.awt.Color(0, 0, 0));
         tbl_funcionario.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tbl_funcionarioMouseClicked(evt);
@@ -315,17 +316,17 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
         jScrollPane1.setViewportView(tbl_funcionario);
 
         pnl_funcionario.add(jScrollPane1);
-        jScrollPane1.setBounds(10, 450, 680, 110);
+        jScrollPane1.setBounds(10, 450, 680, 150);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnl_funcionario, javax.swing.GroupLayout.DEFAULT_SIZE, 695, Short.MAX_VALUE)
+            .addComponent(pnl_funcionario, javax.swing.GroupLayout.DEFAULT_SIZE, 709, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnl_funcionario, javax.swing.GroupLayout.DEFAULT_SIZE, 586, Short.MAX_VALUE)
+            .addComponent(pnl_funcionario, javax.swing.GroupLayout.DEFAULT_SIZE, 609, Short.MAX_VALUE)
         );
 
         pack();
@@ -455,7 +456,7 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
         emailfunc.setText(tbl_funcionario.getValueAt(tbl_funcionario.getSelectedRow(), 12).toString());
         loginfunc.setText(tbl_funcionario.getValueAt(tbl_funcionario.getSelectedRow(), 13).toString());
         senhafunc.setText(tbl_funcionario.getValueAt(tbl_funcionario.getSelectedRow(), 14).toString());
-        
+
         Preparaselecaotabela();
     }//GEN-LAST:event_tbl_funcionarioMouseClicked
 
@@ -464,6 +465,8 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
         btn_salvarfunc.setEnabled(true);
         btn_alterarfunc.setEnabled(false);
         btn_cancelarfunc.setEnabled(true);
+        tbl_funcionario.setEnabled(false);
+        tbl_funcionario.clearSelection();
     }
           
     public void limpar(){
@@ -527,6 +530,7 @@ public void preparaSalvareCancelar(){
     btn_novofunc.setEnabled(true);
     btn_salvarfunc.setEnabled(true);
     btn_cancelarfunc.setEnabled(false); 
+    tbl_funcionario.setEnabled(true);
 }
 
 public void Alterar(){
@@ -534,7 +538,9 @@ public void Alterar(){
    btn_excluirfunc.setEnabled(false);
    btn_alterarfunc.setEnabled(false);
    btn_salvarfunc.setEnabled(true);
-   btn_cancelarfunc.setEnabled(true);   
+   btn_cancelarfunc.setEnabled(true); 
+   tbl_funcionario.setEnabled(false);
+   tbl_funcionario.clearSelection();
 }
 
 public void AtualizartabelaFuncionario()  {

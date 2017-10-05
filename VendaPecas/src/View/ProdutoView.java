@@ -390,13 +390,12 @@ public class ProdutoView extends javax.swing.JInternalFrame {
         nomeprod.setText(tblproduto.getValueAt(tblproduto.getSelectedRow(), 1).toString());
         marcaprod.setText(tblproduto.getValueAt(tblproduto.getSelectedRow(), 2).toString());
         quantprod.setText(tblproduto.getValueAt(tblproduto.getSelectedRow(), 3).toString());
-        dataprod.setText(tblproduto.getValueAt(tblproduto.getSelectedRow(), 4).toString());
+        /*dataprod.setText(tblproduto.getValueAt(tblproduto.getSelectedRow(), 4).toString());
         unidadeprod.setText(tblproduto.getValueAt(tblproduto.getSelectedRow(), 5).toString());
         forneprod.setText(tblproduto.getValueAt(tblproduto.getSelectedRow(), 6).toString());
         valorcustoprod.setText(tblproduto.getValueAt(tblproduto.getSelectedRow(), 7).toString());
         valorvendaprod.setText(tblproduto.getValueAt(tblproduto.getSelectedRow(), 8).toString());
-        codprod.setText(tblproduto.getValueAt(tblproduto.getSelectedRow(), 9).toString());
-        
+        codprod.setText(tblproduto.getValueAt(tblproduto.getSelectedRow(), 9).toString());*/       
         Preparaselecaotabela();
     }//GEN-LAST:event_tblprodutoMouseClicked
 
@@ -406,7 +405,8 @@ public class ProdutoView extends javax.swing.JInternalFrame {
         btn_salvarprod.setEnabled(true);
         btn_alterarprod.setEnabled(false);
         btn_excluirprod.setEnabled(false);
-          
+        tblproduto.setEnabled(false); 
+        tblproduto.clearSelection();
     }
       
     public void limpar(){
@@ -453,6 +453,7 @@ public void preparaSalvareCancelar(){
     btn_novoprod.setEnabled(true);
     btn_salvarprod.setEnabled(true);
     btn_cancelarprod.setEnabled(false); 
+    tblproduto.setEnabled(true);
 }
 
 public void Alterar(){
@@ -460,7 +461,9 @@ public void Alterar(){
    btn_excluirprod.setEnabled(false);
    btn_alterarprod.setEnabled(false);
    btn_salvarprod.setEnabled(true);
-   btn_cancelarprod.setEnabled(true);   
+   btn_cancelarprod.setEnabled(true); 
+   tblproduto.setEnabled(false);
+   tblproduto.clearSelection();
 }
 
 
