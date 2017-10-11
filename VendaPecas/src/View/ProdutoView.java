@@ -16,6 +16,7 @@ import java.util.logging.Logger;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.text.MaskFormatter;
 
 /**
  *
@@ -66,7 +67,6 @@ public class ProdutoView extends javax.swing.JInternalFrame {
         jLabel8 = new javax.swing.JLabel();
         valorvendaprod = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        dataprod = new javax.swing.JFormattedTextField();
         btn_salvarprod = new javax.swing.JButton();
         btn_alterarprod = new javax.swing.JButton();
         btn_excluirprod = new javax.swing.JButton();
@@ -78,6 +78,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
         btn_cancelarprod = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblproduto = new javax.swing.JTable();
+        dataprod = new javax.swing.JFormattedTextField();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -95,7 +96,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
         setClosable(true);
         setPreferredSize(new java.awt.Dimension(658, 422));
 
-        pnl_produto.setBackground(new java.awt.Color(235, 233, 251));
+        pnl_produto.setBackground(new java.awt.Color(204, 204, 204));
         pnl_produto.setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -160,13 +161,9 @@ public class ProdutoView extends javax.swing.JInternalFrame {
         pnl_produto.add(valorvendaprod);
         valorvendaprod.setBounds(120, 170, 100, 20);
 
-        jLabel9.setText("Data de Cadastro");
+        jLabel9.setText("Data Cadastro");
         pnl_produto.add(jLabel9);
-        jLabel9.setBounds(430, 50, 100, 14);
-
-        dataprod.setEnabled(false);
-        pnl_produto.add(dataprod);
-        dataprod.setBounds(430, 70, 100, 20);
+        jLabel9.setBounds(430, 50, 90, 14);
 
         btn_salvarprod.setBackground(new java.awt.Color(153, 153, 153));
         btn_salvarprod.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -229,7 +226,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
 
         marcaprod.setEnabled(false);
         pnl_produto.add(marcaprod);
-        marcaprod.setBounds(410, 120, 120, 20);
+        marcaprod.setBounds(410, 120, 100, 20);
 
         jLabel11.setText("Marca");
         pnl_produto.add(jLabel11);
@@ -255,13 +252,13 @@ public class ProdutoView extends javax.swing.JInternalFrame {
 
         tblproduto.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {},
+                {},
+                {},
+                {}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+
             }
         ));
         tblproduto.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -274,15 +271,29 @@ public class ProdutoView extends javax.swing.JInternalFrame {
         pnl_produto.add(jScrollPane2);
         jScrollPane2.setBounds(10, 280, 670, 110);
 
+        try {
+
+            MaskFormatter mascara = new MaskFormatter("##/##/####");
+            mascara.setPlaceholderCharacter('_');
+
+            dataprod.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(mascara));
+
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        dataprod.setEnabled(false);
+        pnl_produto.add(dataprod);
+        dataprod.setBounds(430, 70, 80, 20);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnl_produto, javax.swing.GroupLayout.PREFERRED_SIZE, 709, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(pnl_produto, javax.swing.GroupLayout.DEFAULT_SIZE, 698, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnl_produto, javax.swing.GroupLayout.DEFAULT_SIZE, 598, Short.MAX_VALUE)
+            .addComponent(pnl_produto, javax.swing.GroupLayout.DEFAULT_SIZE, 423, Short.MAX_VALUE)
         );
 
         pack();

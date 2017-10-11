@@ -62,7 +62,7 @@ frame.setUndecorated(true);
         setBackground(new java.awt.Color(255, 255, 255));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        pnl_principal.setBackground(new java.awt.Color(255, 255, 255));
+        pnl_principal.setBackground(new java.awt.Color(204, 204, 204));
 
         javax.swing.GroupLayout pnl_principalLayout = new javax.swing.GroupLayout(pnl_principal);
         pnl_principal.setLayout(pnl_principalLayout);
@@ -72,10 +72,10 @@ frame.setUndecorated(true);
         );
         pnl_principalLayout.setVerticalGroup(
             pnl_principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 587, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        pnl2.setBackground(new java.awt.Color(255, 255, 255));
+        pnl2.setBackground(new java.awt.Color(204, 204, 204));
 
         menucadastrarprod.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 18)); // NOI18N
         menucadastrarprod.setForeground(new java.awt.Color(255, 255, 255));
@@ -142,30 +142,30 @@ frame.setUndecorated(true);
         pnl2Layout.setHorizontalGroup(
             pnl2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnl2Layout.createSequentialGroup()
-                .addGroup(pnl2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnl2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(sair, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(pnl2Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(pnl2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(menucadastrocliente, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(menucadastrofunc, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(menucadastrarprod, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(73, Short.MAX_VALUE))
+                .addGroup(pnl2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(menucadastrarprod, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(menucadastrofunc, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(pnl2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(pnl2Layout.createSequentialGroup()
+                            .addGap(60, 60, 60)
+                            .addComponent(sair, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(pnl2Layout.createSequentialGroup()
+                            .addGap(45, 45, 45)
+                            .addComponent(menucadastrocliente, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(46, Short.MAX_VALUE))
         );
         pnl2Layout.setVerticalGroup(
             pnl2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnl2Layout.createSequentialGroup()
-                .addGap(21, 21, 21)
+                .addGap(34, 34, 34)
                 .addComponent(menucadastrocliente, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
+                .addGap(29, 29, 29)
                 .addComponent(menucadastrofunc, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38)
+                .addGap(28, 28, 28)
                 .addComponent(menucadastrarprod, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 306, Short.MAX_VALUE)
                 .addComponent(sair, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(51, 51, 51))
+                .addGap(52, 52, 52))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -180,39 +180,37 @@ frame.setUndecorated(true);
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(pnl2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(pnl_principal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 53, Short.MAX_VALUE))
+            .addComponent(pnl_principal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void sairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sairActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_sairActionPerformed
+
     private void menucadastroclienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menucadastroclienteActionPerformed
-       ClienteView cli = new ClienteView();
+        ClienteView cli = new ClienteView();
         pnl_principal.removeAll();
         pnl_principal.add(cli);
-        pnl_principal.updateUI(); 
-       // TODO add your handling code here:
+        pnl_principal.updateUI();
+        // TODO add your handling code here:
     }//GEN-LAST:event_menucadastroclienteActionPerformed
 
     private void menucadastrofuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menucadastrofuncActionPerformed
-     FuncionarioView func = new FuncionarioView();
+        FuncionarioView func = new FuncionarioView();
         pnl_principal.removeAll();
         pnl_principal.add(func);
         pnl_principal.updateUI();
     }//GEN-LAST:event_menucadastrofuncActionPerformed
 
     private void menucadastrarprodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menucadastrarprodActionPerformed
-       ProdutoView prod = new ProdutoView();
+        ProdutoView prod = new ProdutoView();
         pnl_principal.removeAll();
         pnl_principal.add(prod);
-        pnl_principal.updateUI();  
+        pnl_principal.updateUI();
     }//GEN-LAST:event_menucadastrarprodActionPerformed
-
-    private void sairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sairActionPerformed
-        this.dispose();
-    }//GEN-LAST:event_sairActionPerformed
     
     /**
      * @param args the command line arguments

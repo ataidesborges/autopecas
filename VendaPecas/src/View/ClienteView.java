@@ -17,7 +17,7 @@ import java.util.logging.Logger;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
-
+import javax.swing.text.MaskFormatter;
 
 
 /**
@@ -55,9 +55,7 @@ public class ClienteView extends javax.swing.JInternalFrame {
         jLabel3 = new javax.swing.JLabel();
         nomecliente = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        cpfcliente = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        rgcliente = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         endcliente = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
@@ -70,15 +68,11 @@ public class ClienteView extends javax.swing.JInternalFrame {
         bairrocliente = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        fixocliente = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
-        comercialcliente = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
-        celcliente = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
         emailcliente = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
-        datacliente = new javax.swing.JFormattedTextField();
         btn_salvarcliente = new javax.swing.JButton();
         btn_alterarcliente = new javax.swing.JButton();
         btn_excluircliente = new javax.swing.JButton();
@@ -87,6 +81,12 @@ public class ClienteView extends javax.swing.JInternalFrame {
         btn_cancelarcliente = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tbl_cliente = new javax.swing.JTable();
+        datacliente = new javax.swing.JFormattedTextField();
+        cpfcliente = new javax.swing.JFormattedTextField();
+        rgcliente = new javax.swing.JFormattedTextField();
+        fixocliente = new javax.swing.JFormattedTextField();
+        comercialcliente = new javax.swing.JFormattedTextField();
+        celcliente = new javax.swing.JFormattedTextField();
 
         setClosable(true);
 
@@ -112,23 +112,15 @@ public class ClienteView extends javax.swing.JInternalFrame {
 
         nomecliente.setEnabled(false);
         pnl_cliente.add(nomecliente);
-        nomecliente.setBounds(100, 80, 350, 20);
+        nomecliente.setBounds(100, 80, 320, 20);
 
         jLabel4.setText("CPF");
         pnl_cliente.add(jLabel4);
         jLabel4.setBounds(10, 110, 34, 14);
 
-        cpfcliente.setEnabled(false);
-        pnl_cliente.add(cpfcliente);
-        cpfcliente.setBounds(10, 130, 130, 20);
-
         jLabel5.setText("RG");
         pnl_cliente.add(jLabel5);
-        jLabel5.setBounds(150, 110, 34, 14);
-
-        rgcliente.setEnabled(false);
-        pnl_cliente.add(rgcliente);
-        rgcliente.setBounds(150, 130, 140, 20);
+        jLabel5.setBounds(140, 110, 34, 14);
 
         jLabel6.setText("Endereço");
         pnl_cliente.add(jLabel6);
@@ -144,23 +136,23 @@ public class ClienteView extends javax.swing.JInternalFrame {
 
         numcliente.setEnabled(false);
         pnl_cliente.add(numcliente);
-        numcliente.setBounds(430, 180, 70, 20);
+        numcliente.setBounds(430, 180, 60, 20);
 
         jLabel8.setText("Complemento");
         pnl_cliente.add(jLabel8);
-        jLabel8.setBounds(510, 160, 80, 14);
+        jLabel8.setBounds(500, 160, 80, 14);
 
         compcliente.setEnabled(false);
         pnl_cliente.add(compcliente);
-        compcliente.setBounds(510, 180, 90, 20);
+        compcliente.setBounds(500, 180, 100, 20);
 
         jLabel9.setText("Cidade");
         pnl_cliente.add(jLabel9);
-        jLabel9.setBounds(300, 110, 50, 14);
+        jLabel9.setBounds(270, 110, 50, 14);
 
         cidadecliente.setEnabled(false);
         pnl_cliente.add(cidadecliente);
-        cidadecliente.setBounds(300, 130, 160, 20);
+        cidadecliente.setBounds(270, 130, 150, 20);
 
         jLabel10.setText("Bairro");
         pnl_cliente.add(jLabel10);
@@ -172,47 +164,31 @@ public class ClienteView extends javax.swing.JInternalFrame {
 
         jLabel11.setText("Estado");
         pnl_cliente.add(jLabel11);
-        jLabel11.setBounds(470, 110, 40, 10);
+        jLabel11.setBounds(430, 110, 40, 10);
 
         jLabel12.setText("Telefone Fixo");
         pnl_cliente.add(jLabel12);
         jLabel12.setBounds(10, 210, 90, 14);
 
-        fixocliente.setEnabled(false);
-        pnl_cliente.add(fixocliente);
-        fixocliente.setBounds(10, 230, 140, 20);
-
         jLabel13.setText("Telefone Comercial");
         pnl_cliente.add(jLabel13);
-        jLabel13.setBounds(160, 210, 130, 14);
-
-        comercialcliente.setEnabled(false);
-        pnl_cliente.add(comercialcliente);
-        comercialcliente.setBounds(160, 230, 140, 20);
+        jLabel13.setBounds(130, 210, 130, 14);
 
         jLabel14.setText("Celular");
         pnl_cliente.add(jLabel14);
-        jLabel14.setBounds(310, 210, 60, 14);
-
-        celcliente.setEnabled(false);
-        pnl_cliente.add(celcliente);
-        celcliente.setBounds(310, 230, 140, 20);
+        jLabel14.setBounds(250, 210, 60, 14);
 
         jLabel15.setText("Email");
         pnl_cliente.add(jLabel15);
-        jLabel15.setBounds(10, 260, 50, 14);
+        jLabel15.setBounds(370, 210, 50, 14);
 
         emailcliente.setEnabled(false);
         pnl_cliente.add(emailcliente);
-        emailcliente.setBounds(10, 280, 350, 20);
+        emailcliente.setBounds(370, 230, 230, 20);
 
-        jLabel16.setText("Data de Nascimento");
+        jLabel16.setText("Data Nascimento");
         pnl_cliente.add(jLabel16);
-        jLabel16.setBounds(460, 60, 130, 14);
-
-        datacliente.setEnabled(false);
-        pnl_cliente.add(datacliente);
-        datacliente.setBounds(460, 80, 140, 20);
+        jLabel16.setBounds(430, 60, 100, 14);
 
         btn_salvarcliente.setBackground(new java.awt.Color(153, 153, 153));
         btn_salvarcliente.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -226,7 +202,7 @@ public class ClienteView extends javax.swing.JInternalFrame {
             }
         });
         pnl_cliente.add(btn_salvarcliente);
-        btn_salvarcliente.setBounds(190, 340, 110, 30);
+        btn_salvarcliente.setBounds(190, 300, 110, 30);
 
         btn_alterarcliente.setBackground(new java.awt.Color(153, 153, 153));
         btn_alterarcliente.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -240,7 +216,7 @@ public class ClienteView extends javax.swing.JInternalFrame {
             }
         });
         pnl_cliente.add(btn_alterarcliente);
-        btn_alterarcliente.setBounds(310, 340, 110, 30);
+        btn_alterarcliente.setBounds(320, 300, 110, 30);
 
         btn_excluircliente.setBackground(new java.awt.Color(153, 153, 153));
         btn_excluircliente.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -254,7 +230,7 @@ public class ClienteView extends javax.swing.JInternalFrame {
             }
         });
         pnl_cliente.add(btn_excluircliente);
-        btn_excluircliente.setBounds(560, 340, 110, 30);
+        btn_excluircliente.setBounds(570, 300, 110, 30);
 
         btn_novocliente.setBackground(new java.awt.Color(153, 153, 153));
         btn_novocliente.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -267,11 +243,11 @@ public class ClienteView extends javax.swing.JInternalFrame {
             }
         });
         pnl_cliente.add(btn_novocliente);
-        btn_novocliente.setBounds(70, 340, 110, 30);
+        btn_novocliente.setBounds(60, 300, 110, 30);
 
         estadocliente.setEnabled(false);
         pnl_cliente.add(estadocliente);
-        estadocliente.setBounds(470, 130, 130, 20);
+        estadocliente.setBounds(430, 130, 80, 20);
 
         btn_cancelarcliente.setBackground(new java.awt.Color(153, 153, 153));
         btn_cancelarcliente.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -285,17 +261,17 @@ public class ClienteView extends javax.swing.JInternalFrame {
             }
         });
         pnl_cliente.add(btn_cancelarcliente);
-        btn_cancelarcliente.setBounds(440, 340, 110, 30);
+        btn_cancelarcliente.setBounds(450, 300, 110, 30);
 
         tbl_cliente.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {},
+                {},
+                {},
+                {}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+
             }
         ));
         tbl_cliente.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -306,7 +282,91 @@ public class ClienteView extends javax.swing.JInternalFrame {
         jScrollPane1.setViewportView(tbl_cliente);
 
         pnl_cliente.add(jScrollPane1);
-        jScrollPane1.setBounds(0, 410, 740, 100);
+        jScrollPane1.setBounds(0, 360, 740, 100);
+
+        try {
+
+            MaskFormatter mascara = new MaskFormatter("##/##/####");
+            mascara.setPlaceholderCharacter('_');
+
+            datacliente.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(mascara));
+
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        datacliente.setEnabled(false);
+        pnl_cliente.add(datacliente);
+        datacliente.setBounds(430, 80, 80, 20);
+
+        try {
+
+            MaskFormatter mascara = new MaskFormatter("###.###.###-##");
+            mascara.setPlaceholderCharacter('_');
+
+            cpfcliente.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(mascara));
+
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        cpfcliente.setEnabled(false);
+        pnl_cliente.add(cpfcliente);
+        cpfcliente.setBounds(10, 130, 120, 20);
+
+        try {
+
+            MaskFormatter mascara = new MaskFormatter("##.###.###");
+            mascara.setPlaceholderCharacter('_');
+
+            rgcliente.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(mascara));
+
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        rgcliente.setEnabled(false);
+        pnl_cliente.add(rgcliente);
+        rgcliente.setBounds(140, 130, 120, 20);
+
+        try {
+
+            MaskFormatter mascara = new MaskFormatter("(##) ####-####");
+            mascara.setPlaceholderCharacter('_');
+
+            fixocliente.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(mascara));
+
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        fixocliente.setEnabled(false);
+        pnl_cliente.add(fixocliente);
+        fixocliente.setBounds(10, 230, 110, 20);
+
+        try {
+
+            MaskFormatter mascara = new MaskFormatter("(##) ####-####");
+            mascara.setPlaceholderCharacter('_');
+
+            comercialcliente.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(mascara));
+
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        comercialcliente.setEnabled(false);
+        pnl_cliente.add(comercialcliente);
+        comercialcliente.setBounds(130, 230, 110, 20);
+
+        try {
+
+            MaskFormatter mascara = new MaskFormatter("(##) #####-####");
+            mascara.setPlaceholderCharacter('_');
+
+            celcliente.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(mascara));
+
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        celcliente.setEnabled(false);
+        pnl_cliente.add(celcliente);
+        celcliente.setBounds(250, 230, 110, 20);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -316,7 +376,7 @@ public class ClienteView extends javax.swing.JInternalFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnl_cliente, javax.swing.GroupLayout.DEFAULT_SIZE, 539, Short.MAX_VALUE)
+            .addComponent(pnl_cliente, javax.swing.GroupLayout.DEFAULT_SIZE, 490, Short.MAX_VALUE)
         );
 
         pack();
@@ -339,9 +399,8 @@ public class ClienteView extends javax.swing.JInternalFrame {
                    Logger.getLogger(ClienteView.class.getName()).log(Level.SEVERE, null, ex);
                }
                limpar();
-               AtualizartabelaCliente();
                excluir(); 
-               
+               AtualizartabelaCliente();
            }
        }
     }//GEN-LAST:event_btn_excluirclienteActionPerformed
@@ -425,22 +484,34 @@ public class ClienteView extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btn_alterarclienteActionPerformed
 
     private void tbl_clienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_clienteMouseClicked
+        
+        
         idcliente.setText(tbl_cliente.getValueAt(tbl_cliente.getSelectedRow(), 0).toString());
         nomecliente.setText(tbl_cliente.getValueAt(tbl_cliente.getSelectedRow(), 1).toString());
-        //datacliente.setText(tbl_cliente.getValueAt(tbl_cliente.getSelectedRow(), 2).toString());
         cpfcliente.setText(tbl_cliente.getValueAt(tbl_cliente.getSelectedRow(), 2).toString());
         fixocliente.setText(tbl_cliente.getValueAt(tbl_cliente.getSelectedRow(), 3).toString());
-        /*rgcliente.setText(tbl_cliente.getValueAt(tbl_cliente.getSelectedRow(), 4).toString());
-        cidadecliente.setText(tbl_cliente.getValueAt(tbl_cliente.getSelectedRow(), 5).toString());
-        estadocliente.setText(tbl_cliente.getValueAt(tbl_cliente.getSelectedRow(), 6).toString());
-        endcliente.setText(tbl_cliente.getValueAt(tbl_cliente.getSelectedRow(), 7).toString());
-        bairrocliente.setText(tbl_cliente.getValueAt(tbl_cliente.getSelectedRow(), 8).toString());
-        numcliente.setText(tbl_cliente.getValueAt(tbl_cliente.getSelectedRow(), 9).toString());
-        compcliente.setText(tbl_cliente.getValueAt(tbl_cliente.getSelectedRow(), 10).toString());
-        fixocliente.setText(tbl_cliente.getValueAt(tbl_cliente.getSelectedRow(), 11).toString());
-        comercialcliente.setText(tbl_cliente.getValueAt(tbl_cliente.getSelectedRow(), 12).toString());
-        celcliente.setText(tbl_cliente.getValueAt(tbl_cliente.getSelectedRow(), 13).toString());
-        emailcliente.setText(tbl_cliente.getValueAt(tbl_cliente.getSelectedRow(), 14).toString());*/
+        /*campos_liberados();
+        clienteDAO = new ClienteDAO();
+        cliente = new Cliente();
+        int i = tbl_cliente.getSelectedRow();
+        try {
+            cliente = clienteDAO.recuperaCliente(Integer.parseInt(tbl_cliente.getValueAt(i, 0).toString()));
+        } catch (SQLException ex) {
+            Logger.getLogger(Cliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        idcliente.setText((String.valueOf(cliente.getIdCliente())));
+        nomecliente.setText(cliente.getNomeCliente());
+        //datacliente.setText(cliente.getDataNascimento());
+        cpfcliente.setText(cliente.getCpf());
+        //rgcliente.setText(cliente.getRg());
+        //endcliente.setText(cliente.getEndereco());
+        //bairrocliente.setText(cliente.getBairro());
+        //numcliente.setText(String.valueOf(cliente.getNumero()));
+        //compcliente.setText(cliente.getComplemento());
+        fixocliente.setText(String.valueOf(cliente.getTelefone()));
+        //comercialcliente.setText(String.valueOf(cliente.getTelefoneComercial()));
+        //celcliente.setText(String.valueOf(cliente.getCelular()));
+        //emailcliente.setText(cliente.getEmail());*/
         Preparaselecaotabela();
     }//GEN-LAST:event_tbl_clienteMouseClicked
 
@@ -603,16 +674,16 @@ public void Preparaselecaotabela(){
     private javax.swing.JButton btn_excluircliente;
     private javax.swing.JButton btn_novocliente;
     private javax.swing.JButton btn_salvarcliente;
-    private javax.swing.JTextField celcliente;
+    private javax.swing.JFormattedTextField celcliente;
     private javax.swing.JTextField cidadecliente;
-    private javax.swing.JTextField comercialcliente;
+    private javax.swing.JFormattedTextField comercialcliente;
     private javax.swing.JTextField compcliente;
-    private javax.swing.JTextField cpfcliente;
+    private javax.swing.JFormattedTextField cpfcliente;
     private javax.swing.JFormattedTextField datacliente;
     private javax.swing.JTextField emailcliente;
     private javax.swing.JTextField endcliente;
     private javax.swing.JTextField estadocliente;
-    private javax.swing.JTextField fixocliente;
+    private javax.swing.JFormattedTextField fixocliente;
     private javax.swing.JTextField idcliente;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -634,7 +705,7 @@ public void Preparaselecaotabela(){
     private javax.swing.JTextField nomecliente;
     private javax.swing.JTextField numcliente;
     private javax.swing.JPanel pnl_cliente;
-    private javax.swing.JTextField rgcliente;
+    private javax.swing.JFormattedTextField rgcliente;
     private javax.swing.JTable tbl_cliente;
     // End of variables declaration//GEN-END:variables
 }

@@ -9,6 +9,7 @@ import javax.swing.JOptionPane;
 import Model.Funcionário;
 import DAO.FuncionarioDAO;
 import java.sql.SQLException;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -16,7 +17,7 @@ import java.util.logging.Logger;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
-
+import javax.swing.text.MaskFormatter;
 /**
  *
  * @author Larissa
@@ -53,9 +54,7 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
         jLabel3 = new javax.swing.JLabel();
         nomefunc = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        cpffunc = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        celfunc = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         emailfunc = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
@@ -81,11 +80,13 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
         jLabel15 = new javax.swing.JLabel();
         complefunc = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
-        telfunc = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tbl_funcionario = new javax.swing.JTable();
         datanascfunc = new javax.swing.JFormattedTextField();
+        cpffunc = new javax.swing.JFormattedTextField();
+        telfunc = new javax.swing.JFormattedTextField();
+        celfunc = new javax.swing.JFormattedTextField();
 
         setBackground(new java.awt.Color(204, 204, 204));
         setClosable(true);
@@ -118,17 +119,9 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
         pnl_funcionario.add(jLabel4);
         jLabel4.setBounds(10, 110, 50, 14);
 
-        cpffunc.setEnabled(false);
-        pnl_funcionario.add(cpffunc);
-        cpffunc.setBounds(10, 130, 140, 20);
-
         jLabel5.setText("Celular");
         pnl_funcionario.add(jLabel5);
         jLabel5.setBounds(130, 210, 50, 14);
-
-        celfunc.setEnabled(false);
-        pnl_funcionario.add(celfunc);
-        celfunc.setBounds(130, 230, 110, 20);
 
         jLabel6.setText("Email");
         pnl_funcionario.add(jLabel6);
@@ -223,9 +216,9 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
         pnl_funcionario.add(btn_cancelarfunc);
         btn_cancelarfunc.setBounds(390, 390, 110, 30);
 
-        jLabel9.setText("Data de Nascimento");
+        jLabel9.setText("Data Nascimento");
         pnl_funcionario.add(jLabel9);
-        jLabel9.setBounds(410, 60, 130, 14);
+        jLabel9.setBounds(410, 60, 100, 14);
 
         jLabel10.setText("Cidade");
         pnl_funcionario.add(jLabel10);
@@ -241,7 +234,7 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
 
         estadofunc.setEnabled(false);
         pnl_funcionario.add(estadofunc);
-        estadofunc.setBounds(410, 130, 140, 20);
+        estadofunc.setBounds(410, 130, 80, 20);
 
         jLabel12.setText("Endereço");
         pnl_funcionario.add(jLabel12);
@@ -279,10 +272,6 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
         pnl_funcionario.add(jLabel16);
         jLabel16.setBounds(10, 210, 60, 14);
 
-        telfunc.setEnabled(false);
-        pnl_funcionario.add(telfunc);
-        telfunc.setBounds(10, 230, 110, 20);
-
         jLabel17.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel17.setText("CADASTRO DO LOGIN");
         pnl_funcionario.add(jLabel17);
@@ -290,13 +279,13 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
 
         tbl_funcionario.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {},
+                {},
+                {},
+                {}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+
             }
         ));
         tbl_funcionario.setSelectionBackground(new java.awt.Color(153, 204, 255));
@@ -308,25 +297,78 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
         jScrollPane1.setViewportView(tbl_funcionario);
 
         pnl_funcionario.add(jScrollPane1);
-        jScrollPane1.setBounds(10, 450, 680, 110);
+        jScrollPane1.setBounds(10, 450, 700, 110);
 
         try {
-            datanascfunc.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/##")));
+
+            MaskFormatter mascara = new MaskFormatter("##/##/####");
+            mascara.setPlaceholderCharacter('_');
+
+            datanascfunc.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(mascara));
+
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        datanascfunc.setEnabled(false);
+        datanascfunc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                datanascfuncActionPerformed(evt);
+            }
+        });
         pnl_funcionario.add(datanascfunc);
-        datanascfunc.setBounds(420, 80, 100, 20);
+        datanascfunc.setBounds(410, 80, 80, 20);
+
+        try {
+
+            MaskFormatter mascara = new MaskFormatter("###.###.###-##");
+            mascara.setPlaceholderCharacter('_');
+
+            cpffunc.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(mascara));
+
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        cpffunc.setEnabled(false);
+        pnl_funcionario.add(cpffunc);
+        cpffunc.setBounds(10, 130, 140, 20);
+
+        try {
+
+            MaskFormatter mascara = new MaskFormatter("(##) ####-####");
+            mascara.setPlaceholderCharacter('_');
+
+            telfunc.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(mascara));
+
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        telfunc.setEnabled(false);
+        pnl_funcionario.add(telfunc);
+        telfunc.setBounds(10, 230, 110, 20);
+
+        try {
+
+            MaskFormatter mascara = new MaskFormatter("(##) #####-####");
+            mascara.setPlaceholderCharacter('_');
+
+            celfunc.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(mascara));
+
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        celfunc.setEnabled(false);
+        pnl_funcionario.add(celfunc);
+        celfunc.setBounds(130, 230, 110, 20);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnl_funcionario, javax.swing.GroupLayout.DEFAULT_SIZE, 708, Short.MAX_VALUE)
+            .addComponent(pnl_funcionario, javax.swing.GroupLayout.DEFAULT_SIZE, 721, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnl_funcionario, javax.swing.GroupLayout.DEFAULT_SIZE, 598, Short.MAX_VALUE)
+            .addComponent(pnl_funcionario, javax.swing.GroupLayout.DEFAULT_SIZE, 570, Short.MAX_VALUE)
         );
 
         pack();
@@ -460,6 +502,10 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
 
         Preparaselecaotabela();
     }//GEN-LAST:event_tbl_funcionarioMouseClicked
+
+    private void datanascfuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_datanascfuncActionPerformed
+       
+    }//GEN-LAST:event_datanascfuncActionPerformed
 
     public void preparanovo() {
         btn_novofunc.setEnabled(false);
@@ -620,10 +666,10 @@ public void Preparaselecaotabela(){
     private javax.swing.JButton btn_excluirfunc;
     private javax.swing.JButton btn_novofunc;
     private javax.swing.JButton btn_salvarfunc;
-    private javax.swing.JTextField celfunc;
+    private javax.swing.JFormattedTextField celfunc;
     private javax.swing.JTextField cidadefunc;
     private javax.swing.JTextField complefunc;
-    private javax.swing.JTextField cpffunc;
+    private javax.swing.JFormattedTextField cpffunc;
     private javax.swing.JFormattedTextField datanascfunc;
     private javax.swing.JTextField emailfunc;
     private javax.swing.JTextField endfunc;
@@ -653,6 +699,6 @@ public void Preparaselecaotabela(){
     private javax.swing.JPanel pnl_funcionario;
     private javax.swing.JPasswordField senhafunc;
     private javax.swing.JTable tbl_funcionario;
-    private javax.swing.JTextField telfunc;
+    private javax.swing.JFormattedTextField telfunc;
     // End of variables declaration//GEN-END:variables
 }
