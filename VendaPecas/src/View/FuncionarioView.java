@@ -68,7 +68,6 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
         btn_excluirfunc = new javax.swing.JButton();
         btn_cancelarfunc = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
-        datanascfunc = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         cidadefunc = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
@@ -86,6 +85,7 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
         jLabel17 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tbl_funcionario = new javax.swing.JTable();
+        datanascfunc = new javax.swing.JFormattedTextField();
 
         setBackground(new java.awt.Color(204, 204, 204));
         setClosable(true);
@@ -227,10 +227,6 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
         pnl_funcionario.add(jLabel9);
         jLabel9.setBounds(410, 60, 130, 14);
 
-        datanascfunc.setEnabled(false);
-        pnl_funcionario.add(datanascfunc);
-        datanascfunc.setBounds(410, 80, 140, 20);
-
         jLabel10.setText("Cidade");
         pnl_funcionario.add(jLabel10);
         jLabel10.setBounds(160, 110, 50, 14);
@@ -314,11 +310,19 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
         pnl_funcionario.add(jScrollPane1);
         jScrollPane1.setBounds(10, 450, 680, 110);
 
+        try {
+            datanascfunc.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        pnl_funcionario.add(datanascfunc);
+        datanascfunc.setBounds(420, 80, 100, 20);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnl_funcionario, javax.swing.GroupLayout.DEFAULT_SIZE, 693, Short.MAX_VALUE)
+            .addComponent(pnl_funcionario, javax.swing.GroupLayout.DEFAULT_SIZE, 708, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -620,7 +624,7 @@ public void Preparaselecaotabela(){
     private javax.swing.JTextField cidadefunc;
     private javax.swing.JTextField complefunc;
     private javax.swing.JTextField cpffunc;
-    private javax.swing.JTextField datanascfunc;
+    private javax.swing.JFormattedTextField datanascfunc;
     private javax.swing.JTextField emailfunc;
     private javax.swing.JTextField endfunc;
     private javax.swing.JTextField estadofunc;

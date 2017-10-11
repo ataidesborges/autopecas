@@ -15,6 +15,7 @@ import javax.swing.JFrame;
  * @author User
  */
 public class PrincipalView extends javax.swing.JFrame {
+    
 
     /**
      * Creates new form NovoJFrame
@@ -22,8 +23,11 @@ public class PrincipalView extends javax.swing.JFrame {
     public PrincipalView() {
         initComponents();
         this.setVisible(true);
+        JFrame frame = new JFrame();
+frame.setUndecorated(true);
         setLocationRelativeTo( null );
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        
     }
 
     /**
@@ -40,31 +44,11 @@ public class PrincipalView extends javax.swing.JFrame {
         jMenu8 = new javax.swing.JMenu();
         jMenu9 = new javax.swing.JMenu();
         pnl_principal = new javax.swing.JPanel();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu10 = new javax.swing.JMenu();
-        menucadastrocliente = new javax.swing.JMenuItem();
-        menuconsultacliente = new javax.swing.JMenuItem();
-        jMenu11 = new javax.swing.JMenu();
-        menucadastrofunc = new javax.swing.JMenuItem();
-        menuconsultafunc = new javax.swing.JMenuItem();
-        jMenu1 = new javax.swing.JMenu();
-        menucadastrarprod = new javax.swing.JMenuItem();
-        menucategoria = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
-        menuvendaprazo = new javax.swing.JMenuItem();
-        menuvendavista = new javax.swing.JMenuItem();
-        jMenu3 = new javax.swing.JMenu();
-        menuentradafiscal = new javax.swing.JMenuItem();
-        menusaidafiscal = new javax.swing.JMenuItem();
-        menuconsultarhist = new javax.swing.JMenu();
-        jMenuItem8 = new javax.swing.JMenuItem();
-        jMenu5 = new javax.swing.JMenu();
-        menucriarelatorio = new javax.swing.JMenuItem();
-        menuconsultarrela = new javax.swing.JMenuItem();
-        jMenu6 = new javax.swing.JMenu();
-        menusobre = new javax.swing.JMenuItem();
-        jMenu7 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        pnl2 = new javax.swing.JPanel();
+        menucadastrarprod = new javax.swing.JButton();
+        menucadastrofunc = new javax.swing.JButton();
+        menucadastrocliente = new javax.swing.JButton();
+        sair = new javax.swing.JButton();
 
         jMenuItem6.setText("jMenuItem6");
 
@@ -75,183 +59,160 @@ public class PrincipalView extends javax.swing.JFrame {
         jMenu9.setText("jMenu9");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 255));
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        pnl_principal.setBackground(new java.awt.Color(204, 204, 204));
+        pnl_principal.setBackground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout pnl_principalLayout = new javax.swing.GroupLayout(pnl_principal);
         pnl_principal.setLayout(pnl_principalLayout);
         pnl_principalLayout.setHorizontalGroup(
             pnl_principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 917, Short.MAX_VALUE)
+            .addGap(0, 766, Short.MAX_VALUE)
         );
         pnl_principalLayout.setVerticalGroup(
             pnl_principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 648, Short.MAX_VALUE)
+            .addGap(0, 587, Short.MAX_VALUE)
         );
 
-        jMenuBar1.setBackground(new java.awt.Color(204, 204, 255));
-        jMenuBar1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        pnl2.setBackground(new java.awt.Color(255, 255, 255));
 
-        jMenu10.setText("Clientes");
-
-        menucadastrocliente.setText("Cadastrar");
-        menucadastrocliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menucadastroclienteActionPerformed(evt);
-            }
-        });
-        jMenu10.add(menucadastrocliente);
-
-        menuconsultacliente.setText("Consultar");
-        jMenu10.add(menuconsultacliente);
-
-        jMenuBar1.add(jMenu10);
-
-        jMenu11.setText("Funcionários");
-
-        menucadastrofunc.setText("Cadastrar");
-        menucadastrofunc.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menucadastrofuncActionPerformed(evt);
-            }
-        });
-        jMenu11.add(menucadastrofunc);
-
-        menuconsultafunc.setText("Consultar");
-        jMenu11.add(menuconsultafunc);
-
-        jMenuBar1.add(jMenu11);
-
-        jMenu1.setText("Produtos");
-
-        menucadastrarprod.setText("Cadastrar");
+        menucadastrarprod.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 18)); // NOI18N
+        menucadastrarprod.setForeground(new java.awt.Color(255, 255, 255));
+        menucadastrarprod.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/botão.png"))); // NOI18N
+        menucadastrarprod.setText("Produtos");
+        menucadastrarprod.setToolTipText("");
+        menucadastrarprod.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        menucadastrarprod.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        menucadastrarprod.setIconTextGap(0);
+        menucadastrarprod.setName(""); // NOI18N
         menucadastrarprod.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 menucadastrarprodActionPerformed(evt);
             }
         });
-        jMenu1.add(menucadastrarprod);
 
-        menucategoria.setText("Categorias");
-        jMenu1.add(menucategoria);
-
-        jMenuBar1.add(jMenu1);
-
-        jMenu2.setText("Vendas");
-
-        menuvendaprazo.setText("Venda à prazo");
-        jMenu2.add(menuvendaprazo);
-
-        menuvendavista.setText("Venda à vista");
-        jMenu2.add(menuvendavista);
-
-        jMenuBar1.add(jMenu2);
-
-        jMenu3.setText("Nota Fiscal");
-
-        menuentradafiscal.setText("Entrada");
-        jMenu3.add(menuentradafiscal);
-
-        menusaidafiscal.setText("Saída");
-        menusaidafiscal.addActionListener(new java.awt.event.ActionListener() {
+        menucadastrofunc.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 18)); // NOI18N
+        menucadastrofunc.setForeground(new java.awt.Color(255, 255, 255));
+        menucadastrofunc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/botão.png"))); // NOI18N
+        menucadastrofunc.setText("Funcionário");
+        menucadastrofunc.setToolTipText("");
+        menucadastrofunc.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        menucadastrofunc.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        menucadastrofunc.setIconTextGap(0);
+        menucadastrofunc.setName(""); // NOI18N
+        menucadastrofunc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menusaidafiscalActionPerformed(evt);
+                menucadastrofuncActionPerformed(evt);
             }
         });
-        jMenu3.add(menusaidafiscal);
 
-        jMenuBar1.add(jMenu3);
-
-        menuconsultarhist.setText("Histórico");
-
-        jMenuItem8.setText("Consultar");
-        menuconsultarhist.add(jMenuItem8);
-
-        jMenuBar1.add(menuconsultarhist);
-
-        jMenu5.setText("Relatórios");
-
-        menucriarelatorio.setText("Criar  Relatório");
-        jMenu5.add(menucriarelatorio);
-
-        menuconsultarrela.setText("Consultar");
-        jMenu5.add(menuconsultarrela);
-
-        jMenuBar1.add(jMenu5);
-
-        jMenu6.setText("Sobre");
-
-        menusobre.setText("Sobre a Empresa");
-        menusobre.addActionListener(new java.awt.event.ActionListener() {
+        menucadastrocliente.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 18)); // NOI18N
+        menucadastrocliente.setForeground(new java.awt.Color(255, 255, 255));
+        menucadastrocliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/botão.png"))); // NOI18N
+        menucadastrocliente.setText("Cliente");
+        menucadastrocliente.setToolTipText("");
+        menucadastrocliente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        menucadastrocliente.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        menucadastrocliente.setIconTextGap(0);
+        menucadastrocliente.setName(""); // NOI18N
+        menucadastrocliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menusobreActionPerformed(evt);
+                menucadastroclienteActionPerformed(evt);
             }
         });
-        jMenu6.add(menusobre);
 
-        jMenuBar1.add(jMenu6);
-
-        jMenu7.setText("Sair");
-
-        jMenuItem1.setText("Sair");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        sair.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 18)); // NOI18N
+        sair.setForeground(new java.awt.Color(255, 255, 255));
+        sair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/botão.png"))); // NOI18N
+        sair.setText("Sair");
+        sair.setToolTipText("");
+        sair.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        sair.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        sair.setIconTextGap(0);
+        sair.setName(""); // NOI18N
+        sair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                sairActionPerformed(evt);
             }
         });
-        jMenu7.add(jMenuItem1);
 
-        jMenuBar1.add(jMenu7);
-
-        setJMenuBar(jMenuBar1);
+        javax.swing.GroupLayout pnl2Layout = new javax.swing.GroupLayout(pnl2);
+        pnl2.setLayout(pnl2Layout);
+        pnl2Layout.setHorizontalGroup(
+            pnl2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnl2Layout.createSequentialGroup()
+                .addGroup(pnl2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnl2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(sair, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnl2Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(pnl2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(menucadastrocliente, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(menucadastrofunc, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(menucadastrarprod, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(73, Short.MAX_VALUE))
+        );
+        pnl2Layout.setVerticalGroup(
+            pnl2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnl2Layout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addComponent(menucadastrocliente, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31)
+                .addComponent(menucadastrofunc, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(38, 38, 38)
+                .addComponent(menucadastrarprod, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(sair, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(51, 51, 51))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnl_principal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(pnl2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(pnl_principal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnl_principal, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pnl2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(pnl_principal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 53, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void menusaidafiscalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menusaidafiscalActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_menusaidafiscalActionPerformed
-
-    private void menucadastrarprodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menucadastrarprodActionPerformed
-        ProdutoView prod = new ProdutoView();
-        pnl_principal.removeAll();
-        pnl_principal.add(prod);
-        pnl_principal.updateUI();   
-    }//GEN-LAST:event_menucadastrarprodActionPerformed
-
-    private void menusobreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menusobreActionPerformed
-      // TODO add your handling code here:
-    }//GEN-LAST:event_menusobreActionPerformed
-
     private void menucadastroclienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menucadastroclienteActionPerformed
-        ClienteView cli = new ClienteView();
+       ClienteView cli = new ClienteView();
         pnl_principal.removeAll();
         pnl_principal.add(cli);
-        pnl_principal.updateUI();   
+        pnl_principal.updateUI(); 
+       // TODO add your handling code here:
     }//GEN-LAST:event_menucadastroclienteActionPerformed
 
     private void menucadastrofuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menucadastrofuncActionPerformed
-        
-        FuncionarioView func = new FuncionarioView();
+     FuncionarioView func = new FuncionarioView();
         pnl_principal.removeAll();
         pnl_principal.add(func);
         pnl_principal.updateUI();
     }//GEN-LAST:event_menucadastrofuncActionPerformed
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void menucadastrarprodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menucadastrarprodActionPerformed
+       ProdutoView prod = new ProdutoView();
+        pnl_principal.removeAll();
+        pnl_principal.add(prod);
+        pnl_principal.updateUI();  
+    }//GEN-LAST:event_menucadastrarprodActionPerformed
+
+    private void sairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sairActionPerformed
         this.dispose();
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    }//GEN-LAST:event_sairActionPerformed
     
     /**
      * @param args the command line arguments
@@ -259,35 +220,15 @@ public class PrincipalView extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu10;
-    private javax.swing.JMenu jMenu11;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenu jMenu5;
-    private javax.swing.JMenu jMenu6;
-    private javax.swing.JMenu jMenu7;
     private javax.swing.JMenu jMenu8;
     private javax.swing.JMenu jMenu9;
-    private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem6;
-    private javax.swing.JMenuItem jMenuItem8;
-    private javax.swing.JMenuItem menucadastrarprod;
-    private javax.swing.JMenuItem menucadastrocliente;
-    private javax.swing.JMenuItem menucadastrofunc;
-    private javax.swing.JMenuItem menucategoria;
-    private javax.swing.JMenuItem menuconsultacliente;
-    private javax.swing.JMenuItem menuconsultafunc;
-    private javax.swing.JMenu menuconsultarhist;
-    private javax.swing.JMenuItem menuconsultarrela;
-    private javax.swing.JMenuItem menucriarelatorio;
-    private javax.swing.JMenuItem menuentradafiscal;
-    private javax.swing.JMenuItem menusaidafiscal;
-    private javax.swing.JMenuItem menusobre;
-    private javax.swing.JMenuItem menuvendaprazo;
-    private javax.swing.JMenuItem menuvendavista;
+    private javax.swing.JButton menucadastrarprod;
+    private javax.swing.JButton menucadastrocliente;
+    private javax.swing.JButton menucadastrofunc;
+    private javax.swing.JPanel pnl2;
     private javax.swing.JPanel pnl_principal;
+    private javax.swing.JButton sair;
     // End of variables declaration//GEN-END:variables
 }
