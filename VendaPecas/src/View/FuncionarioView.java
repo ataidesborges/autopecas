@@ -104,6 +104,7 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
         jLabel2.setBounds(10, 60, 90, 14);
 
         idfunc.setBackground(new java.awt.Color(204, 204, 204));
+        idfunc.setEnabled(false);
         pnl_funcionario.add(idfunc);
         idfunc.setBounds(10, 80, 80, 20);
 
@@ -539,6 +540,7 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
     }
     
 public void campos_bloqueados(){
+    idfunc.setEnabled(false);
     nomefunc.setEnabled(false);
     datanascfunc.setEnabled(false);
     cpffunc.setEnabled(false);
@@ -575,7 +577,7 @@ public void campos_liberados(){
 
 public void preparaSalvareCancelar(){
     btn_novofunc.setEnabled(true);
-    btn_salvarfunc.setEnabled(true);
+    btn_salvarfunc.setEnabled(false);
     btn_cancelarfunc.setEnabled(false); 
     tbl_funcionario.setEnabled(true);
 }
@@ -590,19 +592,18 @@ public void Alterar(){
    tbl_funcionario.clearSelection();
 }
 
+public void Preparaselecaotabela(){
+    btn_novofunc.setEnabled(true);
+    btn_excluirfunc.setEnabled(true);
+    btn_alterarfunc.setEnabled(true);
+}
 public void AtualizartabelaFuncionario()  {
    funcionario = new Funcionário();  
  
         
-       try {
-           //if(idfunc.getText().isEmpty()){
+       try {          
            listaFuncionarios = funcionarioDAO.ListaFuncionario();
-       
-           //else
-            //{
       
-              // listaFuncionarios = funcionarioDAO.ListaFuncionario(Integer.parseInt(idfunc.getText()));
-            //}
        }   catch (SQLException ex) {
            Logger.getLogger(ProdutoView.class.getName()).log(Level.SEVERE, null, ex);
        }
@@ -653,11 +654,6 @@ public void AtualizartabelaFuncionario()  {
         tbl_funcionario.updateUI(); 
 }
 
-public void Preparaselecaotabela(){
-    btn_novofunc.setEnabled(true);
-    btn_excluirfunc.setEnabled(true);
-    btn_alterarfunc.setEnabled(true);
-}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField bairrofunc;

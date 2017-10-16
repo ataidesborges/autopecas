@@ -103,6 +103,7 @@ public class ClienteView extends javax.swing.JInternalFrame {
         jLabel2.setBounds(10, 59, 60, 14);
 
         idcliente.setBackground(new java.awt.Color(204, 204, 204));
+        idcliente.setEnabled(false);
         pnl_cliente.add(idcliente);
         idcliente.setBounds(10, 80, 77, 20);
 
@@ -581,14 +582,15 @@ public class ClienteView extends javax.swing.JInternalFrame {
         tbl_cliente.updateUI(); 
     }
  
-      public void preparanovo(){
-          btn_novocliente.setEnabled(false);
-          btn_salvarcliente.setEnabled(true);
-          btn_alterarcliente.setEnabled(false);
-          btn_excluircliente.setEnabled(false);
-          tbl_cliente.setEnabled(false);
-          tbl_cliente.clearSelection();
-      }
+   public void preparanovo(){
+    btn_novocliente.setEnabled(false);
+    btn_salvarcliente.setEnabled(true);
+    btn_alterarcliente.setEnabled(false);
+    btn_excluircliente.setEnabled(false);
+    btn_cancelarcliente.setEnabled(true);
+    tbl_cliente.setEnabled(false);
+    tbl_cliente.clearSelection();
+    }
       
     public void limpar(){
     celcliente.setText("");
@@ -607,6 +609,7 @@ public class ClienteView extends javax.swing.JInternalFrame {
     bairrocliente.setText("");
 }
 public void campos_bloqueados(){
+    idcliente.setEnabled(false);
     celcliente.setEnabled(false);
     cidadecliente.setEnabled(false);
     comercialcliente.setEnabled(false);
@@ -646,7 +649,7 @@ public void excluir(){
 
 public void preparaSalvareCancelar(){
     btn_novocliente.setEnabled(true);
-    btn_salvarcliente.setEnabled(true);
+    btn_salvarcliente.setEnabled(false);
     btn_cancelarcliente.setEnabled(false); 
     tbl_cliente.setEnabled(true);
 }

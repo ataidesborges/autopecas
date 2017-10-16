@@ -177,7 +177,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
             }
         });
         pnl_produto.add(btn_salvarprod);
-        btn_salvarprod.setBounds(150, 230, 110, 30);
+        btn_salvarprod.setBounds(200, 230, 110, 30);
 
         btn_alterarprod.setBackground(new java.awt.Color(153, 153, 153));
         btn_alterarprod.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -191,7 +191,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
             }
         });
         pnl_produto.add(btn_alterarprod);
-        btn_alterarprod.setBounds(270, 230, 110, 30);
+        btn_alterarprod.setBounds(320, 230, 110, 30);
 
         btn_excluirprod.setBackground(new java.awt.Color(153, 153, 153));
         btn_excluirprod.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -205,7 +205,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
             }
         });
         pnl_produto.add(btn_excluirprod);
-        btn_excluirprod.setBounds(510, 230, 110, 30);
+        btn_excluirprod.setBounds(560, 230, 110, 30);
 
         btn_novoprod.setBackground(new java.awt.Color(153, 153, 153));
         btn_novoprod.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -218,7 +218,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
             }
         });
         pnl_produto.add(btn_novoprod);
-        btn_novoprod.setBounds(30, 230, 110, 30);
+        btn_novoprod.setBounds(80, 230, 110, 30);
 
         jLabel10.setText("Fornecedor");
         pnl_produto.add(jLabel10);
@@ -248,7 +248,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
             }
         });
         pnl_produto.add(btn_cancelarprod);
-        btn_cancelarprod.setBounds(390, 230, 110, 30);
+        btn_cancelarprod.setBounds(440, 230, 110, 30);
 
         tblproduto.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -269,7 +269,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
         jScrollPane2.setViewportView(tblproduto);
 
         pnl_produto.add(jScrollPane2);
-        jScrollPane2.setBounds(10, 280, 670, 110);
+        jScrollPane2.setBounds(10, 280, 710, 110);
 
         try {
 
@@ -289,11 +289,11 @@ public class ProdutoView extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnl_produto, javax.swing.GroupLayout.DEFAULT_SIZE, 698, Short.MAX_VALUE)
+            .addComponent(pnl_produto, javax.swing.GroupLayout.DEFAULT_SIZE, 726, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnl_produto, javax.swing.GroupLayout.DEFAULT_SIZE, 423, Short.MAX_VALUE)
+            .addComponent(pnl_produto, javax.swing.GroupLayout.DEFAULT_SIZE, 437, Short.MAX_VALUE)
         );
 
         pack();
@@ -331,16 +331,17 @@ public class ProdutoView extends javax.swing.JInternalFrame {
             limpar();
         }  
         
-        else{       produto.setIdProduto(Integer.parseInt(idprod.getText()));
-                    produto.setNomeproduto(nomeprod.getText());
-                    produto.setQuantidade(Integer.parseInt(quantprod.getText()));
-                    produto.setNomeproduto(dataprod.getText());
-                    produto.setCodigobarras(codprod.getText());
-                    produto.setUnidade(unidadeprod.getText());
-                    produto.setNomeproduto(forneprod.getText());
-                    produto.setMarca(marcaprod.getText());
-                    produto.setValorcusto(Double.parseDouble(valorcustoprod.getText()));
-                    produto.setValorvenda(Double.parseDouble(valorvendaprod.getText()));
+        else{       
+            produto.setIdProduto(Integer.parseInt(idprod.getText()));
+            produto.setNomeproduto(nomeprod.getText());
+            produto.setQuantidade(Integer.parseInt(quantprod.getText()));
+            produto.setNomeproduto(dataprod.getText());
+            produto.setCodigobarras(codprod.getText());
+            produto.setUnidade(unidadeprod.getText());
+            produto.setNomeproduto(forneprod.getText());
+            produto.setMarca(marcaprod.getText());
+            produto.setValorcusto(Double.parseDouble(valorcustoprod.getText()));
+            produto.setValorvenda(Double.parseDouble(valorvendaprod.getText()));
             
             try { 
                 produtoDAO.alterar(produto);
@@ -412,6 +413,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
         btn_salvarprod.setEnabled(true);
         btn_alterarprod.setEnabled(false);
         btn_excluirprod.setEnabled(false);
+        btn_cancelarprod.setEnabled(true);
         tblproduto.setEnabled(false); 
         tblproduto.clearSelection();
     }
@@ -458,7 +460,7 @@ public void excluir(){
 
 public void preparaSalvareCancelar(){
     btn_novoprod.setEnabled(true);
-    btn_salvarprod.setEnabled(true);
+    btn_salvarprod.setEnabled(false);
     btn_cancelarprod.setEnabled(false); 
     tblproduto.setEnabled(true);
 }
@@ -478,14 +480,8 @@ public void AtualizartabelaProduto()  {
    
     produto = new Produto();  
        try {
-           //if(idprod.getText().isEmpty()){
            listaProdutos = produtoDAO.ListaProduto();
-       //}
-       //    else
-         //   {
-      
-               //listaProdutos = produtoDAO.ListaProduto(Integer.parseInt(idprod.getText()));
-           // }
+    
        }   catch (SQLException ex) {
            Logger.getLogger(ProdutoView.class.getName()).log(Level.SEVERE, null, ex);
        }
