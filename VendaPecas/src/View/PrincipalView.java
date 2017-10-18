@@ -8,7 +8,10 @@ package View;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
 
 /**
  *
@@ -17,6 +20,7 @@ import javax.swing.JFrame;
 public class PrincipalView extends javax.swing.JFrame {
     
 
+
     /**
      * Creates new form NovoJFrame
      */
@@ -24,9 +28,13 @@ public class PrincipalView extends javax.swing.JFrame {
         initComponents();
         this.setVisible(true);
         JFrame frame = new JFrame();
-frame.setUndecorated(true);
+        frame.setUndecorated(true);
         setLocationRelativeTo( null );
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        ImageIcon icon = new ImageIcon("src/Imagens/auto.png");
+        icon.setImage(icon.getImage().getScaledInstance(img.getWidth(), img.getHeight(), 1));
+        img.setIcon(icon);
+
         
     }
 
@@ -44,6 +52,7 @@ frame.setUndecorated(true);
         jMenu8 = new javax.swing.JMenu();
         jMenu9 = new javax.swing.JMenu();
         pnl_principal = new javax.swing.JPanel();
+        img = new javax.swing.JLabel();
         pnl2 = new javax.swing.JPanel();
         menucadastrarprod = new javax.swing.JButton();
         menucadastrofunc = new javax.swing.JButton();
@@ -61,21 +70,29 @@ frame.setUndecorated(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setUndecorated(true);
 
-        pnl_principal.setBackground(new java.awt.Color(204, 204, 204));
+        pnl_principal.setBackground(new java.awt.Color(255, 255, 255));
+
+        img.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/auto.png"))); // NOI18N
+        img.setToolTipText("");
+        img.setDoubleBuffered(true);
+        img.setMaximumSize(new java.awt.Dimension(1080, 1920));
+        img.setPreferredSize(new java.awt.Dimension(1080, 1920));
 
         javax.swing.GroupLayout pnl_principalLayout = new javax.swing.GroupLayout(pnl_principal);
         pnl_principal.setLayout(pnl_principalLayout);
         pnl_principalLayout.setHorizontalGroup(
             pnl_principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 766, Short.MAX_VALUE)
+            .addComponent(img, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 754, Short.MAX_VALUE)
         );
         pnl_principalLayout.setVerticalGroup(
             pnl_principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addComponent(img, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
         );
 
-        pnl2.setBackground(new java.awt.Color(204, 204, 204));
+        pnl2.setBackground(new java.awt.Color(255, 255, 255));
+        pnl2.setBorder(javax.swing.BorderFactory.createTitledBorder("Menu"));
 
         menucadastrarprod.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 18)); // NOI18N
         menucadastrarprod.setForeground(new java.awt.Color(255, 255, 255));
@@ -163,7 +180,7 @@ frame.setUndecorated(true);
                 .addComponent(menucadastrofunc, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28)
                 .addComponent(menucadastrarprod, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 306, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 283, Short.MAX_VALUE)
                 .addComponent(sair, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(52, 52, 52))
         );
@@ -187,15 +204,24 @@ frame.setUndecorated(true);
     }// </editor-fold>//GEN-END:initComponents
 
     private void sairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sairActionPerformed
-        this.dispose();
+        int resultado = JOptionPane.showConfirmDialog(null, "Sair do programa?");
+
+        if(resultado == JOptionPane.YES_OPTION){
+
+            this.dispose();
+
+        }
+        
     }//GEN-LAST:event_sairActionPerformed
 
     private void menucadastroclienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menucadastroclienteActionPerformed
+        
         ClienteView cli = new ClienteView();
         pnl_principal.removeAll();
         pnl_principal.add(cli);
         pnl_principal.updateUI();
         // TODO add your handling code here:
+               
     }//GEN-LAST:event_menucadastroclienteActionPerformed
 
     private void menucadastrofuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menucadastrofuncActionPerformed
@@ -212,12 +238,16 @@ frame.setUndecorated(true);
         pnl_principal.updateUI();
     }//GEN-LAST:event_menucadastrarprodActionPerformed
     
+    
+    
     /**
+     * 
      * @param args the command line arguments
      */
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel img;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu8;
     private javax.swing.JMenu jMenu9;

@@ -37,6 +37,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
         initComponents();
         this.setVisible(true);
         AtualizartabelaProduto();
+        
     }
 
     /**
@@ -94,7 +95,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
         jScrollPane1.setViewportView(jTable1);
 
         setClosable(true);
-        setPreferredSize(new java.awt.Dimension(658, 422));
+        setPreferredSize(new java.awt.Dimension(722, 522));
 
         pnl_produto.setBackground(new java.awt.Color(204, 204, 204));
         pnl_produto.setLayout(null);
@@ -269,7 +270,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
         jScrollPane2.setViewportView(tblproduto);
 
         pnl_produto.add(jScrollPane2);
-        jScrollPane2.setBounds(10, 280, 710, 110);
+        jScrollPane2.setBounds(10, 280, 690, 180);
 
         try {
 
@@ -289,11 +290,11 @@ public class ProdutoView extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnl_produto, javax.swing.GroupLayout.DEFAULT_SIZE, 726, Short.MAX_VALUE)
+            .addComponent(pnl_produto, javax.swing.GroupLayout.PREFERRED_SIZE, 711, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnl_produto, javax.swing.GroupLayout.DEFAULT_SIZE, 437, Short.MAX_VALUE)
+            .addComponent(pnl_produto, javax.swing.GroupLayout.DEFAULT_SIZE, 529, Short.MAX_VALUE)
         );
 
         pack();

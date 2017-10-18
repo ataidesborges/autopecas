@@ -26,6 +26,7 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
     Funcionário funcionario;
     FuncionarioDAO funcionarioDAO;
     List<Funcionário> listaFuncionarios;
+    
 
     /**
      * Creates new form Funcionário
@@ -36,6 +37,10 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
         initComponents();
         this.setVisible(true);
          AtualizartabelaFuncionario();
+         setClosable(isIcon);
+         
+         
+         
     }
 
     /**
@@ -365,18 +370,21 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnl_funcionario, javax.swing.GroupLayout.DEFAULT_SIZE, 721, Short.MAX_VALUE)
+            .addComponent(pnl_funcionario, javax.swing.GroupLayout.PREFERRED_SIZE, 719, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnl_funcionario, javax.swing.GroupLayout.DEFAULT_SIZE, 570, Short.MAX_VALUE)
+            .addComponent(pnl_funcionario, javax.swing.GroupLayout.DEFAULT_SIZE, 574, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_excluirfuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_excluirfuncActionPerformed
-         if (idfunc.getText().isEmpty()) {
+        int resultado = JOptionPane.showConfirmDialog(null, "Excluir?");
+
+        if(resultado == JOptionPane.YES_OPTION){ 
+        if (idfunc.getText().isEmpty()) {
          JOptionPane.showMessageDialog(null, "Selecione um funcionário!!");
      }  else {
          funcionario = new Funcionário();
@@ -394,6 +402,7 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
             excluir();           
      }               
          }   
+        }
     }//GEN-LAST:event_btn_excluirfuncActionPerformed
 
     private void btn_alterarfuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_alterarfuncActionPerformed
