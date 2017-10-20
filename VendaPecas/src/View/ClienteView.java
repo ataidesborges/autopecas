@@ -14,7 +14,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JInternalFrame;
 import javax.swing.SwingConstants;
+import javax.swing.plaf.basic.BasicInternalFrameUI;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.text.MaskFormatter;
@@ -36,7 +38,7 @@ public class ClienteView extends javax.swing.JInternalFrame {
         listaClientes = new ArrayList<>();
         initComponents();
         this.setVisible(true);
-        AtualizartabelaCliente();
+        AtualizartabelaCliente();        
     }
 
     /**
@@ -73,10 +75,8 @@ public class ClienteView extends javax.swing.JInternalFrame {
         jLabel15 = new javax.swing.JLabel();
         emailcliente = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
-        btn_salvarcliente = new javax.swing.JButton();
         btn_alterarcliente = new javax.swing.JButton();
         btn_excluircliente = new javax.swing.JButton();
-        btn_novocliente = new javax.swing.JButton();
         estadocliente = new javax.swing.JTextField();
         btn_cancelarcliente = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -87,6 +87,11 @@ public class ClienteView extends javax.swing.JInternalFrame {
         fixocliente = new javax.swing.JFormattedTextField();
         comercialcliente = new javax.swing.JFormattedTextField();
         celcliente = new javax.swing.JFormattedTextField();
+        btn_novocliente = new javax.swing.JLabel();
+        btn_salvarcliente = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+
+        setPreferredSize(new java.awt.Dimension(754, 640));
 
         pnl_cliente.setBackground(new java.awt.Color(204, 204, 204));
         pnl_cliente.setLayout(null);
@@ -189,20 +194,6 @@ public class ClienteView extends javax.swing.JInternalFrame {
         pnl_cliente.add(jLabel16);
         jLabel16.setBounds(430, 60, 100, 14);
 
-        btn_salvarcliente.setBackground(new java.awt.Color(153, 153, 153));
-        btn_salvarcliente.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btn_salvarcliente.setForeground(new java.awt.Color(255, 255, 255));
-        btn_salvarcliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/salvar.png"))); // NOI18N
-        btn_salvarcliente.setText("Salvar");
-        btn_salvarcliente.setEnabled(false);
-        btn_salvarcliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_salvarclienteActionPerformed(evt);
-            }
-        });
-        pnl_cliente.add(btn_salvarcliente);
-        btn_salvarcliente.setBounds(190, 300, 110, 30);
-
         btn_alterarcliente.setBackground(new java.awt.Color(153, 153, 153));
         btn_alterarcliente.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btn_alterarcliente.setForeground(new java.awt.Color(255, 255, 255));
@@ -215,7 +206,7 @@ public class ClienteView extends javax.swing.JInternalFrame {
             }
         });
         pnl_cliente.add(btn_alterarcliente);
-        btn_alterarcliente.setBounds(320, 300, 110, 30);
+        btn_alterarcliente.setBounds(340, 270, 110, 30);
 
         btn_excluircliente.setBackground(new java.awt.Color(153, 153, 153));
         btn_excluircliente.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -230,19 +221,6 @@ public class ClienteView extends javax.swing.JInternalFrame {
         });
         pnl_cliente.add(btn_excluircliente);
         btn_excluircliente.setBounds(570, 300, 110, 30);
-
-        btn_novocliente.setBackground(new java.awt.Color(153, 153, 153));
-        btn_novocliente.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btn_novocliente.setForeground(new java.awt.Color(255, 255, 255));
-        btn_novocliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/novo.png"))); // NOI18N
-        btn_novocliente.setText("Novo");
-        btn_novocliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_novoclienteActionPerformed(evt);
-            }
-        });
-        pnl_cliente.add(btn_novocliente);
-        btn_novocliente.setBounds(60, 300, 110, 30);
 
         estadocliente.setEnabled(false);
         pnl_cliente.add(estadocliente);
@@ -367,15 +345,39 @@ public class ClienteView extends javax.swing.JInternalFrame {
         pnl_cliente.add(celcliente);
         celcliente.setBounds(250, 230, 110, 20);
 
+        btn_novocliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/button_novo.png"))); // NOI18N
+        btn_novocliente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btn_novocliente.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_novoclienteMouseClicked(evt);
+            }
+        });
+        pnl_cliente.add(btn_novocliente);
+        btn_novocliente.setBounds(20, 300, 140, 70);
+
+        btn_salvarcliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/button_salvar.png"))); // NOI18N
+        btn_salvarcliente.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_salvarclienteMouseClicked(evt);
+            }
+        });
+        pnl_cliente.add(btn_salvarcliente);
+        btn_salvarcliente.setBounds(170, 310, 140, 50);
+
+        jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/back.jpg"))); // NOI18N
+        jLabel18.setPreferredSize(new java.awt.Dimension(754, 640));
+        pnl_cliente.add(jLabel18);
+        jLabel18.setBounds(0, 0, 750, 640);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnl_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 719, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(pnl_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 754, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnl_cliente, javax.swing.GroupLayout.DEFAULT_SIZE, 574, Short.MAX_VALUE)
+            .addComponent(pnl_cliente, javax.swing.GroupLayout.DEFAULT_SIZE, 640, Short.MAX_VALUE)
         );
 
         pack();
@@ -404,8 +406,57 @@ public class ClienteView extends javax.swing.JInternalFrame {
        }
     }//GEN-LAST:event_btn_excluirclienteActionPerformed
 
-    private void btn_salvarclienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salvarclienteActionPerformed
+    private void btn_alterarclienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_alterarclienteActionPerformed
+        Alterar();
+        campos_liberados();   
+    }//GEN-LAST:event_btn_alterarclienteActionPerformed
+
+    private void tbl_clienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_clienteMouseClicked
         
+        
+        idcliente.setText(tbl_cliente.getValueAt(tbl_cliente.getSelectedRow(), 0).toString());
+        nomecliente.setText(tbl_cliente.getValueAt(tbl_cliente.getSelectedRow(), 1).toString());
+        cpfcliente.setText(tbl_cliente.getValueAt(tbl_cliente.getSelectedRow(), 2).toString());
+        fixocliente.setText(tbl_cliente.getValueAt(tbl_cliente.getSelectedRow(), 3).toString());
+        /*campos_liberados();
+        clienteDAO = new ClienteDAO();
+        cliente = new Cliente();
+        int i = tbl_cliente.getSelectedRow();
+        try {
+            cliente = clienteDAO.recuperaCliente(Integer.parseInt(tbl_cliente.getValueAt(i, 0).toString()));
+        } catch (SQLException ex) {
+            Logger.getLogger(Cliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        idcliente.setText((String.valueOf(cliente.getIdCliente())));
+        nomecliente.setText(cliente.getNomeCliente());
+        //datacliente.setText(cliente.getDataNascimento());
+        cpfcliente.setText(cliente.getCpf());
+        //rgcliente.setText(cliente.getRg());
+        //endcliente.setText(cliente.getEndereco());
+        //bairrocliente.setText(cliente.getBairro());
+        //numcliente.setText(String.valueOf(cliente.getNumero()));
+        //compcliente.setText(cliente.getComplemento());
+        fixocliente.setText(String.valueOf(cliente.getTelefone()));
+        //comercialcliente.setText(String.valueOf(cliente.getTelefoneComercial()));
+        //celcliente.setText(String.valueOf(cliente.getCelular()));
+        //emailcliente.setText(cliente.getEmail());*/
+        Preparaselecaotabela();
+    }//GEN-LAST:event_tbl_clienteMouseClicked
+
+    private void btn_cancelarclienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelarclienteActionPerformed
+         limpar();
+         preparaSalvareCancelar();
+         campos_bloqueados();
+    }//GEN-LAST:event_btn_cancelarclienteActionPerformed
+
+    private void btn_novoclienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_novoclienteMouseClicked
+       limpar();
+       preparanovo();
+       campos_liberados();
+    }//GEN-LAST:event_btn_novoclienteMouseClicked
+
+    private void btn_salvarclienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_salvarclienteMouseClicked
+    
         cliente = new Cliente();
         
         if(nomecliente.getText().isEmpty() ||  datacliente.getText().isEmpty() || cpfcliente.getText().isEmpty() || rgcliente.getText().isEmpty() || endcliente.getText().isEmpty() || 
@@ -467,59 +518,10 @@ public class ClienteView extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null,"Gravado com Sucesso!!"); 
             AtualizartabelaCliente();
             preparaSalvareCancelar();
-            campos_bloqueados();
-        }
-    }//GEN-LAST:event_btn_salvarclienteActionPerformed
+            campos_bloqueados();        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_salvarclienteMouseClicked
+    }
 
-    private void btn_novoclienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_novoclienteActionPerformed
-        limpar();
-        preparanovo();
-        campos_liberados();
-    }//GEN-LAST:event_btn_novoclienteActionPerformed
-
-    private void btn_alterarclienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_alterarclienteActionPerformed
-        Alterar();
-        campos_liberados();   
-    }//GEN-LAST:event_btn_alterarclienteActionPerformed
-
-    private void tbl_clienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_clienteMouseClicked
-        
-        
-        idcliente.setText(tbl_cliente.getValueAt(tbl_cliente.getSelectedRow(), 0).toString());
-        nomecliente.setText(tbl_cliente.getValueAt(tbl_cliente.getSelectedRow(), 1).toString());
-        cpfcliente.setText(tbl_cliente.getValueAt(tbl_cliente.getSelectedRow(), 2).toString());
-        fixocliente.setText(tbl_cliente.getValueAt(tbl_cliente.getSelectedRow(), 3).toString());
-        /*campos_liberados();
-        clienteDAO = new ClienteDAO();
-        cliente = new Cliente();
-        int i = tbl_cliente.getSelectedRow();
-        try {
-            cliente = clienteDAO.recuperaCliente(Integer.parseInt(tbl_cliente.getValueAt(i, 0).toString()));
-        } catch (SQLException ex) {
-            Logger.getLogger(Cliente.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        idcliente.setText((String.valueOf(cliente.getIdCliente())));
-        nomecliente.setText(cliente.getNomeCliente());
-        //datacliente.setText(cliente.getDataNascimento());
-        cpfcliente.setText(cliente.getCpf());
-        //rgcliente.setText(cliente.getRg());
-        //endcliente.setText(cliente.getEndereco());
-        //bairrocliente.setText(cliente.getBairro());
-        //numcliente.setText(String.valueOf(cliente.getNumero()));
-        //compcliente.setText(cliente.getComplemento());
-        fixocliente.setText(String.valueOf(cliente.getTelefone()));
-        //comercialcliente.setText(String.valueOf(cliente.getTelefoneComercial()));
-        //celcliente.setText(String.valueOf(cliente.getCelular()));
-        //emailcliente.setText(cliente.getEmail());*/
-        Preparaselecaotabela();
-    }//GEN-LAST:event_tbl_clienteMouseClicked
-
-    private void btn_cancelarclienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelarclienteActionPerformed
-         limpar();
-         preparaSalvareCancelar();
-         campos_bloqueados();
-    }//GEN-LAST:event_btn_cancelarclienteActionPerformed
-        
     public void AtualizartabelaCliente() {
     
      cliente = new Cliente();
@@ -673,8 +675,8 @@ public void Preparaselecaotabela(){
     private javax.swing.JButton btn_alterarcliente;
     private javax.swing.JButton btn_cancelarcliente;
     private javax.swing.JButton btn_excluircliente;
-    private javax.swing.JButton btn_novocliente;
-    private javax.swing.JButton btn_salvarcliente;
+    private javax.swing.JLabel btn_novocliente;
+    private javax.swing.JLabel btn_salvarcliente;
     private javax.swing.JFormattedTextField celcliente;
     private javax.swing.JTextField cidadecliente;
     private javax.swing.JFormattedTextField comercialcliente;
@@ -694,6 +696,7 @@ public void Preparaselecaotabela(){
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

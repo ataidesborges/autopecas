@@ -92,8 +92,11 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
         cpffunc = new javax.swing.JFormattedTextField();
         telfunc = new javax.swing.JFormattedTextField();
         celfunc = new javax.swing.JFormattedTextField();
+        jLabel18 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(204, 204, 204));
+        setClosable(true);
+        setPreferredSize(new java.awt.Dimension(754, 640));
 
         pnl_funcionario.setBackground(new java.awt.Color(204, 204, 204));
         pnl_funcionario.setLayout(null);
@@ -365,15 +368,20 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
         pnl_funcionario.add(celfunc);
         celfunc.setBounds(130, 230, 110, 20);
 
+        jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/back.jpg"))); // NOI18N
+        jLabel18.setPreferredSize(new java.awt.Dimension(754, 640));
+        pnl_funcionario.add(jLabel18);
+        jLabel18.setBounds(0, 0, 750, 640);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnl_funcionario, javax.swing.GroupLayout.PREFERRED_SIZE, 719, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(pnl_funcionario, javax.swing.GroupLayout.PREFERRED_SIZE, 754, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnl_funcionario, javax.swing.GroupLayout.DEFAULT_SIZE, 574, Short.MAX_VALUE)
+            .addComponent(pnl_funcionario, javax.swing.GroupLayout.DEFAULT_SIZE, 610, Short.MAX_VALUE)
         );
 
         pack();
@@ -688,6 +696,7 @@ public void AtualizartabelaFuncionario()  {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

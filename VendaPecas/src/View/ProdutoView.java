@@ -80,6 +80,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         tblproduto = new javax.swing.JTable();
         dataprod = new javax.swing.JFormattedTextField();
+        jLabel18 = new javax.swing.JLabel();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -93,8 +94,6 @@ public class ProdutoView extends javax.swing.JInternalFrame {
             }
         ));
         jScrollPane1.setViewportView(jTable1);
-
-        setPreferredSize(new java.awt.Dimension(735, 604));
 
         pnl_produto.setBackground(new java.awt.Color(204, 204, 204));
         pnl_produto.setLayout(null);
@@ -285,15 +284,20 @@ public class ProdutoView extends javax.swing.JInternalFrame {
         pnl_produto.add(dataprod);
         dataprod.setBounds(430, 70, 80, 20);
 
+        jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/back.jpg"))); // NOI18N
+        jLabel18.setPreferredSize(new java.awt.Dimension(754, 640));
+        pnl_produto.add(jLabel18);
+        jLabel18.setBounds(0, 0, 750, 640);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnl_produto, javax.swing.GroupLayout.PREFERRED_SIZE, 719, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(pnl_produto, javax.swing.GroupLayout.PREFERRED_SIZE, 754, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnl_produto, javax.swing.GroupLayout.DEFAULT_SIZE, 574, Short.MAX_VALUE)
+            .addComponent(pnl_produto, javax.swing.GroupLayout.DEFAULT_SIZE, 640, Short.MAX_VALUE)
         );
 
         pack();
@@ -546,6 +550,7 @@ public void Preparaselecaotabela(){
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
