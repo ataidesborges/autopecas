@@ -94,7 +94,6 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
         celfunc = new javax.swing.JFormattedTextField();
 
         setBackground(new java.awt.Color(204, 204, 204));
-        setClosable(true);
 
         pnl_funcionario.setBackground(new java.awt.Color(204, 204, 204));
         pnl_funcionario.setLayout(null);

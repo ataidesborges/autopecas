@@ -13,6 +13,7 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 
+
 /**
  *
  * @author User
@@ -31,7 +32,7 @@ public class PrincipalView extends javax.swing.JFrame {
         frame.setUndecorated(true);
         setLocationRelativeTo( null );
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        ImageIcon icon = new ImageIcon("src/Imagens/auto.png");
+        ImageIcon icon = new ImageIcon("src/Imagens/auto3.png");
         icon.setImage(icon.getImage().getScaledInstance(img.getWidth(), img.getHeight(), 1));
         img.setIcon(icon);
 
@@ -76,9 +77,8 @@ public class PrincipalView extends javax.swing.JFrame {
 
         img.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/auto.png"))); // NOI18N
         img.setToolTipText("");
+        img.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         img.setDoubleBuffered(true);
-        img.setMaximumSize(new java.awt.Dimension(1080, 1920));
-        img.setPreferredSize(new java.awt.Dimension(1080, 1920));
 
         javax.swing.GroupLayout pnl_principalLayout = new javax.swing.GroupLayout(pnl_principal);
         pnl_principal.setLayout(pnl_principalLayout);
@@ -88,7 +88,7 @@ public class PrincipalView extends javax.swing.JFrame {
         );
         pnl_principalLayout.setVerticalGroup(
             pnl_principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(img, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+            .addComponent(img, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
         );
 
         pnl2.setBackground(new java.awt.Color(255, 255, 255));
@@ -219,9 +219,10 @@ public class PrincipalView extends javax.swing.JFrame {
         ClienteView cli = new ClienteView();
         pnl_principal.removeAll();
         pnl_principal.add(cli);
-        pnl_principal.updateUI();
-        // TODO add your handling code here:
-               
+        pnl_principal.updateUI();               
+      
+      
+      
     }//GEN-LAST:event_menucadastroclienteActionPerformed
 
     private void menucadastrofuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menucadastrofuncActionPerformed

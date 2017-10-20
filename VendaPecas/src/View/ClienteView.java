@@ -88,8 +88,6 @@ public class ClienteView extends javax.swing.JInternalFrame {
         comercialcliente = new javax.swing.JFormattedTextField();
         celcliente = new javax.swing.JFormattedTextField();
 
-        setClosable(true);
-
         pnl_cliente.setBackground(new java.awt.Color(204, 204, 204));
         pnl_cliente.setLayout(null);
 
@@ -283,7 +281,7 @@ public class ClienteView extends javax.swing.JInternalFrame {
         jScrollPane1.setViewportView(tbl_cliente);
 
         pnl_cliente.add(jScrollPane1);
-        jScrollPane1.setBounds(0, 360, 740, 100);
+        jScrollPane1.setBounds(10, 380, 700, 130);
 
         try {
 
@@ -373,11 +371,11 @@ public class ClienteView extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnl_cliente, javax.swing.GroupLayout.DEFAULT_SIZE, 740, Short.MAX_VALUE)
+            .addComponent(pnl_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 719, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnl_cliente, javax.swing.GroupLayout.DEFAULT_SIZE, 490, Short.MAX_VALUE)
+            .addComponent(pnl_cliente, javax.swing.GroupLayout.DEFAULT_SIZE, 574, Short.MAX_VALUE)
         );
 
         pack();
