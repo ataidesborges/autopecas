@@ -95,6 +95,9 @@ public class ProdutoView extends javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
+        setPreferredSize(new java.awt.Dimension(754, 640));
+        setVisible(true);
+
         pnl_produto.setBackground(new java.awt.Color(204, 204, 204));
         pnl_produto.setLayout(null);
 

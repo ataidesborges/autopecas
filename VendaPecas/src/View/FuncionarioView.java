@@ -305,7 +305,7 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
         jScrollPane1.setViewportView(tbl_funcionario);
 
         pnl_funcionario.add(jScrollPane1);
-        jScrollPane1.setBounds(10, 450, 700, 110);
+        jScrollPane1.setBounds(10, 440, 700, 150);
 
         try {
 

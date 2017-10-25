@@ -55,7 +55,6 @@ public class PrincipalView extends javax.swing.JFrame {
         pnl_principal = new javax.swing.JPanel();
         img = new javax.swing.JLabel();
         pnl2 = new javax.swing.JPanel();
-        menurelatorios = new javax.swing.JButton();
         menucadastrofunc = new javax.swing.JButton();
         menucadastrocliente = new javax.swing.JButton();
         sair = new javax.swing.JButton();
@@ -94,21 +93,6 @@ public class PrincipalView extends javax.swing.JFrame {
 
         pnl2.setBackground(new java.awt.Color(255, 255, 255));
         pnl2.setBorder(javax.swing.BorderFactory.createTitledBorder("Menu"));
-
-        menurelatorios.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 18)); // NOI18N
-        menurelatorios.setForeground(new java.awt.Color(255, 255, 255));
-        menurelatorios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/botão.png"))); // NOI18N
-        menurelatorios.setText("Relatórios");
-        menurelatorios.setToolTipText("");
-        menurelatorios.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        menurelatorios.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        menurelatorios.setIconTextGap(0);
-        menurelatorios.setName(""); // NOI18N
-        menurelatorios.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menurelatoriosActionPerformed(evt);
-            }
-        });
 
         menucadastrofunc.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 18)); // NOI18N
         menucadastrofunc.setForeground(new java.awt.Color(255, 255, 255));
@@ -177,7 +161,6 @@ public class PrincipalView extends javax.swing.JFrame {
             .addGroup(pnl2Layout.createSequentialGroup()
                 .addGroup(pnl2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(menucadastrarprod, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(menurelatorios, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(menucadastrofunc, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(pnl2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(pnl2Layout.createSequentialGroup()
@@ -197,9 +180,7 @@ public class PrincipalView extends javax.swing.JFrame {
                 .addComponent(menucadastrofunc, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(39, 39, 39)
                 .addComponent(menucadastrarprod, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35)
-                .addComponent(menurelatorios, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 185, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 272, Short.MAX_VALUE)
                 .addComponent(sair, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(52, 52, 52))
         );
@@ -251,10 +232,6 @@ public class PrincipalView extends javax.swing.JFrame {
         pnl_principal.updateUI();
     }//GEN-LAST:event_menucadastrofuncActionPerformed
 
-    private void menurelatoriosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menurelatoriosActionPerformed
-        
-    }//GEN-LAST:event_menurelatoriosActionPerformed
-
     private void menucadastrarprodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menucadastrarprodActionPerformed
         ProdutoView pro = new ProdutoView();
         pnl_principal.removeAll();
@@ -279,7 +256,6 @@ public class PrincipalView extends javax.swing.JFrame {
     private javax.swing.JButton menucadastrarprod;
     private javax.swing.JButton menucadastrocliente;
     private javax.swing.JButton menucadastrofunc;
-    private javax.swing.JButton menurelatorios;
     private javax.swing.JPanel pnl2;
     private javax.swing.JPanel pnl_principal;
     private javax.swing.JButton sair;

@@ -5,15 +5,17 @@
  */
 package View;
 
-
 import DAO.ClienteDAO;
 import Model.Cliente;
+import java.io.File;
+import java.io.FileOutputStream;
 import javax.swing.JOptionPane;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.scene.text.Font;
 import javax.swing.JInternalFrame;
 import javax.swing.SwingConstants;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
@@ -21,24 +23,25 @@ import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.text.MaskFormatter;
 
-
 /**
  *
  * @author Larissa
  */
 public class ClienteView extends javax.swing.JInternalFrame {
+
     Cliente cliente;
     ClienteDAO clienteDAO;
     List<Cliente> listaClientes;
+
     /**
      * Creates new form Cliente
      */
     public ClienteView() {
-        clienteDAO  = new ClienteDAO();
+        clienteDAO = new ClienteDAO();
         listaClientes = new ArrayList<>();
         initComponents();
         this.setVisible(true);
-        AtualizartabelaCliente();        
+        AtualizartabelaCliente();
     }
 
     /**
@@ -94,6 +97,7 @@ public class ClienteView extends javax.swing.JInternalFrame {
         imgalterar = new javax.swing.JLabel();
         imgcancelar = new javax.swing.JLabel();
         imgexcluir = new javax.swing.JLabel();
+        imgrelatorio = new javax.swing.JLabel();
         fundo = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(754, 640));
@@ -222,7 +226,7 @@ public class ClienteView extends javax.swing.JInternalFrame {
         jScrollPane1.setViewportView(tbl_cliente);
 
         pnl_cliente.add(jScrollPane1);
-        jScrollPane1.setBounds(10, 380, 700, 130);
+        jScrollPane1.setBounds(10, 420, 700, 160);
 
         try {
 
@@ -382,6 +386,15 @@ public class ClienteView extends javax.swing.JInternalFrame {
         pnl_cliente.add(imgexcluir);
         imgexcluir.setBounds(630, 290, 30, 30);
 
+        imgrelatorio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/button_relatorio-de-cliente (1).png"))); // NOI18N
+        imgrelatorio.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                imgrelatorioMouseClicked(evt);
+            }
+        });
+        pnl_cliente.add(imgrelatorio);
+        imgrelatorio.setBounds(260, 370, 180, 30);
+
         fundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/back.jpg"))); // NOI18N
         fundo.setPreferredSize(new java.awt.Dimension(754, 640));
         pnl_cliente.add(fundo);
@@ -401,12 +414,9 @@ public class ClienteView extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    
 
-    
     private void tbl_clienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_clienteMouseClicked
-        
-        
+
         idcliente.setText(tbl_cliente.getValueAt(tbl_cliente.getSelectedRow(), 0).toString());
         nomecliente.setText(tbl_cliente.getValueAt(tbl_cliente.getSelectedRow(), 1).toString());
         cpfcliente.setText(tbl_cliente.getValueAt(tbl_cliente.getSelectedRow(), 2).toString());
@@ -437,135 +447,215 @@ public class ClienteView extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_tbl_clienteMouseClicked
 
     private void btn_novoclienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_novoclienteMouseClicked
-       limpar();
-       preparanovo();
-       campos_liberados();
+        limpar();
+        preparanovo();
+        campos_liberados();
     }//GEN-LAST:event_btn_novoclienteMouseClicked
 
     private void btn_salvarclienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_salvarclienteMouseClicked
-    
+
         cliente = new Cliente();
-        
-        if(nomecliente.getText().isEmpty() ||  datacliente.getText().isEmpty() || cpfcliente.getText().isEmpty() || rgcliente.getText().isEmpty() || endcliente.getText().isEmpty() || 
-           numcliente.getText().isEmpty() || compcliente.getText().isEmpty() || cidadecliente.getText().isEmpty() || bairrocliente.getText().isEmpty() || estadocliente.getText().isEmpty() ||
-           fixocliente.getText().isEmpty() || comercialcliente.getText().isEmpty() || celcliente.getText().isEmpty() || emailcliente.getText().isEmpty())
-        {
+
+        if (nomecliente.getText().isEmpty() || datacliente.getText().isEmpty() || cpfcliente.getText().isEmpty() || rgcliente.getText().isEmpty() || endcliente.getText().isEmpty()
+                || numcliente.getText().isEmpty() || compcliente.getText().isEmpty() || cidadecliente.getText().isEmpty() || bairrocliente.getText().isEmpty() || estadocliente.getText().isEmpty()
+                || fixocliente.getText().isEmpty() || comercialcliente.getText().isEmpty() || celcliente.getText().isEmpty() || emailcliente.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Preencha todos os campos!");
             nomecliente.requestFocusInWindow();
-        } else if(idcliente.getText().isEmpty())
-                {                   
-                    cliente.setNomeCliente(nomecliente.getText());
-                    cliente.setDataNascimento(datacliente.getText());
-                    cliente.setEndereco(endcliente.getText());
-                    cliente.setNumero(Integer.parseInt(numcliente.getText()));
-                    cliente.setBairro(bairrocliente.getText());
-                    cliente.setCidade(cidadecliente.getText());
-                    cliente.setEstado(estadocliente.getText());
-                    cliente.setEmail(emailcliente.getText());
-                    cliente.setCpf(cpfcliente.getText());
-                    cliente.setRg(rgcliente.getText());
-                    cliente.setTelefone(Integer.parseInt(fixocliente.getText()));
-                    cliente.setTelefoneComercial(Integer.parseInt(comercialcliente.getText()));
-                    cliente.setCelular(Integer.parseInt(celcliente.getText()));
-                    cliente.setComplemento(compcliente.getText());
-            try{
-               clienteDAO.salvar(cliente);     
-            }catch (SQLException ex){
+        } else if (idcliente.getText().isEmpty()) {
+            cliente.setNomeCliente(nomecliente.getText());
+            cliente.setDataNascimento(datacliente.getText());
+            cliente.setEndereco(endcliente.getText());
+            cliente.setNumero(Integer.parseInt(numcliente.getText()));
+            cliente.setBairro(bairrocliente.getText());
+            cliente.setCidade(cidadecliente.getText());
+            cliente.setEstado(estadocliente.getText());
+            cliente.setEmail(emailcliente.getText());
+            cliente.setCpf(cpfcliente.getText());
+            cliente.setRg(rgcliente.getText());
+            cliente.setTelefone(Integer.parseInt(fixocliente.getText()));
+            cliente.setTelefoneComercial(Integer.parseInt(comercialcliente.getText()));
+            cliente.setCelular(Integer.parseInt(celcliente.getText()));
+            cliente.setComplemento(compcliente.getText());
+            try {
+                clienteDAO.salvar(cliente);
+            } catch (SQLException ex) {
                 Logger.getLogger(ClienteView.class.getName()).log(Level.SEVERE, null, ex);
             }
-            JOptionPane.showMessageDialog(null,"Gravado com Sucesso!!"); 
+            JOptionPane.showMessageDialog(null, "Gravado com Sucesso!!");
             AtualizartabelaCliente();
             preparaSalvareCancelar();
             campos_bloqueados();
             limpar();
-            
-        }
-        else{
-                    cliente.setIdCliente(Integer.parseInt(idcliente.getText()));
-                    cliente.setNomeCliente(nomecliente.getText());
-                    cliente.setDataNascimento(datacliente.getText());
-                    cliente.setEndereco(endcliente.getText());
-                    cliente.setNumero(Integer.parseInt(numcliente.getText()));
-                    cliente.setBairro(bairrocliente.getText());
-                    cliente.setCidade(cidadecliente.getText());
-                    cliente.setEstado(estadocliente.getText());
-                    cliente.setEmail(emailcliente.getText());
-                    cliente.setCpf(cpfcliente.getText());
-                    cliente.setRg(rgcliente.getText());
-                    cliente.setTelefone(Integer.parseInt(fixocliente.getText()));
-                    cliente.setTelefoneComercial(Integer.parseInt(comercialcliente.getText()));
-                    cliente.setCelular(Integer.parseInt(celcliente.getText()));
-                    cliente.setComplemento(compcliente.getText());
-                    
-            try{
-               clienteDAO.alterar(cliente);     
-            }catch (SQLException ex){
+
+        } else {
+            cliente.setIdCliente(Integer.parseInt(idcliente.getText()));
+            cliente.setNomeCliente(nomecliente.getText());
+            cliente.setDataNascimento(datacliente.getText());
+            cliente.setEndereco(endcliente.getText());
+            cliente.setNumero(Integer.parseInt(numcliente.getText()));
+            cliente.setBairro(bairrocliente.getText());
+            cliente.setCidade(cidadecliente.getText());
+            cliente.setEstado(estadocliente.getText());
+            cliente.setEmail(emailcliente.getText());
+            cliente.setCpf(cpfcliente.getText());
+            cliente.setRg(rgcliente.getText());
+            cliente.setTelefone(Integer.parseInt(fixocliente.getText()));
+            cliente.setTelefoneComercial(Integer.parseInt(comercialcliente.getText()));
+            cliente.setCelular(Integer.parseInt(celcliente.getText()));
+            cliente.setComplemento(compcliente.getText());
+
+            try {
+                clienteDAO.alterar(cliente);
+            } catch (SQLException ex) {
                 Logger.getLogger(ClienteView.class.getName()).log(Level.SEVERE, null, ex);
             }
-            JOptionPane.showMessageDialog(null,"Gravado com Sucesso!!"); 
+            JOptionPane.showMessageDialog(null, "Gravado com Sucesso!!");
             AtualizartabelaCliente();
             preparaSalvareCancelar();
             campos_bloqueados();        // TODO add your handling code here:
     }//GEN-LAST:event_btn_salvarclienteMouseClicked
     }
     private void btn_alterarclienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_alterarclienteMouseClicked
-         Alterar();
+        Alterar();
         campos_liberados();   // TODO add your handling code here:
     }//GEN-LAST:event_btn_alterarclienteMouseClicked
 
     private void btn_cancelarclienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_cancelarclienteMouseClicked
-       limpar();
-         preparaSalvareCancelar();
-         campos_bloqueados(); // TODO add your handling code here:
+        limpar();
+        preparaSalvareCancelar();
+        campos_bloqueados(); // TODO add your handling code here:
     }//GEN-LAST:event_btn_cancelarclienteMouseClicked
 
     private void btn_excluirclienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_excluirclienteMouseClicked
- if(idcliente.getText().isEmpty()){
-           JOptionPane.showMessageDialog(null, "Selecione um cliente!");
-       }else {
-           cliente = new Cliente();
-           cliente.setIdCliente(Integer.parseInt(idcliente.getText()));
-           int confirma = JOptionPane.showConfirmDialog(null,"Deseja excluir?: " + nomecliente.getText());
-           if (confirma == 0){
-               try {
-                   clienteDAO.excluir(cliente);
-               } catch (SQLException ex) {
-                   Logger.getLogger(ClienteView.class.getName()).log(Level.SEVERE, null, ex);
-               }
-               limpar();
-               excluir(); 
-               AtualizartabelaCliente();
-           }
-       }        // TODO add your handling code here:
+        if (idcliente.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Selecione um cliente!");
+        } else {
+            cliente = new Cliente();
+            cliente.setIdCliente(Integer.parseInt(idcliente.getText()));
+            int confirma = JOptionPane.showConfirmDialog(null, "Deseja excluir?: " + nomecliente.getText());
+            if (confirma == 0) {
+                try {
+                    clienteDAO.excluir(cliente);
+                } catch (SQLException ex) {
+                    Logger.getLogger(ClienteView.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                limpar();
+                excluir();
+                AtualizartabelaCliente();
+            }
+        }        // TODO add your handling code here:
     }//GEN-LAST:event_btn_excluirclienteMouseClicked
-    
+
+    private void imgrelatorioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imgrelatorioMouseClicked
+        /*String nomediretorio = null;
+        String nomepasta = "SRS"; // Informe o nome da pasta que armazenará o relatório       
+        String separador = java.io.File.separator;
+        try {
+            nomediretorio = "C:" + separador + nomepasta;
+            if (!new File(nomediretorio).exists()) {
+                (new File(nomediretorio)).mkdir();
+            }
+            gerarDocumento();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        // TODO add your handling code here:
+    }//GEN-LAST:event_imgrelatorioMouseClicked
+    public void gerarDocumento() {
+        try {
+            List<Cliente> lista = new ArrayList<>();
+            lista = clienteDAO.ListaCliente();
+            doc = new Document(PageSize.A4, 41.5f, 41.5f, 55.2f, 55.2f);
+            PdfWriter.getInstance(doc, new FileOutputStream("C:/SRS/RelatorioCliente" + ".pdf"));
+            doc.open();
+
+            Font f1 = new Font(Font.HELVETICA, 14, Font.BOLD);
+            Font f2 = new Font(Font.HELVETICA, 12, Font.BOLD);
+            Font f3 = new Font(Font.HELVETICA, 12, Font.NORMAL);
+            Font f4 = new Font(Font.HELVETICA, 10, Font.BOLD);
+            Font f5 = new Font(Font.HELVETICA, 10, Font.NORMAL);
+
+            Paragraph titulo1 = new Paragraph("Universidade do Estado de Minas Gerais", f2);
+            titulo1.setAlignment(Element.ALIGN_CENTER);
+            titulo1.setSpacingAfter(10);
+
+            Paragraph titulo2 = new Paragraph("Relatório de Clientes", f1);
+            titulo2.setAlignment(Element.ALIGN_CENTER);
+            titulo2.setSpacingAfter(0);
+
+            PdfPTable tabela = new PdfPTable(new float[]{0.40f, 0.60f});
+            tabela.setHorizontalAlignment(Element.ALIGN_CENTER);
+            tabela.setWidthPercentage(100f);
+
+            PdfPCell cabecalho1 = new PdfPCell(new Paragraph("Nome", f3));
+            //cabecalho1.setBackgroundColor(new Color(0xc0, 0xc0, 0xc0));
+            cabecalho1.setHorizontalAlignment(Element.ALIGN_JUSTIFIED);
+            cabecalho1.setBorder(0);
+
+            PdfPCell cabecalho2 = new PdfPCell(new Paragraph("Endereço", f3));
+            //cabecalho2.setBackgroundColor(new Color(0xc0, 0xc0, 0xc0));
+            cabecalho2.setHorizontalAlignment(Element.ALIGN_JUSTIFIED);
+            cabecalho2.setBorder(0);
+
+            tabela.addCell(cabecalho1);
+            tabela.addCell(cabecalho2);
+            for (Cliente cliente : lista) {
+                Paragraph p1 = new Paragraph(cliente.getNomeCliente(), f5);
+                p1.setAlignment(Element.ALIGN_JUSTIFIED);
+                PdfPCell col1 = new PdfPCell(p1);
+                col1.setBorder(0);
+
+                Paragraph p2 = new Paragraph(cliente.getEnderecoCliente(), f5);
+                p2.setAlignment(Element.ALIGN_JUSTIFIED);
+                PdfPCell col2 = new PdfPCell(p2);
+                col2.setBorder(0);
+                tabela.addCell(col1);
+                tabela.addCell(col2);
+            }
+
+            doc.add(titulo2);
+            doc.add(titulo1);
+            doc.add(tabela);
+            doc.close();
+
+            JOptionPane.showMessageDialog(null, "Relatório salvo com sucesso");
+            String caminho = "C:/SRS/RelatorioCliente.pdf";
+            Desktop.getDesktop().open(new File(caminho));
+        } catch (DocumentException e) {
+            e.printStackTrace();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        } catch (IOException exx) {
+            exx.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Documento de Requisitos aberto. Feche para gerar um novo.");
+        }*/
+    }
 
     public void AtualizartabelaCliente() {
-    
-     cliente = new Cliente();
+
+        cliente = new Cliente();
         try {
-            
+
             //if(idcliente.getText().isEmpty()){
-                listaClientes = clienteDAO.ListaCliente();
-           // }
-           // else
+            listaClientes = clienteDAO.ListaCliente();
+            // }
+            // else
             //{
-                //listaClientes = clienteDAO.ListaCliente(Integer.parseInt(idcliente.getText()));
+            //listaClientes = clienteDAO.ListaCliente(Integer.parseInt(idcliente.getText()));
             //}
         } catch (SQLException ex) {
             Logger.getLogger(ClienteView.class.getName()).log(Level.SEVERE, null, ex);
         }
-       
- 
-        String dados [][] = new String[listaClientes.size()] [4];          
+
+        String dados[][] = new String[listaClientes.size()][4];
         int i = 0;
         for (Cliente cliente : listaClientes) {
-        dados[i][0] = String.valueOf(cliente.getIdCliente());
-        dados[i][1] = cliente.getNomeCliente();
-        //dados[i][2] = cliente.getDataNascimento();
-        dados[i][2] = cliente.getCpf();
-        dados[i][3] = String.valueOf(cliente.getTelefone());
-        /*dados[i][4] = cliente.getRg();
+            dados[i][0] = String.valueOf(cliente.getIdCliente());
+            dados[i][1] = cliente.getNomeCliente();
+            //dados[i][2] = cliente.getDataNascimento();
+            dados[i][2] = cliente.getCpf();
+            dados[i][3] = String.valueOf(cliente.getTelefone());
+            /*dados[i][4] = cliente.getRg();
         dados[i][5] = cliente.getCidade();
         dados[i][6] = cliente.getEstado();
         dados[i][7] = cliente.getEndereco();
@@ -575,118 +665,121 @@ public class ClienteView extends javax.swing.JInternalFrame {
         dados[i][11] = String.valueOf(cliente.getTelefoneComercial());
         dados[i][12] = String.valueOf(cliente.getCelular());
         dados[i][13] = cliente.getEmail();*/
-        i++;
+            i++;
         }
         String tituloColuna[] = {"ID", "Nome", "CPF", "Telefone"};
-         DefaultTableModel tabelaCliente = new DefaultTableModel();
+        DefaultTableModel tabelaCliente = new DefaultTableModel();
         tabelaCliente.setDataVector(dados, tituloColuna);
         tbl_cliente.setModel(new DefaultTableModel(dados, tituloColuna) {
-        boolean[] canEdit = new boolean[]{
-         false, false, false, false, false
-        };
-        public boolean isCellEditable(int rowIndex, int columnIndex) {
-        return canEdit[columnIndex];
-        }
+            boolean[] canEdit = new boolean[]{
+                false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit[columnIndex];
+            }
         });
         tbl_cliente.getColumnModel().getColumn(0).setPreferredWidth(100);
         tbl_cliente.getColumnModel().getColumn(1).setPreferredWidth(300);
         tbl_cliente.getColumnModel().getColumn(2).setPreferredWidth(150);
-        tbl_cliente.getColumnModel().getColumn(3).setPreferredWidth(200); 
-        
+        tbl_cliente.getColumnModel().getColumn(3).setPreferredWidth(200);
+
         DefaultTableCellRenderer centralizado = new DefaultTableCellRenderer();
         centralizado.setHorizontalAlignment(SwingConstants.CENTER);
         tbl_cliente.getColumnModel().getColumn(0).setCellRenderer(centralizado);
         tbl_cliente.setRowHeight(25);
-        tbl_cliente.updateUI(); 
-    }
- 
-   public void preparanovo(){
-    btn_novocliente.setEnabled(false);
-    btn_salvarcliente.setEnabled(true);
-    btn_alterarcliente.setEnabled(false);
-    btn_excluircliente.setEnabled(false);
-    btn_cancelarcliente.setEnabled(true);
-    tbl_cliente.setEnabled(false);
-    tbl_cliente.clearSelection();
-    }
-      
-    public void limpar(){
-    celcliente.setText("");
-    cidadecliente.setText("");
-    comercialcliente.setText("");
-    compcliente.setText("");
-    cpfcliente.setText("");
-    datacliente.setText("");
-    emailcliente.setText("");
-    endcliente.setText("");
-    estadocliente.setText("");
-    fixocliente.setText("");
-    rgcliente.setText("");
-    nomecliente.setText("");
-    numcliente.setText("");
-    bairrocliente.setText("");
-}
-public void campos_bloqueados(){
-    idcliente.setEnabled(false);
-    celcliente.setEnabled(false);
-    cidadecliente.setEnabled(false);
-    comercialcliente.setEnabled(false);
-    compcliente.setEnabled(false);
-    cpfcliente.setEnabled(false);
-    datacliente.setEnabled(false);
-    emailcliente.setEnabled(false);
-    endcliente.setEnabled(false);
-    estadocliente.setEnabled(false);
-    fixocliente.setEnabled(false);
-    rgcliente.setEnabled(false);
-    nomecliente.setEnabled(false);
-    numcliente.setEnabled(false);
-    bairrocliente.setEnabled(false);
-}
-public void campos_liberados(){
-    celcliente.setEnabled(true);
-    cidadecliente.setEnabled(true);
-    comercialcliente.setEnabled(true);
-    compcliente.setEnabled(true);
-    cpfcliente.setEnabled(true);
-    datacliente.setEnabled(true);
-    emailcliente.setEnabled(true);
-    endcliente.setEnabled(true);
-    estadocliente.setEnabled(true);
-    fixocliente.setEnabled(true);
-    rgcliente.setEnabled(true);
-    nomecliente.setEnabled(true);
-    numcliente.setEnabled(true);
-    bairrocliente.setEnabled(true);
-}
-
-public void excluir(){
-       btn_excluircliente.setEnabled(false);
-       btn_alterarcliente.setEnabled(false);  
+        tbl_cliente.updateUI();
     }
 
-public void preparaSalvareCancelar(){
-    btn_novocliente.setEnabled(true);
-    btn_salvarcliente.setEnabled(false);
-    btn_cancelarcliente.setEnabled(false); 
-    tbl_cliente.setEnabled(true);
-}
+    public void preparanovo() {
+        btn_novocliente.setEnabled(false);
+        btn_salvarcliente.setEnabled(true);
+        btn_alterarcliente.setEnabled(false);
+        btn_excluircliente.setEnabled(false);
+        btn_cancelarcliente.setEnabled(true);
+        tbl_cliente.setEnabled(false);
+        tbl_cliente.clearSelection();
+    }
 
-public void Alterar(){
-   btn_novocliente.setEnabled(false);
-   btn_excluircliente.setEnabled(false);
-   btn_alterarcliente.setEnabled(false);
-   btn_salvarcliente.setEnabled(true);
-   btn_cancelarcliente.setEnabled(true); 
-   tbl_cliente.setEnabled(false);
-   tbl_cliente.clearSelection();
-}
+    public void limpar() {
+        celcliente.setText("");
+        cidadecliente.setText("");
+        comercialcliente.setText("");
+        compcliente.setText("");
+        cpfcliente.setText("");
+        datacliente.setText("");
+        emailcliente.setText("");
+        endcliente.setText("");
+        estadocliente.setText("");
+        fixocliente.setText("");
+        rgcliente.setText("");
+        nomecliente.setText("");
+        numcliente.setText("");
+        bairrocliente.setText("");
+    }
 
-public void Preparaselecaotabela(){
-    btn_novocliente.setEnabled(true);
-    btn_excluircliente.setEnabled(true);
-    btn_alterarcliente.setEnabled(true);
-}
+    public void campos_bloqueados() {
+        idcliente.setEnabled(false);
+        celcliente.setEnabled(false);
+        cidadecliente.setEnabled(false);
+        comercialcliente.setEnabled(false);
+        compcliente.setEnabled(false);
+        cpfcliente.setEnabled(false);
+        datacliente.setEnabled(false);
+        emailcliente.setEnabled(false);
+        endcliente.setEnabled(false);
+        estadocliente.setEnabled(false);
+        fixocliente.setEnabled(false);
+        rgcliente.setEnabled(false);
+        nomecliente.setEnabled(false);
+        numcliente.setEnabled(false);
+        bairrocliente.setEnabled(false);
+    }
+
+    public void campos_liberados() {
+        celcliente.setEnabled(true);
+        cidadecliente.setEnabled(true);
+        comercialcliente.setEnabled(true);
+        compcliente.setEnabled(true);
+        cpfcliente.setEnabled(true);
+        datacliente.setEnabled(true);
+        emailcliente.setEnabled(true);
+        endcliente.setEnabled(true);
+        estadocliente.setEnabled(true);
+        fixocliente.setEnabled(true);
+        rgcliente.setEnabled(true);
+        nomecliente.setEnabled(true);
+        numcliente.setEnabled(true);
+        bairrocliente.setEnabled(true);
+    }
+
+    public void excluir() {
+        btn_excluircliente.setEnabled(false);
+        btn_alterarcliente.setEnabled(false);
+    }
+
+    public void preparaSalvareCancelar() {
+        btn_novocliente.setEnabled(true);
+        btn_salvarcliente.setEnabled(false);
+        btn_cancelarcliente.setEnabled(false);
+        tbl_cliente.setEnabled(true);
+    }
+
+    public void Alterar() {
+        btn_novocliente.setEnabled(false);
+        btn_excluircliente.setEnabled(false);
+        btn_alterarcliente.setEnabled(false);
+        btn_salvarcliente.setEnabled(true);
+        btn_cancelarcliente.setEnabled(true);
+        tbl_cliente.setEnabled(false);
+        tbl_cliente.clearSelection();
+    }
+
+    public void Preparaselecaotabela() {
+        btn_novocliente.setEnabled(true);
+        btn_excluircliente.setEnabled(true);
+        btn_alterarcliente.setEnabled(true);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField bairrocliente;
@@ -711,6 +804,7 @@ public void Preparaselecaotabela(){
     private javax.swing.JLabel imgcancelar;
     private javax.swing.JLabel imgexcluir;
     private javax.swing.JLabel imgnovo;
+    private javax.swing.JLabel imgrelatorio;
     private javax.swing.JLabel imgsalvar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
