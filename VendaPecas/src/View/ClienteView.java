@@ -89,6 +89,11 @@ public class ClienteView extends javax.swing.JInternalFrame {
         btn_alterarcliente = new javax.swing.JLabel();
         btn_cancelarcliente = new javax.swing.JLabel();
         btn_excluircliente = new javax.swing.JLabel();
+        imgnovo = new javax.swing.JLabel();
+        imgsalvar = new javax.swing.JLabel();
+        imgalterar = new javax.swing.JLabel();
+        imgcancelar = new javax.swing.JLabel();
+        imgexcluir = new javax.swing.JLabel();
         fundo = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(754, 640));
@@ -311,7 +316,7 @@ public class ClienteView extends javax.swing.JInternalFrame {
             }
         });
         pnl_cliente.add(btn_novocliente);
-        btn_novocliente.setBounds(10, 300, 140, 70);
+        btn_novocliente.setBounds(20, 300, 130, 70);
 
         btn_salvarcliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/button_salvar.png"))); // NOI18N
         btn_salvarcliente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -333,7 +338,7 @@ public class ClienteView extends javax.swing.JInternalFrame {
             }
         });
         pnl_cliente.add(btn_alterarcliente);
-        btn_alterarcliente.setBounds(310, 310, 140, 50);
+        btn_alterarcliente.setBounds(300, 310, 140, 50);
 
         btn_cancelarcliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/button_cancelar.png"))); // NOI18N
         btn_cancelarcliente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -344,7 +349,7 @@ public class ClienteView extends javax.swing.JInternalFrame {
             }
         });
         pnl_cliente.add(btn_cancelarcliente);
-        btn_cancelarcliente.setBounds(460, 310, 140, 50);
+        btn_cancelarcliente.setBounds(440, 310, 140, 50);
 
         btn_excluircliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/button_excluir.png"))); // NOI18N
         btn_excluircliente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -355,7 +360,27 @@ public class ClienteView extends javax.swing.JInternalFrame {
             }
         });
         pnl_cliente.add(btn_excluircliente);
-        btn_excluircliente.setBounds(610, 310, 140, 50);
+        btn_excluircliente.setBounds(580, 310, 140, 50);
+
+        imgnovo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/novo.png"))); // NOI18N
+        pnl_cliente.add(imgnovo);
+        imgnovo.setBounds(70, 290, 30, 30);
+
+        imgsalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/salvar.png"))); // NOI18N
+        pnl_cliente.add(imgsalvar);
+        imgsalvar.setBounds(220, 290, 30, 30);
+
+        imgalterar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/alterar.png"))); // NOI18N
+        pnl_cliente.add(imgalterar);
+        imgalterar.setBounds(350, 290, 30, 30);
+
+        imgcancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/cancelar.png"))); // NOI18N
+        pnl_cliente.add(imgcancelar);
+        imgcancelar.setBounds(490, 290, 30, 30);
+
+        imgexcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/excluir.png"))); // NOI18N
+        pnl_cliente.add(imgexcluir);
+        imgexcluir.setBounds(630, 290, 30, 30);
 
         fundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/back.jpg"))); // NOI18N
         fundo.setPreferredSize(new java.awt.Dimension(754, 640));
@@ -682,6 +707,11 @@ public void Preparaselecaotabela(){
     private javax.swing.JFormattedTextField fixocliente;
     private javax.swing.JLabel fundo;
     private javax.swing.JTextField idcliente;
+    private javax.swing.JLabel imgalterar;
+    private javax.swing.JLabel imgcancelar;
+    private javax.swing.JLabel imgexcluir;
+    private javax.swing.JLabel imgnovo;
+    private javax.swing.JLabel imgsalvar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
