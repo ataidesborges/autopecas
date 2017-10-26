@@ -37,6 +37,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
         initComponents();
         this.setVisible(true);
         AtualizartabelaProduto();
+        transparente();
         
     }
 
@@ -80,6 +81,11 @@ public class ProdutoView extends javax.swing.JInternalFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         tblproduto = new javax.swing.JTable();
         dataprod = new javax.swing.JFormattedTextField();
+        imgnovo = new javax.swing.JLabel();
+        imgsalvar = new javax.swing.JLabel();
+        imgalterar = new javax.swing.JLabel();
+        imgcancelar = new javax.swing.JLabel();
+        imgexcluir = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -170,8 +176,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
         btn_salvarprod.setBackground(new java.awt.Color(153, 153, 153));
         btn_salvarprod.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btn_salvarprod.setForeground(new java.awt.Color(255, 255, 255));
-        btn_salvarprod.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/salvar.png"))); // NOI18N
-        btn_salvarprod.setText("Salvar");
+        btn_salvarprod.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/button_salvar.png"))); // NOI18N
         btn_salvarprod.setEnabled(false);
         btn_salvarprod.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -179,13 +184,12 @@ public class ProdutoView extends javax.swing.JInternalFrame {
             }
         });
         pnl_produto.add(btn_salvarprod);
-        btn_salvarprod.setBounds(200, 230, 110, 30);
+        btn_salvarprod.setBounds(160, 260, 140, 30);
 
         btn_alterarprod.setBackground(new java.awt.Color(153, 153, 153));
         btn_alterarprod.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btn_alterarprod.setForeground(new java.awt.Color(255, 255, 255));
-        btn_alterarprod.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/alterar.png"))); // NOI18N
-        btn_alterarprod.setText("Alterar");
+        btn_alterarprod.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/button_alterar.png"))); // NOI18N
         btn_alterarprod.setEnabled(false);
         btn_alterarprod.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -193,13 +197,12 @@ public class ProdutoView extends javax.swing.JInternalFrame {
             }
         });
         pnl_produto.add(btn_alterarprod);
-        btn_alterarprod.setBounds(320, 230, 110, 30);
+        btn_alterarprod.setBounds(300, 260, 140, 30);
 
         btn_excluirprod.setBackground(new java.awt.Color(153, 153, 153));
         btn_excluirprod.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btn_excluirprod.setForeground(new java.awt.Color(255, 255, 255));
-        btn_excluirprod.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/excluir.png"))); // NOI18N
-        btn_excluirprod.setText("Excluir");
+        btn_excluirprod.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/button_excluir.png"))); // NOI18N
         btn_excluirprod.setEnabled(false);
         btn_excluirprod.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -207,20 +210,19 @@ public class ProdutoView extends javax.swing.JInternalFrame {
             }
         });
         pnl_produto.add(btn_excluirprod);
-        btn_excluirprod.setBounds(560, 230, 110, 30);
+        btn_excluirprod.setBounds(580, 260, 140, 30);
 
         btn_novoprod.setBackground(new java.awt.Color(153, 153, 153));
         btn_novoprod.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btn_novoprod.setForeground(new java.awt.Color(255, 255, 255));
-        btn_novoprod.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/novo.png"))); // NOI18N
-        btn_novoprod.setText("Novo");
+        btn_novoprod.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/button_novo.png"))); // NOI18N
         btn_novoprod.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_novoprodActionPerformed(evt);
             }
         });
         pnl_produto.add(btn_novoprod);
-        btn_novoprod.setBounds(80, 230, 110, 30);
+        btn_novoprod.setBounds(20, 260, 140, 30);
 
         jLabel10.setText("Fornecedor");
         pnl_produto.add(jLabel10);
@@ -241,8 +243,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
         btn_cancelarprod.setBackground(new java.awt.Color(153, 153, 153));
         btn_cancelarprod.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btn_cancelarprod.setForeground(new java.awt.Color(255, 255, 255));
-        btn_cancelarprod.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/cancelar.png"))); // NOI18N
-        btn_cancelarprod.setText("Cancelar");
+        btn_cancelarprod.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/button_cancelar.png"))); // NOI18N
         btn_cancelarprod.setEnabled(false);
         btn_cancelarprod.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -250,7 +251,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
             }
         });
         pnl_produto.add(btn_cancelarprod);
-        btn_cancelarprod.setBounds(440, 230, 110, 30);
+        btn_cancelarprod.setBounds(440, 260, 140, 30);
 
         tblproduto.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -271,7 +272,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
         jScrollPane2.setViewportView(tblproduto);
 
         pnl_produto.add(jScrollPane2);
-        jScrollPane2.setBounds(20, 340, 680, 180);
+        jScrollPane2.setBounds(20, 350, 680, 230);
 
         try {
 
@@ -286,6 +287,26 @@ public class ProdutoView extends javax.swing.JInternalFrame {
         dataprod.setEnabled(false);
         pnl_produto.add(dataprod);
         dataprod.setBounds(430, 70, 80, 20);
+
+        imgnovo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/novo.png"))); // NOI18N
+        pnl_produto.add(imgnovo);
+        imgnovo.setBounds(80, 230, 30, 30);
+
+        imgsalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/salvar.png"))); // NOI18N
+        pnl_produto.add(imgsalvar);
+        imgsalvar.setBounds(220, 230, 30, 30);
+
+        imgalterar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/alterar.png"))); // NOI18N
+        pnl_produto.add(imgalterar);
+        imgalterar.setBounds(360, 230, 30, 30);
+
+        imgcancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/cancelar.png"))); // NOI18N
+        pnl_produto.add(imgcancelar);
+        imgcancelar.setBounds(500, 230, 30, 30);
+
+        imgexcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/excluir.png"))); // NOI18N
+        pnl_produto.add(imgexcluir);
+        imgexcluir.setBounds(640, 230, 30, 30);
 
         jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/back.jpg"))); // NOI18N
         jLabel18.setPreferredSize(new java.awt.Dimension(754, 640));
@@ -413,7 +434,28 @@ public class ProdutoView extends javax.swing.JInternalFrame {
         codprod.setText(tblproduto.getValueAt(tblproduto.getSelectedRow(), 9).toString());*/       
         Preparaselecaotabela();
     }//GEN-LAST:event_tblprodutoMouseClicked
+public void transparente() {
+        btn_novoprod.setOpaque(false);
+        btn_novoprod.setContentAreaFilled(false);
+        btn_novoprod.setBorderPainted(false);
 
+        btn_salvarprod.setOpaque(false);
+        btn_salvarprod.setContentAreaFilled(false);
+        btn_salvarprod.setBorderPainted(false);
+
+        btn_alterarprod.setOpaque(false);
+        btn_alterarprod.setContentAreaFilled(false);
+        btn_alterarprod.setBorderPainted(false);
+
+        btn_cancelarprod.setOpaque(false);
+        btn_cancelarprod.setContentAreaFilled(false);
+        btn_cancelarprod.setBorderPainted(false);
+
+        btn_excluirprod.setOpaque(false);
+        btn_excluirprod.setContentAreaFilled(false);
+        btn_excluirprod.setBorderPainted(false);
+
+    }
 
     public void preparanovo(){
         btn_novoprod.setEnabled(false);
@@ -550,6 +592,11 @@ public void Preparaselecaotabela(){
     private javax.swing.JFormattedTextField dataprod;
     private javax.swing.JTextField forneprod;
     private javax.swing.JTextField idprod;
+    private javax.swing.JLabel imgalterar;
+    private javax.swing.JLabel imgcancelar;
+    private javax.swing.JLabel imgexcluir;
+    private javax.swing.JLabel imgnovo;
+    private javax.swing.JLabel imgsalvar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

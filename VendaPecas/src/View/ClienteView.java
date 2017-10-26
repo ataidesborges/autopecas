@@ -7,6 +7,7 @@ package View;
 
 import DAO.ClienteDAO;
 import Model.Cliente;
+import java.awt.Color;
 import java.io.File;
 import java.io.FileOutputStream;
 import javax.swing.JOptionPane;
@@ -19,6 +20,7 @@ import javafx.scene.text.Font;
 import javax.swing.JInternalFrame;
 import javax.swing.SwingConstants;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
+import javax.swing.plaf.metal.MetalButtonUI;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.text.MaskFormatter;
@@ -42,6 +44,7 @@ public class ClienteView extends javax.swing.JInternalFrame {
         initComponents();
         this.setVisible(true);
         AtualizartabelaCliente();
+        transparente();
     }
 
     /**
@@ -87,17 +90,17 @@ public class ClienteView extends javax.swing.JInternalFrame {
         fixocliente = new javax.swing.JFormattedTextField();
         comercialcliente = new javax.swing.JFormattedTextField();
         celcliente = new javax.swing.JFormattedTextField();
-        btn_novocliente = new javax.swing.JLabel();
-        btn_salvarcliente = new javax.swing.JLabel();
-        btn_alterarcliente = new javax.swing.JLabel();
-        btn_cancelarcliente = new javax.swing.JLabel();
-        btn_excluircliente = new javax.swing.JLabel();
         imgnovo = new javax.swing.JLabel();
         imgsalvar = new javax.swing.JLabel();
         imgalterar = new javax.swing.JLabel();
         imgcancelar = new javax.swing.JLabel();
         imgexcluir = new javax.swing.JLabel();
         imgrelatorio = new javax.swing.JLabel();
+        btn_novocliente = new javax.swing.JButton();
+        btn_salvarcliente = new javax.swing.JButton();
+        btn_alterarcliente = new javax.swing.JButton();
+        btn_cancelarcliente = new javax.swing.JButton();
+        btn_excluircliente = new javax.swing.JButton();
         fundo = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(754, 640));
@@ -312,79 +315,25 @@ public class ClienteView extends javax.swing.JInternalFrame {
         pnl_cliente.add(celcliente);
         celcliente.setBounds(250, 230, 110, 20);
 
-        btn_novocliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/button_novo.png"))); // NOI18N
-        btn_novocliente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btn_novocliente.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btn_novoclienteMouseClicked(evt);
-            }
-        });
-        pnl_cliente.add(btn_novocliente);
-        btn_novocliente.setBounds(20, 300, 130, 70);
-
-        btn_salvarcliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/button_salvar.png"))); // NOI18N
-        btn_salvarcliente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btn_salvarcliente.setEnabled(false);
-        btn_salvarcliente.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btn_salvarclienteMouseClicked(evt);
-            }
-        });
-        pnl_cliente.add(btn_salvarcliente);
-        btn_salvarcliente.setBounds(160, 310, 140, 50);
-
-        btn_alterarcliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/button_alterar.png"))); // NOI18N
-        btn_alterarcliente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btn_alterarcliente.setEnabled(false);
-        btn_alterarcliente.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btn_alterarclienteMouseClicked(evt);
-            }
-        });
-        pnl_cliente.add(btn_alterarcliente);
-        btn_alterarcliente.setBounds(300, 310, 140, 50);
-
-        btn_cancelarcliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/button_cancelar.png"))); // NOI18N
-        btn_cancelarcliente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btn_cancelarcliente.setEnabled(false);
-        btn_cancelarcliente.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btn_cancelarclienteMouseClicked(evt);
-            }
-        });
-        pnl_cliente.add(btn_cancelarcliente);
-        btn_cancelarcliente.setBounds(440, 310, 140, 50);
-
-        btn_excluircliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/button_excluir.png"))); // NOI18N
-        btn_excluircliente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btn_excluircliente.setEnabled(false);
-        btn_excluircliente.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btn_excluirclienteMouseClicked(evt);
-            }
-        });
-        pnl_cliente.add(btn_excluircliente);
-        btn_excluircliente.setBounds(580, 310, 140, 50);
-
         imgnovo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/novo.png"))); // NOI18N
         pnl_cliente.add(imgnovo);
-        imgnovo.setBounds(70, 290, 30, 30);
+        imgnovo.setBounds(80, 300, 30, 30);
 
         imgsalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/salvar.png"))); // NOI18N
         pnl_cliente.add(imgsalvar);
-        imgsalvar.setBounds(220, 290, 30, 30);
+        imgsalvar.setBounds(220, 300, 30, 30);
 
         imgalterar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/alterar.png"))); // NOI18N
         pnl_cliente.add(imgalterar);
-        imgalterar.setBounds(350, 290, 30, 30);
+        imgalterar.setBounds(340, 300, 30, 30);
 
         imgcancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/cancelar.png"))); // NOI18N
         pnl_cliente.add(imgcancelar);
-        imgcancelar.setBounds(490, 290, 30, 30);
+        imgcancelar.setBounds(470, 300, 30, 30);
 
         imgexcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/excluir.png"))); // NOI18N
         pnl_cliente.add(imgexcluir);
-        imgexcluir.setBounds(630, 290, 30, 30);
+        imgexcluir.setBounds(600, 300, 30, 30);
 
         imgrelatorio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/button_relatorio-de-cliente (1).png"))); // NOI18N
         imgrelatorio.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -393,7 +342,56 @@ public class ClienteView extends javax.swing.JInternalFrame {
             }
         });
         pnl_cliente.add(imgrelatorio);
-        imgrelatorio.setBounds(260, 370, 180, 30);
+        imgrelatorio.setBounds(270, 370, 180, 30);
+
+        btn_novocliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/button_novo.png"))); // NOI18N
+        btn_novocliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_novoclienteActionPerformed(evt);
+            }
+        });
+        pnl_cliente.add(btn_novocliente);
+        btn_novocliente.setBounds(30, 320, 130, 40);
+
+        btn_salvarcliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/button_salvar.png"))); // NOI18N
+        btn_salvarcliente.setEnabled(false);
+        btn_salvarcliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_salvarclienteActionPerformed(evt);
+            }
+        });
+        pnl_cliente.add(btn_salvarcliente);
+        btn_salvarcliente.setBounds(160, 320, 130, 40);
+
+        btn_alterarcliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/button_alterar.png"))); // NOI18N
+        btn_alterarcliente.setEnabled(false);
+        btn_alterarcliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_alterarclienteActionPerformed(evt);
+            }
+        });
+        pnl_cliente.add(btn_alterarcliente);
+        btn_alterarcliente.setBounds(290, 320, 130, 40);
+
+        btn_cancelarcliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/button_cancelar.png"))); // NOI18N
+        btn_cancelarcliente.setEnabled(false);
+        btn_cancelarcliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_cancelarclienteActionPerformed(evt);
+            }
+        });
+        pnl_cliente.add(btn_cancelarcliente);
+        btn_cancelarcliente.setBounds(420, 320, 130, 40);
+
+        btn_excluircliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/button_excluir.png"))); // NOI18N
+        btn_excluircliente.setEnabled(false);
+        btn_excluircliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_excluirclienteActionPerformed(evt);
+            }
+        });
+        pnl_cliente.add(btn_excluircliente);
+        btn_excluircliente.setBounds(550, 320, 130, 40);
 
         fundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/back.jpg"))); // NOI18N
         fundo.setPreferredSize(new java.awt.Dimension(754, 640));
@@ -446,13 +444,18 @@ public class ClienteView extends javax.swing.JInternalFrame {
         Preparaselecaotabela();
     }//GEN-LAST:event_tbl_clienteMouseClicked
 
-    private void btn_novoclienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_novoclienteMouseClicked
+    private void imgrelatorioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imgrelatorioMouseClicked
+
+    }//GEN-LAST:event_imgrelatorioMouseClicked
+
+    private void btn_novoclienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_novoclienteActionPerformed
         limpar();
         preparanovo();
         campos_liberados();
-    }//GEN-LAST:event_btn_novoclienteMouseClicked
 
-    private void btn_salvarclienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_salvarclienteMouseClicked
+    }//GEN-LAST:event_btn_novoclienteActionPerformed
+
+    private void btn_salvarclienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salvarclienteActionPerformed
 
         cliente = new Cliente();
 
@@ -513,20 +516,21 @@ public class ClienteView extends javax.swing.JInternalFrame {
             AtualizartabelaCliente();
             preparaSalvareCancelar();
             campos_bloqueados();        // TODO add your handling code here:
-    }//GEN-LAST:event_btn_salvarclienteMouseClicked
-    }
-    private void btn_alterarclienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_alterarclienteMouseClicked
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_salvarclienteActionPerformed
+
+    private void btn_alterarclienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_alterarclienteActionPerformed
         Alterar();
         campos_liberados();   // TODO add your handling code here:
-    }//GEN-LAST:event_btn_alterarclienteMouseClicked
+    }//GEN-LAST:event_btn_alterarclienteActionPerformed
 
-    private void btn_cancelarclienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_cancelarclienteMouseClicked
+    private void btn_cancelarclienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelarclienteActionPerformed
         limpar();
         preparaSalvareCancelar();
-        campos_bloqueados(); // TODO add your handling code here:
-    }//GEN-LAST:event_btn_cancelarclienteMouseClicked
+        campos_bloqueados();  // TODO add your handling code here:
+    }//GEN-LAST:event_btn_cancelarclienteActionPerformed
 
-    private void btn_excluirclienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_excluirclienteMouseClicked
+    private void btn_excluirclienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_excluirclienteActionPerformed
         if (idcliente.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Selecione um cliente!");
         } else {
@@ -544,91 +548,28 @@ public class ClienteView extends javax.swing.JInternalFrame {
                 AtualizartabelaCliente();
             }
         }        // TODO add your handling code here:
-    }//GEN-LAST:event_btn_excluirclienteMouseClicked
+    }//GEN-LAST:event_btn_excluirclienteActionPerformed
+    public void transparente() {
+        btn_novocliente.setOpaque(false);
+        btn_novocliente.setContentAreaFilled(false);
+        btn_novocliente.setBorderPainted(false);
 
-    private void imgrelatorioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imgrelatorioMouseClicked
-        /*String nomediretorio = null;
-        String nomepasta = "SRS"; // Informe o nome da pasta que armazenará o relatório       
-        String separador = java.io.File.separator;
-        try {
-            nomediretorio = "C:" + separador + nomepasta;
-            if (!new File(nomediretorio).exists()) {
-                (new File(nomediretorio)).mkdir();
-            }
-            gerarDocumento();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        // TODO add your handling code here:
-    }//GEN-LAST:event_imgrelatorioMouseClicked
-    public void gerarDocumento() {
-        try {
-            List<Cliente> lista = new ArrayList<>();
-            lista = clienteDAO.ListaCliente();
-            doc = new Document(PageSize.A4, 41.5f, 41.5f, 55.2f, 55.2f);
-            PdfWriter.getInstance(doc, new FileOutputStream("C:/SRS/RelatorioCliente" + ".pdf"));
-            doc.open();
+        btn_salvarcliente.setOpaque(false);
+        btn_salvarcliente.setContentAreaFilled(false);
+        btn_salvarcliente.setBorderPainted(false);
 
-            Font f1 = new Font(Font.HELVETICA, 14, Font.BOLD);
-            Font f2 = new Font(Font.HELVETICA, 12, Font.BOLD);
-            Font f3 = new Font(Font.HELVETICA, 12, Font.NORMAL);
-            Font f4 = new Font(Font.HELVETICA, 10, Font.BOLD);
-            Font f5 = new Font(Font.HELVETICA, 10, Font.NORMAL);
+        btn_alterarcliente.setOpaque(false);
+        btn_alterarcliente.setContentAreaFilled(false);
+        btn_alterarcliente.setBorderPainted(false);
 
-            Paragraph titulo1 = new Paragraph("Universidade do Estado de Minas Gerais", f2);
-            titulo1.setAlignment(Element.ALIGN_CENTER);
-            titulo1.setSpacingAfter(10);
+        btn_cancelarcliente.setOpaque(false);
+        btn_cancelarcliente.setContentAreaFilled(false);
+        btn_cancelarcliente.setBorderPainted(false);
 
-            Paragraph titulo2 = new Paragraph("Relatório de Clientes", f1);
-            titulo2.setAlignment(Element.ALIGN_CENTER);
-            titulo2.setSpacingAfter(0);
+        btn_excluircliente.setOpaque(false);
+        btn_excluircliente.setContentAreaFilled(false);
+        btn_excluircliente.setBorderPainted(false);
 
-            PdfPTable tabela = new PdfPTable(new float[]{0.40f, 0.60f});
-            tabela.setHorizontalAlignment(Element.ALIGN_CENTER);
-            tabela.setWidthPercentage(100f);
-
-            PdfPCell cabecalho1 = new PdfPCell(new Paragraph("Nome", f3));
-            //cabecalho1.setBackgroundColor(new Color(0xc0, 0xc0, 0xc0));
-            cabecalho1.setHorizontalAlignment(Element.ALIGN_JUSTIFIED);
-            cabecalho1.setBorder(0);
-
-            PdfPCell cabecalho2 = new PdfPCell(new Paragraph("Endereço", f3));
-            //cabecalho2.setBackgroundColor(new Color(0xc0, 0xc0, 0xc0));
-            cabecalho2.setHorizontalAlignment(Element.ALIGN_JUSTIFIED);
-            cabecalho2.setBorder(0);
-
-            tabela.addCell(cabecalho1);
-            tabela.addCell(cabecalho2);
-            for (Cliente cliente : lista) {
-                Paragraph p1 = new Paragraph(cliente.getNomeCliente(), f5);
-                p1.setAlignment(Element.ALIGN_JUSTIFIED);
-                PdfPCell col1 = new PdfPCell(p1);
-                col1.setBorder(0);
-
-                Paragraph p2 = new Paragraph(cliente.getEnderecoCliente(), f5);
-                p2.setAlignment(Element.ALIGN_JUSTIFIED);
-                PdfPCell col2 = new PdfPCell(p2);
-                col2.setBorder(0);
-                tabela.addCell(col1);
-                tabela.addCell(col2);
-            }
-
-            doc.add(titulo2);
-            doc.add(titulo1);
-            doc.add(tabela);
-            doc.close();
-
-            JOptionPane.showMessageDialog(null, "Relatório salvo com sucesso");
-            String caminho = "C:/SRS/RelatorioCliente.pdf";
-            Desktop.getDesktop().open(new File(caminho));
-        } catch (DocumentException e) {
-            e.printStackTrace();
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        } catch (IOException exx) {
-            exx.printStackTrace();
-            JOptionPane.showMessageDialog(null, "Documento de Requisitos aberto. Feche para gerar um novo.");
-        }*/
     }
 
     public void AtualizartabelaCliente() {
@@ -694,8 +635,9 @@ public class ClienteView extends javax.swing.JInternalFrame {
     public void preparanovo() {
         btn_novocliente.setEnabled(false);
         btn_salvarcliente.setEnabled(true);
-        btn_alterarcliente.setEnabled(false);
-        btn_excluircliente.setEnabled(false);
+        btn_salvarcliente.setEnabled(false);
+        btn_salvarcliente.setEnabled(false);
+        btn_salvarcliente.setEnabled(true);
         btn_cancelarcliente.setEnabled(true);
         tbl_cliente.setEnabled(false);
         tbl_cliente.clearSelection();
@@ -783,11 +725,11 @@ public class ClienteView extends javax.swing.JInternalFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField bairrocliente;
-    private javax.swing.JLabel btn_alterarcliente;
-    private javax.swing.JLabel btn_cancelarcliente;
-    private javax.swing.JLabel btn_excluircliente;
-    private javax.swing.JLabel btn_novocliente;
-    private javax.swing.JLabel btn_salvarcliente;
+    private javax.swing.JButton btn_alterarcliente;
+    private javax.swing.JButton btn_cancelarcliente;
+    private javax.swing.JButton btn_excluircliente;
+    private javax.swing.JButton btn_novocliente;
+    private javax.swing.JButton btn_salvarcliente;
     private javax.swing.JFormattedTextField celcliente;
     private javax.swing.JTextField cidadecliente;
     private javax.swing.JFormattedTextField comercialcliente;
